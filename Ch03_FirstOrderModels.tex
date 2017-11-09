@@ -1,0 +1,1338 @@
+\chapter{First Order Models}
+
+\section{Birth, Death, and Immigration Exploration}
+\subsection*{Supplies}
+1 partner, 1 cup, 1 handfull or bag of M\&M's, and 1 computer with access to Moodle and
+Excel.
+\subsection*{Scenarios}
+The M\&M's in this activity represent a very fragile species with a high death rate.  To
+determine which M\&M's survive and which die in a given year we will shake the M\&M's and
+pour them on the table.  The M\&M's that land with the M up unfortunately die.  The
+remaining M\&M's survive for another year.
+\begin{description}
+    \item[Scenario \#1 (Deaths)] Count the number of M\&M's in your cup and track the
+        number of M\&M's remaining  until the species goes extinct.  Add your data to the
+        Google Sheet linked from Moodle.
+    \item[Scenario \#2 (Deaths and Immigration):] In this scenario, every M\&M that lands
+        M-up will die, but at the end of the year there are 5 new M\&M's added to the
+        population due to immigration. Track the number of M\&M's remaining until you
+        believe that the population has reached a steady state.  Add your data to the
+        second tab of the Google Sheet linked from Moodle.
+    \item[Scenario \#3 (Births, Deaths, and Immigration):] In this final scenario, every
+        M\&M that lands M-up will die, and at the end of the year there are 5 new M\&M's
+        added to the population due to immigration.  After the immigration occurs, 10\% of
+        the remaining M\&M's give birth to new M\&M's.  Add these births to the
+        population.  Track the number of M\&M's (after the death, immigration, and the
+        births) until you think the population has reached a steady state.  input your
+        data into the Google Sheet, and move to the next year.  
+\end{description}
+
+\subsection*{Mathematical Modeling}
+Our goal is to find a function that models each scenario. Copy your data sets from the
+Google Sheet to your own machines and try to determine the type of function that best
+models this scenario.  When you write your functions, use the variable $n$ for the time.  
+
+Remember, we are trying to find a mathematical function that best models the scenario.
+That does not necessarily mean that you should be doing any data fitting!  
+Instead, you should try two methods:
+\begin{enumerate}
+    \item Can you find an algebraic function that appears to fit your data?
+        \[ M(n) = \underline{\hspace{2in}} \]
+    \item Or, can you write an expression for
+        how the population changes? In other words,
+        \[ \text{number of \underline{new} M\&M's at year $n$} = \underline{\hspace{2in}} \]
+\end{enumerate}
+
+
+\section{Models for Birth, Death, and Immigration}
+\begin{problem}
+    In the birth, death, and immigration exploration you should have generated data with your
+    class for the three scenarios. Go back to the Google Sheet with all of the data, copy
+    your group's data to Excel and make the following plots:
+    \begin{itemize}
+        \item A plot with population on the horizontal axis and average rate of change of the
+            population for the birth model on the vertical axis.  You will need to
+            calculate the average rate of change in Excel first.
+        \item A plot with population on the horizontal axis and average rate of change of the
+            population for the birth \& death model on the vertical axis.  You will need
+            to calculate the average rate of change in Excel first.
+        \item A plot with population on the horizontal axis and average rate of change of the
+            population for the birth, death, \& death model on the vertical axis.  You
+            will need to calculate the average rate of change in Excel first.
+    \end{itemize}
+\end{problem}
+
+\begin{problem}\label{prob:bdi_models}
+    All of the plots that you made in the previous problem {\it should} appear to follow a linear trend.  Use
+    Excel to fit a line to each of these plots.  
+    Use your results from Excel to fill in the following blanks.
+    \begin{flalign*}
+        \text{Birth Model: } \quad \frac{\Delta P}{\Delta t} &= \underline{\hspace{2in}} \\
+        \text{Birth \& Death Model: } \quad \frac{\Delta P}{\Delta t} &= \underline{\hspace{2in}} \\
+        \text{Birth, Death, \& Immigration Model: } \quad \frac{\Delta P}{\Delta t} &= \underline{\hspace{2in}}
+    \end{flalign*}
+    \begin{enumerate}
+        \item[(a)] Explain why the slope of each of these linear functions is negative.
+        \item[(b)] Explain what the ``$y$-intercept'' means in the context of each model.
+    \end{enumerate}
+\end{problem}
+
+In the birth model you should have found a model similar to 
+\[ \frac{\Delta P}{\Delta t} = -0.5 P, \]
+but notice that in our exploration of the problem with the M\&M's we were taking $\Delta
+t$ to be 1.  Hence we can rewrite our model more simply as
+\[ \Delta P = -0.5 P. \]
+When we're dealing with discrete time steps as in this problem we often use the notation
+$P_n$ to talk about the population at time $t=n$ and $P_{n+1}$ to talk about the
+population at time $t=n+1$.  With this new notation the model becomes
+\[ P_{n+1} - P_n = -0.5 P_n, \]
+and this is known as a {\bf difference equation} since the left-hand side of the equation
+gives the difference between two time steps.  
+\begin{problem}
+    Write a difference equation model for the Birth \& Death model and for the Birth,
+    Death, \& Immigration model.
+    \begin{flalign*}
+        \text{Birth Model: } \quad P_{n+1} - P_n &= -0.5 P_n \\
+        \text{Birth \& Death Model: } \quad P_{n+1} - P_n &= \underline{\hspace{2in}} \\
+        \text{Birth, Death, \& Immigration Model: } \quad P_{n+1} - P_n &= \underline{\hspace{2in}}
+    \end{flalign*}
+\end{problem}
+
+In a difference equation model it is often convenient to solve for $P_{n+1}$ and rewrite
+as $P_{n+1} = P_n - 0.5 P_n$ (in the birth model).  This clearly simplifies to $P_{n+1} =
+0.5 P_n$, and furthermore this allows for an easy implementation into a spreadsheet
+program.
+\begin{problem}\label{prob:bdi_difference_Excel}
+    Using a spreadsheet program like Excel, implement the difference equation models to
+    built a table and graph that predicts the population at any discrete time.  
+\end{problem}
+
+\begin{problem}
+    In the M\&M exploration we were treating time as if it occurred only in discrete
+    steps.  What is wrong with this assumption?  Specifically, if the M\&M's are supposed
+    to represent a population then what is wrong with using discrete time in our model?
+\end{problem}
+
+Let's return to the models in Problem \ref{prob:bdi_models} and now consider that time
+really shouldn't be taken in discrete steps.  Instead, time really happens on a continuous
+scale and, as such, taking $\Delta t =1$ doesn't really make sense.  If we take $\Delta t
+\to 0$ the average rate of change $\Delta P / \Delta t$ becomes the derivative
+$\frac{dP}{dt}$.  For example, in the birth model $\frac{\Delta P}{\Delta t} = -0.5 P$
+becomes $\frac{dP}{dt} = -0.5P$ as $\Delta t \to 0$. This new model is called a {\bf
+differential equation}.  
+\begin{problem}\label{prob:bdi_differential_eqns}
+    Write a differential equation modeling the Birth \& Death and the Birth, Death, \&
+    Immigration scenarios.
+    \begin{flalign*}
+        \text{Birth Model: } \quad \frac{d P}{d t} &= -0.5 P \\
+        \text{Birth \& Death Model: } \quad \frac{dP}{d t} &= \underline{\hspace{2in}} \\
+        \text{Birth, Death, \& Immigration Model: } \quad \frac{d P}{d t} &= \underline{\hspace{2in}}
+    \end{flalign*}
+\end{problem}
+The differential equation models are most likely more realistic if we thinking of the M\&M
+exploration as modeling population.  Populations just simply don't change all at once;
+they change continuously in time.  
+
+For the birth model
+\[ \frac{dP}{dt} = -0.5P \]
+we can still use Excel to create a visual model of the solution to the differential
+equation.  Recall that 
+\[ \frac{dP}{dt} \approx \frac{\Delta P}{\Delta t} \]
+and if we take $\Delta t$ to be {\it really small} then the approximation isn't {\it too
+bad.}  Hence, the differential equation $\frac{dP}{dt} = -0.5 P$ can be approximated by
+\[ \frac{\Delta P}{\Delta t} \approx -0.5 P, \]
+and using the notation of difference equations we can rewrite as
+\[ \frac{P_{n+1} - P_n}{\Delta t} \approx -0.5 P_n. \]
+Now if we solve for $P_{n+1}$ we can get an equation that can be implemented in a
+spreadsheet program:
+\[ P_{n+1} \approx P_n - 0.5 \Delta t P_n. \]
+
+\begin{problem}
+    Use a spreadsheet program to get a graphical approximation to the Birth model
+    \[ \frac{dP}{dt} = -0.5P. \]
+    Compare your results to the data and to the solution to the difference equation that
+    you built in Problem \ref{prob:bdi_difference_Excel}.
+\end{problem}
+
+\begin{problem}
+    Now use a spreadsheet program to build approximations to the differential equations
+    for the Birth \& Death and Birth, Death, \& Immigration models that you built in
+    Problem \ref{prob:bdi_differential_eqns}.  Compare your graphical solutions to the
+    graphical solutions of the discrete time models and to the data.
+\end{problem}
+
+\section{Difference Equations and Differential Equations}
+In Calculus, change is measured over infinitesimally small increments.  Unfortunately, this
+is not always appropriate.  For example, if a bank compounds the interest on a savings
+account every month then it may not make sense to examine the value of the account during
+the middle of the month; it will be the same as after the interest was last computed.  On
+the other hand, if the temperature of a cup of coffee is being modeled over time then it
+makes sense to talk about the temperature at any given instant in time.  Time in the bank account
+example is taken in discrete steps (one per month), while time in the coffee example is
+continuous.
+
+\begin{definition}
+    A {\bf discrete time model} is a mathematical model where time is measured in
+    individual steps that can be enumerated.  The model either does not make sense at
+    intermediate steps or is considered constant.
+\end{definition}
+\begin{definition}
+    A {\bf continuous time model} is a mathematical model where time can take any
+    non-negative real number quantity.  In continuous time models it makes sense to
+    discuss the meaning of the model at any non-negative value of time.
+\end{definition}
+
+\begin{problem}
+    In the following scenarios decide whether you should use a discrete time model or a
+    continuous time model. 
+    \begin{enumerate}
+        \item[(a)] Water draining from a tank drains at a rate proportional to the square
+            root of the height of the water.
+        \item[(b)] The rate of change of the money in an interest-bearing savings account is proportional to
+            the amount of money that is in the account.
+        \item[(c)] The Department of Fish, Wildlife, and Parks proposes a restocking plan
+            where they restock the mountain lakes in Montana once per year.
+        \item[(d)] The displacement of a spring-mass oscillator is proportional to the
+            acceleration of the mass.
+    \end{enumerate}
+\end{problem}
+
+
+As we've already seen in the M\&M exploration, it was easier to model the change in
+the population that it was to {\it guess} the algebraic function that modeled the
+populations.  The two primary types of mathematical models that model {\it change} are
+{\bf difference equations} and {\bf differential equations.}
+\begin{definition}
+    A {\bf difference equation} is a discrete-time model that relates discrete rates of
+    change. 
+    \begin{flalign}
+        \left( \text{new value} \right) - \left( \text{old value} \right) = \left(
+        \text{change in value}
+        \right).
+    \end{flalign}
+\end{definition}
+\begin{definition}
+    A {\bf differential equation} is a continuous-time model that relates instantaneous
+    rates of change.
+\end{definition}
+
+
+\begin{problem}\label{prob:bank_difference_eqn}
+When money is placed into a bank savings account, the bank pays interest into the account
+once a month, thereby increasing the value of the account, provided no money is withdrawn!
+
+Consider a bank account that has been opened with an initial deposit of $\$4,500$
+and which receives monthly interest equal to $1.1\%$ of the account value.
+The account is to be held for two years before any withdrawals are made.
+\ba
+\item should we be modeling this situation with discrete time or continuous time?
+\item For the given initial deposit and interest rate, how much money would the bank add
+    to the savings account after one month?
+\item How much money would the savings account be worth after 1 month?
+\item What is the value of the savings account after one and a half months?
+\item How much money would there be in the savings account at the beginning of the second
+    month?
+\item How much interest does the bank add to the account at the end of the second month?
+\item How much money is in the savings account after two months?
+\item In words, describe how the money in your savings account changes from one month to
+    the next.
+\item Use everything that you just did to write a difference equation modeling the amount
+    of money in the bank account.
+    \[ A_{n+1} - A_n = \underline{\hspace{2in}} \]
+\item Use a spreadsheet program to build a numerical and graphical solution to the
+    difference equation.
+\ea
+\end{problem}
+
+\begin{example}
+    Consider the savings account situation from Problem \ref{prob:bank_difference_eqn} but
+    include a deduction of \$100 per month.  Find a difference equation and find a
+    numerical solution to model this situation over a two-year horizon.
+
+    The difference equation is
+\[ \underbrace{\text{new amount in account}}_{a_{n+1}} - \underbrace{\text{old amount in
+account}}_{a_n} = \underbrace{\text{interest}}_{0.011a_n} -
+\underbrace{\text{withdrawal}}_{100} \]
+More simply: $a_{n+1} = a_n + 0.011a_n - 100$.  Or, after some algebra, $a_{n+1} = 1.011a_n
+- 100$.  A numerical solution is simply a table of values (see
+\href{https://www.youtube.com/watch?v=kVx7bZTP9L4}{this video}) but is much simpler to
+visualize as a plot (see 
+\href{https://www.youtube.com/watch?v=k3bwXAeQsKo}{this video} and
+\href{https://www.youtube.com/watch?v=g6OGCmvxCHQ}{this video}).
+
+\end{example}
+\begin{minipage}{0.45\columnwidth}
+    \begin{center}
+        \begin{tabular}{|c|c|}
+            \hline
+            Month & Amount \\ \hline \hline
+            0  &\$4500.00\\
+            1  &\$4449.50\\
+            2  &\$4398.44\\
+            3  &\$4346.83\\
+            4  &\$4294.64\\
+            5  &\$4241.88\\
+            6  &\$4188.54\\
+            7  &\$4134.62\\
+            8  &\$4080.10\\
+            9  &\$4024.98\\
+            10 &\$3969.25\\
+            11 &\$3912.92\\
+            12 &\$3855.96\\
+            13 &\$3798.37\\
+            14 &\$3740.16\\
+            15 &\$3681.30\\
+            16 &\$3621.79\\
+            17 &\$3561.63\\
+            18 &\$3500.81\\
+            19 &\$3439.32\\
+            20 &\$3377.15\\
+            21 &\$3314.30\\
+            22 &\$3250.76\\
+            23 &\$3186.52\\
+            24 &\$3121.57\\\hline
+        \end{tabular}
+    \end{center}
+\end{minipage}
+\begin{minipage}{0.45\columnwidth}
+    \begin{center}
+        \begin{tikzpicture}
+            \begin{axis}[axis lines=center, xmin=0, xlabel={Months}, ymin=2500, ymax=5000,
+                ylabel={$\$$}]
+                \addplot[mark=*, only marks, blue] coordinates{
+                   (0  ,4500.00)
+                   (1  ,4449.50)
+                   (2  ,4398.44)
+                   (3  ,4346.83)
+                   (4  ,4294.64)
+                   (5  ,4241.88)
+                   (6  ,4188.54)
+                   (7  ,4134.62)
+                   (8  ,4080.10)
+                   (9  ,4024.98)
+                   (10 ,3969.25)
+                   (11 ,3912.92)
+                   (12 ,3855.96)
+                   (13 ,3798.37)
+                   (14 ,3740.16)
+                   (15 ,3681.30)
+                   (16 ,3621.79)
+                   (17 ,3561.63)
+                   (18 ,3500.81)
+                   (19 ,3439.32)
+                   (20 ,3377.15)
+                   (21 ,3314.30)
+                   (22 ,3250.76)
+                   (23 ,3186.52)
+                   (24 ,3121.57)};
+            \end{axis}
+        \end{tikzpicture}
+    \end{center}
+\end{minipage}
+
+\begin{example}
+A student has a college loan of \$$A$ with an interest rate of $r$\% APR compounded monthly.  She pays
+$\$p$ per month.  Model the amount that the student owes on the loan with a discrete
+dynamical system, examine the behavior of the system based on different values of the
+parameter, and give a graph of several numerical solutions.
+
+This situation calls for a discrete dynamical system because the interest and payments are
+made in discrete time steps.  Let $a_n$ be a sequence that represents the amount owed on
+the loan after $n$ months.  The initial loan amount, \$$A$, is the initial condition, so
+\[ a_0 = A. \]
+The interest is compounded monthly, so each month the new interest is $r/12\%$ of the
+amount owed in the previous month.
+\[ \text{new interest} = \frac{r}{12} a_n. \]
+The payments are subtracted from the amount owed.  Hence, the mathematical model for the
+amount owed on the loan is
+\[ \underbrace{a_{n+1}-a_n}_{\text{change in monthly balance}}  = \underbrace{\frac{r}{12}
+a_n}_{\text{amount accumulated from interest }} \underbrace{- p}_{\text{payment}}, \quad
+\text{where} \quad \underbrace{a_0 = A}_{\text{initial condition}} \]
+More simply,
+\[ a_{n+1} = a_n + \frac{r}{12} a_n - p \quad \text{where} \quad a_0 = A. \]
+Even simpler yet (after a little algebra)
+\[ a_{n+1} = \left( 1 + \frac{r}{12} \right) a_n - p. \]
+This is a mathematical model for any such situation, and there are many unknown
+parameters.  The fact that you don't know the parameters is what makes the problem
+interesting!
+
+To discuss the parameters one must think like a scientist; vary one parameter at a time
+and try to cover all of the possible bases.  Let us first consider a loan of $A=\$5000$ at
+$15\%$ APR.  Figure \ref{fig:9.3.ex1p} shows numerical solutions for several different
+payments. Clearly if the payment is larger then the amount of time to pay off the loan
+decreases.  
+Next let us discuss a different situation.  Assume that the initial loan is still $\$5000$
+but now assume that the payments are fixed at $\$200$ and we don't know the rate.  Figure
+\ref{fig:9.3.ex1r} shows several numerical solutions to the discrete dynamical system at various rates.
+
+Again, there aren't any real surprises here; as the rate goes down the time to pay off the
+loan goes down.  In order to fully explore the parameter space of a DDS it is easy to
+implement the model in Excel and to use absolute cell references for the parameters.  
+\end{example}
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[axis lines=center, grid, xlabel={months}, ylabel={dollars}]
+            \addplot[blue, mark=*, only marks] coordinates{
+(0 , 5000.0)
+(1 , 4912.5)
+(2 , 4823.9)
+(3 , 4734.2)
+(4 , 4643.3)
+(5 , 4551.4)
+(6 , 4458.3)
+(7 , 4364.0)
+(8 , 4268.5)
+(9 , 4171.9)
+(10, 4074.1)
+(11, 3975.0)
+(12, 3874.7)
+(13, 3773.1)
+(14, 3670.3)
+(15, 3566.1)
+(16, 3460.7)
+(17, 3354.0)
+(18, 3245.9)
+(19, 3136.5)
+(20, 3025.7)
+(21, 2913.5)
+(22, 2799.9)
+(23, 2684.9)
+(24, 2568.5)
+(25, 2450.6)
+(26, 2331.2)
+(27, 2210.4)
+(28, 2088.0)
+(29, 1964.1)
+(30, 1838.7)
+(31, 1711.6)
+(32, 1583.0)
+(33, 1452.8)
+(34, 1321.0)
+(35, 1187.5)
+(36, 1052.3)
+(37, 915.54)
+(38, 776.99)
+(39, 636.70)
+(40, 494.66)
+(41, 350.84)
+(42, 205.23)
+(43, 57.798)
+(44, -91.47)};
+\addlegendentry{$p=\$150$};
+%
+\addplot[red, mark=+, only marks] coordinates{
+(0 , 5000.0 )
+(1 , 4862.5 )
+(2 , 4723.2 )
+(3 , 4582.3 )
+(4 , 4439.6 )
+(5 , 4295.0 )
+(6 , 4148.7 )
+(7 , 4000.6 )
+(8 , 3850.6 )
+(9 , 3698.7 )
+(10, 3545.0 )
+(11, 3389.3 )
+(12, 3231.7 )
+(13, 3072.0 )
+(14, 2910.4 )
+(15, 2746.8 )
+(16, 2581.2 )
+(17, 2413.4 )
+(18, 2243.6 )
+(19, 2071.6 )
+(20, 1897.5 )
+(21, 1721.3 )
+(22, 1542.8 )
+(23, 1362.1 )
+(24, 1179.1 )
+(25, 993.87 )
+(26, 806.30 )
+(27, 616.37 )
+(28, 424.08 )
+(29, 229.38 )
+(30, 32.253 )
+(31, -167.3 )};
+\addlegendentry{$p=\$200$};
+%
+\addplot[cyan, mark=o, only marks] coordinates{
+(0 , 5000.00)
+(1 , 4762.50)
+(2 , 4522.03)
+(3 , 4278.55)
+(4 , 4032.03)
+(5 , 3782.43)
+(6 , 3529.71)
+(7 , 3273.84)
+(8 , 3014.76)
+(9 , 2752.44)
+(10, 2486.85)
+(11, 2217.93)
+(12, 1945.66)
+(13, 1669.98)
+(14, 1390.85)
+(15, 1108.24)
+(16, 822.098)
+(17, 532.374)
+(18, 239.029)
+(19, -57.982)
+(20, -358.70)};
+\addlegendentry{$p=\$300$};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Numerical solutions to $a_{n+1} = a_n + \frac{r}{12}a_n - p$ with $a_0=5000$
+and $r=0.1$ and different values of $p$}
+    \label{fig:9.3.ex1p}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[axis lines=center, grid, xlabel={months}, ylabel={dollars}]
+            \addplot[blue, mark=*, only marks] coordinates{
+(0 , 5000.0)
+(1 , 4925.0)
+(2 , 4848.1)
+(3 , 4769.3)
+(4 , 4688.5)
+(5 , 4605.7)
+(6 , 4520.9)
+(7 , 4433.9)
+(8 , 4344.7)
+(9 , 4253.4)
+(10, 4159.7)
+(11, 4063.7)
+(12, 3965.3)
+(13, 3864.4)
+(14, 3761.0)
+(15, 3655.1)
+(16, 3546.4)
+(17, 3435.1)
+(18, 3321.0)
+(19, 3204.0)
+(20, 3084.1)
+(21, 2961.2)
+(22, 2835.2)
+(23, 2706.1)
+(24, 2573.8)
+(25, 2438.1)
+(26, 2299.1)
+(27, 2156.5)
+(28, 2010.5)
+(29, 1860.7)
+(30, 1707.2)
+(31, 1549.9)
+(32, 1388.7)
+(33, 1223.4)
+(34, 1054.0)
+(35, 880.38)
+(36, 702.39)
+(37, 519.95)
+(38, 332.95)
+(39, 141.27)
+(40, -55.19)};
+\addlegendentry{$r=0.3$};
+\addplot[red, mark=+, only marks] coordinates{
+(0 , 5000.0)
+(1 , 4883.3)
+(2 , 4764.7)
+(3 , 4644.1)
+(4 , 4521.5)
+(5 , 4396.8)
+(6 , 4270.1)
+(7 , 4141.3)
+(8 , 4010.3)
+(9 , 3877.2)
+(10, 3741.8)
+(11, 3604.1)
+(12, 3464.2)
+(13, 3322.0)
+(14, 3177.3)
+(15, 3030.3)
+(16, 2880.8)
+(17, 2728.8)
+(18, 2574.3)
+(19, 2417.2)
+(20, 2257.5)
+(21, 2095.1)
+(22, 1930.0)
+(23, 1762.2)
+(24, 1591.5)
+(25, 1418.1)
+(26, 1241.7)
+(27, 1062.4)
+(28, 880.16)
+(29, 694.83)
+(30, 506.41)
+(31, 314.85)
+(32, 120.10)
+(33, -77.89)};
+\addlegendentry{$r=0.2$};
+\addplot[cyan, mark=o, only marks] coordinates{
+(0 , 5000.0)
+(1 , 4841.6)
+(2 , 4682.0)
+(3 , 4521.0)
+(4 , 4358.7)
+(5 , 4195.0)
+(6 , 4029.9)
+(7 , 3863.5)
+(8 , 3695.7)
+(9 , 3526.5)
+(10, 3355.9)
+(11, 3183.9)
+(12, 3010.4)
+(13, 2835.5)
+(14, 2659.1)
+(15, 2481.3)
+(16, 2302.0)
+(17, 2121.1)
+(18, 1938.8)
+(19, 1755.0)
+(20, 1569.6)
+(21, 1382.7)
+(22, 1194.2)
+(23, 1004.2)
+(24, 812.57)
+(25, 619.34)
+(26, 424.50)
+(27, 228.04)
+(28, 29.942)
+(29, -169.8)};
+\addlegendentry{$r=0.1$};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Numerical solutions to $a_{n+1} = a_n + \frac{r}{12}a_n - p$ with $a_0=5000$
+and $p=\$200$ and different values of $r$}
+    \label{fig:9.3.ex1r}
+\end{figure}
+% 
+
+
+
+\begin{problem}
+    For each of the following situations, create a mathematical model using a difference
+    equation or a differential equation.
+\ba
+\item The population of a town grows at an annual rate of $1.25\%$.
+\item A radioactive sample losses $5.6\%$ of its mass every day.
+\item  You have a bank account that earns $4\%$ interest every year. At the same time, you
+    withdraw money continually from the account at the rate of \$1000 per year.
+\item A cup of hot chocolate is sitting in a $70^\circ$ room. The temperature of the hot
+    chocolate cools by $10\%$ of the difference between the hot chocolate's temperature and
+    the room temperature every minute.
+\item A can of cold soda is sitting in a $70^\circ$ room. The temperature of the soda warms at
+    the rate of $10\%$ of the difference between the soda's temperature and the room's
+    temperature every minute.
+    \item Suppose that there are 400 college students living
+        in a dormitory and that one or more students has a severe case of the flu.  Assume some
+        interaction between those infected and those not infected is required to pass the
+        flue.  Assume that a student is either infected or susceptible (no immunities).
+        Further assume the number of new infected students each hour is proportional to
+        the product of the infected and the susceptible students.  Create a mathematical
+        model for the number of infected students over the course of a day.    
+
+        Hint: If there are 400 students in the dorm, then the number of susceptible
+        students is 400 minus the number of infected students.
+    \item A town has a large reservoir of water that currently contains 450,000 gallons.
+        Each week during the spring $W$ gallons are used by the town, while $M$
+        gallons flow in from snow melt.  If $r$\% of the water evaporates each week,
+        formulate a mathematical model for the amount of water in the reservoir and
+        explore the parameter space with the help of Excel. 
+        
+        Estimates of parameters are as follows: Last year the average water usage during
+        the spring was $W=50,000$ gallons and the average intake from snow melt was
+        $M=62,500$ gallons.  During the spring the water is estimated to evaporate at
+        approximately $1\%$.
+
+%     \item Suppose a national park could support a total population of 3000 bison.  Last
+%         year the bison population was 2505, and this year the population grew to 2550.
+%         Assume that the bison population is modeled by 
+%         \[ b_{n+1} - b_n = k b_n (M-b_n) \]
+%         where $M$ is the maximum possible bison population.  Based on the information
+%         given, what is the value of $k$
+\ea
+\end{problem}
+
+
+
+\section{Stability and Equilibria}
+\begin{problem}
+    Consider the differential equation 
+    \[ \frac{dA}{dt} = -0.5A + 0.1. \]
+    This model comes from a drug dosing problem where your body removes 50\% of the drug
+    every hour and an IV drip administers 0.1mg of drug each hour.  The value of $A$ is
+    the number of milligrams of drug in the body at time $t$.  If done correctly, the
+    amount of drug in your system will stabilize at a constant level.  What is that level?
+    Be sure to fully explain your thinking.
+\end{problem}
+
+\begin{problem}
+    Consider the difference equation
+    \[ A_{n+1} - A_n = -0.2 A_n+ 100. \]
+    This model comes from a car sales problem where 20\% of the cars on the lot are sold
+    in a given month and 100 new cars are delivered each month.  If you've done things
+    correctly as the manager of the lot, the number of cars will stabilize at a certain
+    amount.  How many cars is this?  Be sure to fully explain your thinking.
+\end{problem}
+
+\begin{problem}
+    For each of the two previous problems make a plot with ``change'' on the vertical axis
+    and ``amount'' on the horizontal axis.  Each of these should be a linear function just
+    like what we saw in the birth, death, and immigration models.  What is the meaning of
+    the ``$x$ intercept'' on each of these plots?
+\end{problem}
+
+\begin{problem}
+    return to the birth, death and immigration models.  You already made a plot with
+    ``change'' on the vertical axis and ``population'' on the horizontal axis.  Find the
+    point where the linear functions intersect the horizontal axis and interpret these
+    points in the context of the problem.
+\end{problem}
+
+\begin{definition}[Equilibrium Point]
+    An {\bf equilibrium point} in a difference or differential equation is the point where
+    the change is 0.
+\end{definition}
+
+\begin{example}
+    Consider the differential equation $\frac{dy}{dt} = -\frac{1}{2}(y-4)$.  If we set the
+    change to zero then we find that 
+    \[ 0 = -\frac{1}{2}(y_{eq} - 4) \quad \implies \quad y_{eq} = 4. \]
+    The equilibrium is at $y=4$.  Furthermore, if we have a $y$ value a bit less than 4 we
+    see that $dy/dt$ is positive so $y$ will be going up.  Also, if we have a $y$ value
+    that is a bit more than 4 then $dy/dt$ is negative so $y$ will be going down (see
+    Figure \ref{fig:7.2.phase}).  We call this type of equilibrium point {\bf stable}.
+\end{example}
+
+\begin{figure}[ht!]
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[axis lines=center, xmin=-0.6, xmax=6, ymin=-2.5, ymax=2.5, xlabel={$y$},
+                ylabel={$\frac{dy}{dt}$}, domain=-0.6:6, grid]
+                \addplot[blue, very thick, smooth] {-0.5*(x-4)};
+                \draw[fill=red] (axis cs:4,0) circle(0.1cm);
+                \draw (axis cs:2,2) node{$\frac{dy}{dt}>0$};
+                \draw (axis cs:5,-1.5) node{$\frac{dy}{dt}<0$};
+                \draw[thick, red, ->] (axis cs:5,1)
+                node[anchor=south]{$\frac{dy}{dt}=0$} -- (axis cs:4.1,0.1);
+        \end{axis}
+    \end{tikzpicture}\\\vspace{0.1cm}
+    \begin{tikzpicture}
+        \draw[very thick, black, <->] (-1,0) -- (6,0) node[anchor=west]{$y$};
+        \foreach \j in {0,1,2,3,4,5}{
+            \draw (\j,0.1)--(\j,-0.1) node[anchor=north]{$\j$};
+        }
+        \draw[fill=red, color=red] (4,0) circle(0.1cm);
+        \foreach \k in {-0.5,0,0.5,1,1.5,2,2.5,3,3.5}{    
+            \draw[ultra thick, blue,->] (\k,0)--(\k+0.2,0);
+        }
+        \foreach \k in {4.5,5,5.5}{    
+            \draw[ultra thick, blue,->] (\k,0)--(\k-0.2,0);
+        }
+        \draw (4,0) node[anchor=south]{eq. pt.};
+    \end{tikzpicture}
+\end{center}
+\caption{A plot of $\frac{dy}{dt}$ vs $y$ (top) and a phase line diagram (bottom) for
+$\frac{dy}{dt}=-\frac{1}{2}(y-4)$}
+\label{fig:7.2.phase}
+\end{figure}
+
+\begin{example}
+    Consider the differential equation $\frac{dy}{dt} = \frac{1}{2}(y-4)$.  If we set the
+    change to zero then we find that 
+    \[ 0 = \frac{1}{2}(y_{eq} - 4) \quad \implies \quad y_{eq} = 4. \]
+    The equilibrium is at $y=4$.  Furthermore, if we have a $y$ value a bit less than 4 we
+    see that $dy/dt$ is negative so $y$ will be going down.  Also, if we have a $y$ value
+    that is a bit more than 4 then $dy/dt$ is positive so $y$ will be going up (see
+    Figure \ref{fig:7.3.phase}).  We call this type of equilibrium point {\bf unstable}.
+\end{example}
+
+\begin{figure}[ht!]
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[axis lines=center, xmin=-0.6, xmax=6, ymin=-2.5, ymax=2.5, xlabel={$y$},
+                ylabel={$\frac{dy}{dt}$}, domain=-0.6:6, grid]
+                \addplot[blue, very thick, smooth] {0.5*(x-4)};
+                \draw[fill=red] (axis cs:4,0) circle(0.1cm);
+                \draw (axis cs:5,1) node{$\frac{dy}{dt}>0$};
+                \draw (axis cs:2,-1.5) node{$\frac{dy}{dt}<0$};
+                \draw[thick, red, ->] (axis cs:2,1)
+                node[anchor=south]{$\frac{dy}{dt}=0$} -- (axis cs:3.9,0.1);
+        \end{axis}
+    \end{tikzpicture}\\\vspace{0.1cm}
+    \begin{tikzpicture}
+        \draw[very thick, black, <->] (-1,0) -- (6,0) node[anchor=west]{$y$};
+        \foreach \j in {0,1,2,3,4,5}{
+            \draw (\j,0.1)--(\j,-0.1) node[anchor=north]{$\j$};
+        }
+        \draw[fill=red, color=red] (4,0) circle(0.1cm);
+        \foreach \k in {-0.5,0,0.5,1,1.5,2,2.5,3,3.5}{    
+            \draw[ultra thick, blue,<-] (\k,0)--(\k+0.2,0);
+        }
+        \foreach \k in {4.5,5,5.5}{    
+            \draw[ultra thick, blue,<-] (\k,0)--(\k-0.2,0);
+        }
+        \draw (4,0) node[anchor=south]{eq. pt.};
+    \end{tikzpicture}
+\end{center}
+\caption{A plot of $\frac{dy}{dt}$ vs $y$ (top) and a phase line diagram (bottom) for
+$\frac{dy}{dt}=-\frac{1}{2}(y-4)$}
+\label{fig:7.3.phase}
+\end{figure}
+
+
+\begin{problem}
+    Find and classify the equilibrium points for each of the following difference or
+    differential equations.
+\ba
+    \item $\displaystyle \frac{dy}{dt} = y(1-y)$
+    \item $\displaystyle A_{n+1} - A_n = 2A_n + 6$
+    \item $\displaystyle x_{n+1} - x_n = -3x_n - 2$
+    \item $\displaystyle \frac{dP}{dt} = -0.5P + 2$
+\ea
+\end{problem}
+
+\begin{problem}
+    Find and classify the equilibrium point for the difference equations modeling the
+    three birth, death, and immigration problems.
+\end{problem}
+
+\newpage
+\section{Euler's Method}
+For a complete discussion of Euler's method see the
+\href{http://faculty.gvsu.edu/boelkinm/Home/AC/sec-7-3-euler.html}{Active Calculus book Section
+7.3}.
+\newpage
+
+\section{Solution Techniques for First Order Models (FINISH)}
+We now turn to finding analytic solutions to the difference equations and differential
+equation that we've encountered thus far.   We will solve the difference and differential
+equations in parallel as the techniques are almost identical; the only primary difference
+is that in a differential equation we can leverage the ideas of calculus to solve the
+differential equation.
+
+
+We wish to solve $a_{n+1} = ra_n$ with initial condition $a_0$.  We have seen this type of
+discrete dynamical system before, and the solution technique comes from
+observing the following pattern in the sequence:
+\begin{center}
+    \begin{tabular}{|c|c|}
+        \hline
+        $n$ & $a_n$ \\ \hline \hline
+        $0$ & $a_0$ \\
+        $1$ & $a_1 = r a_0$ \\
+        $2$ & $a_2 = r a_1 = r(ra_0) = r^2 a_0$ \\
+        $3$ & $a_3 = ra_2 = r(r^2 a_0) = r^3a_0$ \\
+        $4$ & $a_4 = ra_3 = r(r^3a_0) = r^4 a_0$ \\
+        $\vdots$ & $\vdots$ \\
+        $k$ & $a_k = r^k a_0$ \\ \hline
+    \end{tabular}
+\end{center}
+Hence, we have just provided sufficient evidence to believe following theorem. \footnote{We
+hesitate to call this a proof since technically the proof would use the principle of
+mathematical induction.}
+\begin{thm}\label{thm:9.6.linearhom}
+    If $a_{n+1} = ra_n$ with initial condition $a_0$ then the analytic solution to the DDS
+    is
+\begin{flalign}
+    a_k = a_0\cdot r^k.
+    \label{eqn:9.6.lienarhom_soln}
+\end{flalign}
+\end{thm}
+
+\begin{problem}
+    Find the solution to the difference equation
+    \[ P_{n+1} - P_n = -0.5 P_n \]
+    with initial condition $P_0 = 50$.
+\end{problem}
+
+Now let's solve almost the exact same differential equation: $\frac{dy}{dt} = ky$.  
+\begin{problem}
+    Which function(s) from calculus has the property that if you take the derivative you
+    get the exact same function back?
+\end{problem}
+
+\subsection{Separation of Variables}
+\begin{problem}
+    Based on your answer to the previous problem, what is the solution to the differential
+    equation $\frac{dy}{dt} = ky$?
+\end{problem}
+You should notice that in both the difference equation, $a_{n+1} - a_n = ka_n$, and the
+differential equation, $\frac{dy}{dt} = ky$, the solution turns out to be exponential.
+The only big difference is the base of the exponential.  
+
+
+\begin{problem}
+    Now follow these steps to develop another technique for solving the differential
+    equation $\frac{dy}{dt} = ky$.
+\ba
+    \item Divide both sides of the equation by $y$ and multiply both sides by $dt$.
+    \item You should now have an equation where the only variable on the left-hand side is
+        $y$ and the only variable on the right-hand side is $t$.  Integrate both sides.
+    \item Solve for $y$.  You should find the same solution that we {\it guessed} before,
+        but this time we did it without any guesswork.
+\ea
+\end{problem}
+
+
+\begin{problem}
+    Next we'll consider a differential equation of the form $\frac{dy}{dt} = y+1$.  Follow
+    the exact same steps as in the previous problem to solve for $y$.
+\end{problem}
+
+For more problems related to separation of variables see
+\href{http://faculty.gvsu.edu/boelkinm/Home/AC/sec-7-4-separable.html}{Active Calculus Section
+7.3}.  
+
+
+\subsection{Undetermined Coefficients}
+FINISH
+
+
+
+
+
+
+
+
+
+\section{Lab Exercises and Explorations for Difference and Differential Equations}
+\begin{problem}
+Watch the following YouTube videos 
+    \begin{itemize}
+        \item This video describes how to use Excel for calculating a sequence
+            from a discrete dynamical system. \\
+            \href{https://youtu.be/kVx7bZTP9L4}{https://youtu.be/kVx7bZTP9L4}
+        \item This video shows how to graph a discrete dynamical system in
+            Excel. \\
+            \href{https://youtu.be/k3bwXAeQsKo}{https://youtu.be/k3bwXAeQsKo}
+        \item This video shows a bit more about plotting multiple simumlations of a
+            discrete dynamical system with Excel.
+            \href{https://youtu.be/g6OGCmvxCHQ}{https://youtu.be/g6OGCmvxCHQ}
+    \end{itemize}
+\end{problem}
+
+Now consider the following problems related to discrete dynamical systems.  For each
+problem you need to fully explore the situation by examining all of the possible
+parameters and hypothetical situations.  A good mathematical modeler will consider every
+possible case and then present their arguments in a thorough, logical, and complete way.
+\begin{lab}
+A classmate in MA141 has a credit card that charges 1.25\% interest per month. Suppose
+    he can only afford to pay \$75 per month, and he does not make any other charges
+    on this credit card. Your classmate has already racked up \$1,200 on the card and
+    he seems pretty freaked out about this debt!  After all, it is very early in the
+    school year!  
+
+    Model the amount owed on the credit card using a discrete dynamical system (DDS).
+    Use your DDS model to give your classmate advice about how to handle credit cards.  
+    Use appropriate mathematics and graphics to make your arguments.  Scare tactics
+    are absolutely allowed (and encouraged)!
+
+    Some good points might be (\underline{but are certainly not limited to}):
+    \begin{itemize}
+        \item If he makes the \$75 payments each month, when will he pay off the card
+            and what will the last payment be?  Furthermore, how much will he have
+            paid for this debt?
+        \item If the initial debt was doubled what would happen?
+        \item Is there an initial debt where his \$75 payments will only pay the
+            interest (this is called an equilibrium state)?  What happens
+            if he has more on the card that this amount? What about less?  Would you
+            classify this equilibrium as {\it stable} or {\it unstable}?
+        \item What happens if he changes his payments?
+        \item \dots there are many other scenarios that you \underline{should}
+            explore.  Write up your arguments in a way that will better educate your
+            classmate. Be sure to include all relevant mathematics and graphics with
+            thorough explanations.
+    \end{itemize}
+\end{lab}
+        \solution{The basic DDS is
+            \[ A_{n+1} = A_n + 0.0125 A_n - 75 \quad \text{with} \quad A_0 = 1200. \]
+            Be sure that students explore many scenarios including varying the interest
+            rate, the payment, and the initial condition.  The writeup needs to inform
+            their peer of the various scenarios.
+
+        }
+
+        \begin{lab}
+            Presume that there is a population of about 150 moose in the Bob Marshall
+            Wilderness in northwest Montana (often called ``The Bob'' \dots if you've never
+            been up there, you absolutely must go!).  The Fish, Wildlife, and Parks department
+            in Montana estimates that in each year about 25 moose permanently migrate out of
+            The Bob to other places like Glacier National Park, Canada, or further west into
+            the Flathead Wilderness.  They also estimate that about $0.5\%$ of the population
+            die off due to old age and other natural causes.  Finally, they estimate that new
+            moose calves are born equal to about $9\%$ of the total population in The Bob.
+
+            Write a discrete dynamical system for the yearly moose population, model it in
+            Excel, and then consider the fact that every parameter given in the paragraph
+            above is subject to variability.  Perform a sensitivity analysis on your model by
+            allowing the parameters to vary by as much as 10\%, and use your results to write
+            an informative paragraph to the Fish, Wildlife, and Parks department of Montana
+            about the moose population in The Bob. 
+
+        \end{lab}
+        \solution{
+            The basic DDS is
+            \[ a_{n+1} = a_{n} - 0.005 a_n + 0.09 a_n - 25 \quad \text{with} \quad a_0 =
+                150 \]
+            Be sure that students explore many scenarios including varying the birth rate,
+            death rate, initial condition, and migration rate. The writeup needs to inform
+            FWP of their findings.
+        }
+
+
+
+        \begin{lab}
+How long does it take an ant to build a tunnel? That seems like a reasonable question. If you ever had an ant colony purchased by a well-meaning aunt for you in grade school you may have watched ants building industriously and you just might have an idea on this.  To answer the question we  might need some narrowing of scope, some simplification, and certainly some identification of terms and variables  before we can get a nice answer. Let us identify some variables and then together make some assumptions which will lead to a mathematical model.
+
+\begin{itemize}
+    \item Let $x$ be the length of the tunnel in feet that an ant builds.
+
+    \item  Let $T(x)$ be the time in hours it takes the ant to build the tunnel of length $x$. 
+
+    \item  We can get some idea of our situation by making a sketch.
+\end{itemize}
+
+
+% \begin{figure}[h]
+% \begin{center}
+% \includegraphics[width=10.6cm]{images/1-7-ModelingOneAnt1.eps}
+% 
+% \vspace*{-11.5 true cm}
+% \parbox{12.2 true cm}{\caption{\label{fig:1-7-ModelingOneAnt1} Crude drawing for ant tunnel building model. $x$ is the length of the tunnel and $T(x)$ is the time it takes an ant to build a tunnel of length $x$.}}
+% \end{center}
+% \end{figure}
+
+\begin{enumerate}
+    \item If we are going to create a model for the time $T$ as a function of the length
+        of the tunnel $x$ should we use a difference equation or a differential equation?
+        Explain.
+
+    \item Maybe we can circumvent building a difference or differential equation by simply
+        writing down an algebraic equation for $T(x)$.  
+        \begin{enumerate}
+            \item Write down several candidate
+        functions for $T(x)$ and give one or two statements in each's defense and one or
+        two statements against each.
+    \item You may not have gotten very far with part (a), so how about we try some
+        graphical intuition.  Make several sketches of $T(x)$ (tunnel length ($x$) on the
+        $x$-axis and total time ($T$) on the $y$-axis).  Give one or two statements in
+        each's defense and one or two statements against each.
+\end{enumerate}
+
+    \item Hopefully you see that attempting to jump right on top of $T(x)$ can be hard.  So,
+        instead of going after $T(x)$ directly let us examine
+        % Figure~\ref{fig:1-7-ModelingOneAnt2}.  
+        \begin{enumerate}
+            \item List some assumptions which reflect the reality of such a situation and
+                might make the model simple in a first attempt. 
+            \item Modeling {\it change} is often times much simpler than trying to create
+                an algebraic model from scratch.  For the present tunnel-building
+                situation, $T(x+h) - T(x)$ models the amount of time it might take an ant
+                to {\it extend} a tunnel from distance $x$ to distance $x+h$.  
+            
+                Below are several possible mathematical models for equation
+                $T(x+h)-T(x)$. Defend or reject each and offer your reasons.  Perhaps
+                modify one or two and make it better. When trying to reject a model
+                consider some trivial cases and see if it makes sense, e.g., $h=0$ or $x =
+                0$  or either $h$ or $x$ very large.
+                \begin{itemize}
+                    \item [i)] $T(x+h) - T(x) = x + h$.
+                    \item [ii)] $T(x+h) - T(x) = x - h$.
+                    \item [iii)] $T(x+h) - T(x) = x^h$.
+                    \item [iv)] $T(x+h) - T(x) = x\cdot h$.
+                    \item [v)] $T(x+h) - T(x) = h^x$.
+                    \item [vi)] $T(x+h) - T(x) = c$.
+                \end{itemize}
+
+
+        \end{enumerate}
+% \begin{figure}
+% \begin{center}
+% \includegraphics[width=10.6cm]{images/1-7-ModelingOneAnt2.eps}
+% 
+% \vspace*{-11.5  true cm}
+% 
+% 
+% \parbox{12.2 true cm}{\caption{\label{fig:1-7-ModelingOneAnt2} Useful diagram for discovering the time it takes to build a small section of the ant tunnel from distance $x$ to $x+h$. }}
+% \end{center}
+% \vspace*{-.  true cm}
+% \end{figure}
+
+
+    \item At this point you are ready to write your own equation. 
+        \[ T(x+h) - T(x) = \underline{\hspace{2in}} \]
+        \vspace{-1cm}
+        \begin{enumerate}
+            \item List the variables and parameters with all of their units.  Also list
+                any assumption on which your equation depends.
+            \item Convert your model difference equation to a differential equation with
+                appropriate initial conditions.
+            \item Solve the differential equation you create in (d) for $T(x)$. Hint:
+                What initial condition $T(0)$ will you use?
+            \item Use your solution from (c) to determine how much longer it takes to
+                build a tunnel which is twice as long as an original tunnel of length $L$.
+                What would some of your original function models you set forth in 2(a) have
+                told you here?
+
+        \end{enumerate}
+
+    \item Suppose we had two ants digging from either side of our sand hill along the same
+        straight line. How would this alter the total time for digging the tunnel? 
+
+    \item Of course, we can apply these same principles of our model to real tunnel
+        building for engineers. If we were considering \#5 as related to engineering
+        construction of a long tunnel of length $L$, outline some of the issues we should
+        be aware of when having two crews  (one from each end of the tunnel) working on
+        the tunnel.
+\end{enumerate}
+
+
+ 
+
+
+\end{lab}
+
+
+
+\begin{lab}
+    
+Consider a situation in which we are studying Helicobacter Pyloria; an antiobiotic
+resistant organism that gives
+people an upset stomach.
+Assume that there are 50 Helicobacter Pyloria initially in a Petri dish. We lose 35\% of the population each hour due
+to ``forces of death,'' but through a one way hatch, 2 microorganisms per hour can enter our
+Petri dish in the first hour, 4 microorganisms per hour can enter our Petri dish in the second hour,
+6 microorganisms per hour can enter our Petri dish in the third hour, 8 in the fourth hour, etc.
+\begin{enumerate}
+    \item Model this situation with (a) a discrete difference equation model {\bf and} (b)
+        a continuous differential equation model. 
+    \item State all of your assumptions used in the model building process. 
+    \item Is there an equilibrium for your model?  If so, what it is?  If not, why not?
+    \item Solve each of your models numerically.  Use Excel for both the difference and
+        differential equation models.  You will need to use Euler's method for the
+        differential equation model (choose a small time step!). Create the plots for the
+        first 12 hours of the experiment.
+    \item Compare your models and comment on differences and similarities.
+
+        \begin{center}
+            \includegraphics[width=0.3\columnwidth]{images/helicobacter.png}
+        \end{center}
+
+
+    \item Your models should take the form
+        \begin{align*}
+            &\text{Difference Equation: }  & a_{n+1} - a_n =  r \cdot a_n + m \cdot n + b \\
+            &\text{Difference Equation (after simplifying): }  & a_{n+1} =  (1+r) \cdot a_n + m \cdot n + b \\
+            &\text{Differential Equation: }  &  \frac{dy}{dt} =  r \cdot y + m \cdot t + b \\
+        \end{align*}
+        What are the values of $r$, $m$, and $b$ for this modeling scenario?
+
+    \item We would like to find an analytic solution for each of these models, but we
+        haven't encountered these types of difference or differential equations yet.  One
+        technique is to {\it guess} the form of the solution and then use the difference
+        equation or differential equation along with the intial conditions to find the
+        coefficients.
+
+        The guesses for this model are:
+        \begin{itemize}
+            \item Difference Equation: 
+                \[ a_n = C_1 (1+r)^n + C_2 t + C_3 \]
+            \item Differential Equation: 
+                \[ y(t) = C_1 e^{rt} + C_2 t + C_3 \]
+        \end{itemize}
+        Work with your team to find $C_1$, $C_2$, and $C_3$ for each of the two models.
+    \item Finally, plot the analytic solutions along side your numerical solutions.
+\end{enumerate}
+\end{lab}
+
+\begin{lab}
+A lake in northern Montana is dominated by Arctic Grayling (henceforth called ``species
+A'') but the Department of Fish, Wildlife, and Parks is planning to slowly introduce Bull
+Trout (``species B'').  The lake is popular with sport fishermen who remove both species of
+fish from the lake regularly.
+
+The Department of Fish, Wildlife, and Parks has carefully estimated the number of fish
+taken by sport fishing each week, and they have decided to keep the fish population as
+constant as possible by replacing the fish lost by an equal number of Arctic Grayling and
+Bull Trout.  For example, if there are $N=50$ fish in the lake at the beginning of the
+week and fishermen remove $M=10$ fish during that week, then the fish and wildlife people
+will restock the lake with $5$ Arctic Grayling and $5$ Bull Trout. Hence the population of
+the lake will remain $N=50$ fish at the end of each week, assuming no new fish are born.  Both fish species swim freely
+throughout the lake and both are targeted by similar bait used by sport fisherman.
+
+In your lake you will use $N = \underline{\hspace{1in}}$ and $M =
+\underline{\hspace{1in}}$. 
+
+
+In summary:
+\begin{itemize}
+    \item The week starts with $N=\underline{\hspace{1in}}$ fish.
+    \item The fish swim freely around the lake.
+    \item $M=\underline{\hspace{1in}}$ fish are removed from the lake at random during the week.
+    \item $M=\underline{\hspace{1in}}$ fish are restocked at the end of the week.  $M/2=\underline{\hspace{1in}}$ of those fish are Arctic
+        Grayling and $M/2=\underline{\hspace{1in}}$ of those fish are Bull Trout.
+\end{itemize}
+
+
+\begin{enumerate}
+    \item {\bf Conjecture:}
+        \begin{enumerate}
+            \item What do you think will happen to the populations of species A and B over
+                a long period of time?
+            \item Is it possible that species A will be eliminated from the lake with the
+                restocking plan? Explain.
+        \end{enumerate}
+
+    \item {\bf Simulate:}
+        \begin{enumerate}
+            \item Use pennies to represent your $N$ fish and decide with your partner(s) which
+                coin face represents which species. Start your lake with 100\% species A.
+            \item Decide with your partner(s) how to simulate the swimming of fish, the fishermen,
+                and the Department of Fish, Wildlife, and Parks' restocking plan.  Simulate
+                roughly 15 weeks of the fish population representing species A and B with coins.
+                Be sure to let the fish swim thoroughly around the lake and keep track of the
+                proportions made up by species A and B.
+                \begin{center}
+                    \begin{tabular}{|c||c|c||c|c|}
+                        \hline
+                        Week \# & \multicolumn{2}{|c||}{{\bf Number in population}} & \multicolumn{2}{|c|}{{\bf Proportion of population}}\\
+                        & species A & species B & species A & species B \\
+                        \hline
+                        0 &  &  & 1 & 0 \\ \hline
+                        1 & & & & \\ \hline
+                        2 & & & & \\ \hline
+                        3 & & & & \\ \hline
+                        4 & & & & \\ \hline
+                        \vdots & \vdots & \vdots & \vdots & \vdots \\ \hline
+                    \end{tabular}
+                \end{center}
+        \end{enumerate}
+
+    \item {\bf Model:} 
+        \begin{enumerate}
+            \item Propose a verbal model for the rate of change of species B in the lake.
+                \[ \text{rate at which species B changes} = \underline{\hspace{2in}} \]
+        % B' = -\alpha B + beta M/N
+
+            \item Explicitly state any assumptions that you are using in your verbal model.
+
+            \item Introduce mathematical notation for your proposed model and write your verbal model mathematically.  Be sure to include any necessary condition(s).  
+                \begin{flalign*}
+                    &\text{model: } \underline{\hspace{3in}} \\
+                    &\text{condition(s): } \underline{\hspace{3in}} 
+                \end{flalign*}
+        \end{enumerate}
+    \item {\bf Analyze:} 
+        \begin{enumerate}
+            \item According to your model, what is the long term effect on the fish population in the lake?  Use your model to justify your answer algebraically and graphically.
+            \item Solve your mathematical model (either numerically or analytically) and compare with your data.
+            \item (extension) Suppose now that the Department of Fish, Wildlife, and Parks does not attempt to keep the population in the lake constant.  That is, suppose that fishing reduces the population by $M_1$ fish each week and the Department of Fish, Wildlife, and Parks restocks $M_2$ fish each week.  Fully explore this scenario.
+        \end{enumerate}
+\end{enumerate}
+\end{lab}
+
+
+
+\begin{lab}
+\noindent \hspace*{2.3in} Niedjatu Elpmeyout\\
+\hspace*{4in} MT Environmental Law Partners\\
+\hspace*{4in} 101 Park St.\\
+\hspace*{4in} Helena, MT 59625\\ \vspace{1cm}
+
+% \noindent \today\\
+
+\noindent  O.D.E. Consulting\\
+\noindent  1601 N. Benton Ave.\\
+\noindent  Helena, MT 59625\\
+\vspace{0.5cm}
+
+\noindent  Dear sir or madam:\\
+
+\noindent  I have been assigned a case here at my law offices defending a client who got himself into a quite a sticky situation (or rather, a slippery one).  My firm would like to secure your services to help us understand the physical aspects and data surrounding the event.  In order to protect our client's anonymity, we will request your discretion in sharing this information with the press.\\
+
+\noindent  Our client allegedly caused an oil spill over some open water while transporting some cargo.  There seems to be some dispute with respect to the amount of oil spilled, and the EPA (those tree-huggers!) has assigned massive fines, which we dispute.  While we concede that there was a small amount of oil spilled, we contend that the amount is really not nearly as much as they claim.  In fact, our client actually improved the local economy by hiring local workers to assist with containing and cleaning the oil.  They should be thanking our client, really.  But I digress.\\
+
+\noindent  Here's where we need your help.  We know that as soon as the resulting oil slick was detected, the Coast Guard wanted to document the size of the oil slick.  From time to time, but irregularly, a helicopter was dispatched to photograph the oil slick. On each trip, it arrived over the slick, the pilot took a picture, waited 10 minutes, took another, and then headed home. On each of seven trips the size (in area) of the slick was measured from both photographs, as below.\\
+
+\begin{center} Area of oil slick (in miles):\\
+\begin{tabular}{|c|c|}
+\hline
+Initial Obs.	& 10 min. later\\
+\hline \hline
+	1.047	& 1.139\\
+	\hline
+	2.005	& 2.087 \\
+	\hline
+	3.348	& 3.413\\
+	\hline
+	5.719	& 5.765\\
+	\hline
+	7.273	& 7.304\\
+	\hline
+	8.410	& 8.426\\
+	\hline
+	9.117	& 9.127\\
+	\hline
+\end{tabular}
+\end{center}
+\vspace{1cm}
+
+\noindent  We would like to request the following information from you.
+	\begin{itemize}
+	\item  Build a model for the growth of the oil slick at time $t.$
+	\item  Predict the size of the oil slick, say at $t = 10$, $t = 20$, and $t = 120$ minutes from the start of the 
+			oil spill.
+	\item  Plot your model of the size of the oil slick as a function of time.
+	\item  Find the time at which the oil slick was 8 square miles.
+	\item Determine the time of each of the observations.\\ 
+	\end{itemize}
+
+\noindent  Please help us help our client (who, despite what you might have heard in the news, was definitely {\it not} under the influence of an illegal substance--not at the time of the incident, anyway).  We will have to present your argument in court, so please fully explain your work in a clear and concise fashion.\\
+
+\noindent  Your company was suggested by one Professor Sullivan of Carroll College, whose
+services we have used before.  He has promised to be available to you, but cannot himself
+commit to this work because he is teaching some talented and motivated students techniques
+in mathematical modeling this semester. \\
+
+\noindent Looking forward to seeing your results soon.\\
+
+\noindent Sincerely,\\ \vspace{0.5cm}
+
+\noindent Niedjatu Elpmeyout\\
+MT Environmental Law Partners
+\end{lab}
+
+
+
+
+\begin{lab}
+A beaker of warm water is placed in a room with an ambient temperature of $72^\circ$F.
+The data for this experiment can be found in the \texttt{Newton.xlsx} Excel file on Moodle.  
+\begin{enumerate}
+    \item Below are 5 proposed differential equation models for the temperature of the
+        water in the beaker.
+        \begin{flalign}
+            \frac{dT}{dt} &= a \\
+            \frac{dT}{dt} &= a + bt \\
+            \frac{dT}{dt} &= \frac{A}{B+Ct} \\
+            \frac{dT}{dt} &= -k \left( T - T_{env} \right) \\
+            \frac{dT}{dt} &= -kT \\
+            \frac{dT}{dt} &= A e^{-kt} 
+        \end{flalign}
+        Spend a few minutes critiquing  each of these models.  For each model that seems
+        unreasonable, be sure to give a brief explanation.
+    \item Choose the most appropriate model from the above list (only 1 of them is the
+        {\it right} one!) and do the following:
+        \begin{enumerate}
+            \item Find any equilibrium points and determine their stability
+            \item solve the differential equation using an appropriate technique.  Your
+                answer will have some unknown parameters.
+\end{enumerate}
+    \item Use the Solver in Excel to find the value(s) of the parameter(s) in your
+        model so that your model best fits the data.  
+    \item How would the data (and your solution) change if the beaker had been insulated?
+\end{enumerate}
+\end{lab}

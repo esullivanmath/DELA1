@@ -1,0 +1,56 @@
+\BOOKMARK [0][-]{chapter.0}{To the Student and the Instructor}{}% 1
+\BOOKMARK [1][-]{section.0.1}{An Inquiry Based Approach}{chapter.0}% 2
+\BOOKMARK [1][-]{section.0.2}{Online Texts and Other Resources}{chapter.0}% 3
+\BOOKMARK [1][-]{section.0.3}{To the Instructor}{chapter.0}% 4
+\BOOKMARK [0][-]{chapter.1}{Fundamental Notions from Calculus}{}% 5
+\BOOKMARK [1][-]{section.1.1}{Sections from Active Calculus}{chapter.1}% 6
+\BOOKMARK [1][-]{section.1.2}{Lab Activities for Calculus and Modeling}{chapter.1}% 7
+\BOOKMARK [0][-]{chapter.2}{An Introduction to Linear Algebra}{}% 8
+\BOOKMARK [1][-]{section.2.1}{Why Linear Algebra?}{chapter.2}% 9
+\BOOKMARK [1][-]{section.2.2}{Matrix Operations and Gaussian Elimination}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.3}{Gaussian Elimination: A First Look At Solving Systems}{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.4}{Systems of Linear Equations}{chapter.2}% 12
+\BOOKMARK [1][-]{section.2.5}{Linear Combinations}{chapter.2}% 13
+\BOOKMARK [1][-]{section.2.6}{Inverses and Determinants}{chapter.2}% 14
+\BOOKMARK [2][-]{subsection.2.6.1}{Inverses}{section.2.6}% 15
+\BOOKMARK [2][-]{subsection.2.6.2}{Determinants}{section.2.6}% 16
+\BOOKMARK [1][-]{section.2.7}{Technology For Linear Algebra}{chapter.2}% 17
+\BOOKMARK [1][-]{section.2.8}{Span, Linear Independence and Basis}{chapter.2}% 18
+\BOOKMARK [2][-]{subsection.2.8.1}{Span}{section.2.8}% 19
+\BOOKMARK [2][-]{subsection.2.8.2}{Linear Independence, Linear Dependence, and Basis}{section.2.8}% 20
+\BOOKMARK [2][-]{subsection.2.8.3}{The Column and Null Spaces of a Matrix}{section.2.8}% 21
+\BOOKMARK [1][-]{section.2.9}{Lab Activities for Linear Algebra}{chapter.2}% 22
+\BOOKMARK [2][-]{subsection.2.9.1}{Input-Output Economies}{section.2.9}% 23
+\BOOKMARK [2][-]{subsection.2.9.2}{Traffic Networks}{section.2.9}% 24
+\BOOKMARK [2][-]{subsection.2.9.3}{Balancing Chemical Equations}{section.2.9}% 25
+\BOOKMARK [0][-]{chapter.3}{First Order Models}{}% 26
+\BOOKMARK [1][-]{section.3.1}{Birth, Death, and Immigration Exploration}{chapter.3}% 27
+\BOOKMARK [1][-]{section.3.2}{Models for Birth, Death, and Immigration}{chapter.3}% 28
+\BOOKMARK [1][-]{section.3.3}{Difference Equations and Differential Equations}{chapter.3}% 29
+\BOOKMARK [1][-]{section.3.4}{Stability and Equilibria}{chapter.3}% 30
+\BOOKMARK [1][-]{section.3.5}{Euler's Method}{chapter.3}% 31
+\BOOKMARK [1][-]{section.3.6}{Solution Techniques for First Order Models \(FINISH\)}{chapter.3}% 32
+\BOOKMARK [2][-]{subsection.3.6.1}{Separation of Variables}{section.3.6}% 33
+\BOOKMARK [2][-]{subsection.3.6.2}{Undetermined Coefficients}{section.3.6}% 34
+\BOOKMARK [1][-]{section.3.7}{Lab Exercises and Explorations for Difference and Differential Equations}{chapter.3}% 35
+\BOOKMARK [0][-]{chapter.4}{Second Order Models}{}% 36
+\BOOKMARK [1][-]{section.4.1}{F = ma \(Finish\)}{chapter.4}% 37
+\BOOKMARK [1][-]{section.4.2}{Modeling Mass Spring Oscillators \(Finish\)}{chapter.4}% 38
+\BOOKMARK [1][-]{section.4.3}{Solution Techniques for Second Order Differential Equations \(Finish\)}{chapter.4}% 39
+\BOOKMARK [0][-]{chapter.5}{Systems of Difference and Differential Equations}{}% 40
+\BOOKMARK [1][-]{section.5.1}{Rumor Spreading System \(Finish\)}{chapter.5}% 41
+\BOOKMARK [1][-]{section.5.2}{Linear Systems \(Finish\)}{chapter.5}% 42
+\BOOKMARK [1][-]{section.5.3}{The Eigenvalue / Eigenvector Problem \(Finish\)}{chapter.5}% 43
+\BOOKMARK [1][-]{section.5.4}{Analysis of Linear Systems \(Finish\)}{chapter.5}% 44
+\BOOKMARK [0][-]{section*.20}{Appendices}{}% 45
+\BOOKMARK [0][-]{Appendix.a.A}{MATLAB Basics}{}% 46
+\BOOKMARK [1][-]{section.a.A.1}{Vectors and Matrices}{Appendix.a.A}% 47
+\BOOKMARK [1][-]{section.a.A.2}{Looping}{Appendix.a.A}% 48
+\BOOKMARK [2][-]{subsection.a.A.2.1}{For Loops}{section.a.A.2}% 49
+\BOOKMARK [2][-]{subsection.a.A.2.2}{The While Loop}{section.a.A.2}% 50
+\BOOKMARK [1][-]{section.a.A.3}{Conditional Statements}{Appendix.a.A}% 51
+\BOOKMARK [2][-]{subsection.a.A.3.1}{If Statements}{section.a.A.3}% 52
+\BOOKMARK [2][-]{subsection.a.A.3.2}{Case-Switch Statements}{section.a.A.3}% 53
+\BOOKMARK [1][-]{section.a.A.4}{Functions}{Appendix.a.A}% 54
+\BOOKMARK [1][-]{section.a.A.5}{Plotting}{Appendix.a.A}% 55
+\BOOKMARK [1][-]{section.a.A.6}{Animations}{Appendix.a.A}% 56
