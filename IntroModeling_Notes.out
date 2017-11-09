@@ -31,26 +31,27 @@
 \BOOKMARK [1][-]{section.3.5}{Euler's Method}{chapter.3}% 31
 \BOOKMARK [1][-]{section.3.6}{Solution Techniques for First Order Models \(FINISH\)}{chapter.3}% 32
 \BOOKMARK [2][-]{subsection.3.6.1}{Separation of Variables}{section.3.6}% 33
-\BOOKMARK [2][-]{subsection.3.6.2}{Undetermined Coefficients}{section.3.6}% 34
-\BOOKMARK [1][-]{section.3.7}{Lab Exercises and Explorations for Difference and Differential Equations}{chapter.3}% 35
-\BOOKMARK [0][-]{chapter.4}{Second Order Models}{}% 36
-\BOOKMARK [1][-]{section.4.1}{F = ma \(Finish\)}{chapter.4}% 37
-\BOOKMARK [1][-]{section.4.2}{Modeling Mass Spring Oscillators \(Finish\)}{chapter.4}% 38
-\BOOKMARK [1][-]{section.4.3}{Solution Techniques for Second Order Differential Equations \(Finish\)}{chapter.4}% 39
-\BOOKMARK [0][-]{chapter.5}{Systems of Difference and Differential Equations}{}% 40
-\BOOKMARK [1][-]{section.5.1}{Rumor Spreading System \(Finish\)}{chapter.5}% 41
-\BOOKMARK [1][-]{section.5.2}{Linear Systems \(Finish\)}{chapter.5}% 42
-\BOOKMARK [1][-]{section.5.3}{The Eigenvalue / Eigenvector Problem \(Finish\)}{chapter.5}% 43
-\BOOKMARK [1][-]{section.5.4}{Analysis of Linear Systems \(Finish\)}{chapter.5}% 44
-\BOOKMARK [0][-]{section*.20}{Appendices}{}% 45
-\BOOKMARK [0][-]{Appendix.a.A}{MATLAB Basics}{}% 46
-\BOOKMARK [1][-]{section.a.A.1}{Vectors and Matrices}{Appendix.a.A}% 47
-\BOOKMARK [1][-]{section.a.A.2}{Looping}{Appendix.a.A}% 48
-\BOOKMARK [2][-]{subsection.a.A.2.1}{For Loops}{section.a.A.2}% 49
-\BOOKMARK [2][-]{subsection.a.A.2.2}{The While Loop}{section.a.A.2}% 50
-\BOOKMARK [1][-]{section.a.A.3}{Conditional Statements}{Appendix.a.A}% 51
-\BOOKMARK [2][-]{subsection.a.A.3.1}{If Statements}{section.a.A.3}% 52
-\BOOKMARK [2][-]{subsection.a.A.3.2}{Case-Switch Statements}{section.a.A.3}% 53
-\BOOKMARK [1][-]{section.a.A.4}{Functions}{Appendix.a.A}% 54
-\BOOKMARK [1][-]{section.a.A.5}{Plotting}{Appendix.a.A}% 55
-\BOOKMARK [1][-]{section.a.A.6}{Animations}{Appendix.a.A}% 56
+\BOOKMARK [2][-]{subsection.3.6.2}{Undetermined Coefficients \(FINISH\)}{section.3.6}% 34
+\BOOKMARK [1][-]{section.3.7}{First Order Modeling Problems \(FINISH\)}{chapter.3}% 35
+\BOOKMARK [1][-]{section.3.8}{Lab Exercises and Explorations for Difference and Differential Equations}{chapter.3}% 36
+\BOOKMARK [0][-]{chapter.4}{Second Order Models}{}% 37
+\BOOKMARK [1][-]{section.4.1}{F = ma \(Finish\)}{chapter.4}% 38
+\BOOKMARK [1][-]{section.4.2}{Modeling Mass Spring Oscillators \(Finish\)}{chapter.4}% 39
+\BOOKMARK [1][-]{section.4.3}{Solution Techniques for Second Order Differential Equations \(Finish\)}{chapter.4}% 40
+\BOOKMARK [0][-]{chapter.5}{Systems of Difference and Differential Equations}{}% 41
+\BOOKMARK [1][-]{section.5.1}{Rumor Spreading System \(Finish\)}{chapter.5}% 42
+\BOOKMARK [1][-]{section.5.2}{Linear Systems \(Finish\)}{chapter.5}% 43
+\BOOKMARK [1][-]{section.5.3}{The Eigenvalue / Eigenvector Problem \(Finish\)}{chapter.5}% 44
+\BOOKMARK [1][-]{section.5.4}{Analysis of Linear Systems \(Finish\)}{chapter.5}% 45
+\BOOKMARK [0][-]{section*.20}{Appendices}{}% 46
+\BOOKMARK [0][-]{Appendix.a.A}{MATLAB Basics}{}% 47
+\BOOKMARK [1][-]{section.a.A.1}{Vectors and Matrices}{Appendix.a.A}% 48
+\BOOKMARK [1][-]{section.a.A.2}{Looping}{Appendix.a.A}% 49
+\BOOKMARK [2][-]{subsection.a.A.2.1}{For Loops}{section.a.A.2}% 50
+\BOOKMARK [2][-]{subsection.a.A.2.2}{The While Loop}{section.a.A.2}% 51
+\BOOKMARK [1][-]{section.a.A.3}{Conditional Statements}{Appendix.a.A}% 52
+\BOOKMARK [2][-]{subsection.a.A.3.1}{If Statements}{section.a.A.3}% 53
+\BOOKMARK [2][-]{subsection.a.A.3.2}{Case-Switch Statements}{section.a.A.3}% 54
+\BOOKMARK [1][-]{section.a.A.4}{Functions}{Appendix.a.A}% 55
+\BOOKMARK [1][-]{section.a.A.5}{Plotting}{Appendix.a.A}% 56
+\BOOKMARK [1][-]{section.a.A.6}{Animations}{Appendix.a.A}% 57

@@ -31,8 +31,9 @@
 \contentsline {section}{\numberline {3.5}Euler's Method}{73}{section.3.5}
 \contentsline {section}{\numberline {3.6}Solution Techniques for First Order Models (FINISH)}{74}{section.3.6}
 \contentsline {subsection}{\numberline {3.6.1}Separation of Variables}{74}{subsection.3.6.1}
-\contentsline {subsection}{\numberline {3.6.2}Undetermined Coefficients}{75}{subsection.3.6.2}
-\contentsline {section}{\numberline {3.7}Lab Exercises and Explorations for Difference and Differential Equations}{75}{section.3.7}
+\contentsline {subsection}{\numberline {3.6.2}Undetermined Coefficients (FINISH)}{75}{subsection.3.6.2}
+\contentsline {section}{\numberline {3.7}First Order Modeling Problems (FINISH)}{75}{section.3.7}
+\contentsline {section}{\numberline {3.8}Lab Exercises and Explorations for Difference and Differential Equations}{75}{section.3.8}
 \contentsline {chapter}{\numberline {4}Second Order Models}{84}{chapter.4}
 \contentsline {section}{\numberline {4.1}$F = ma$ (Finish)}{84}{section.4.1}
 \contentsline {section}{\numberline {4.2}Modeling Mass Spring Oscillators (Finish)}{84}{section.4.2}
