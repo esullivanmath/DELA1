@@ -1560,6 +1560,43 @@ get the idea of how to use undetermined coefficients.
 \section{Modeling Explorations with Difference and Differential Equations}
 
 \begin{problem}
+    A whiffle ball is dropped from a height with no initial velocity.  From Newton's laws
+    of motion we know that the sum of the forces on the wiffle ball, $\sum F$, is given by the product of
+    the mass and the acceleration: $\sum F= ma$.  The two primary forces are gravity and
+    drag so 
+    \[ m a = F_{gravity} + F_{drag}. \]
+    The force due to gravity is $F_{gravity} = mg$ and the force due to drag is
+    propotional to the square of the velocity: $F_{drag} = k v^2$.  Also note that
+    acceleration is the derivative of velocity.  Therefore the differential equation
+    modeling this scenario is
+    \[ m v' = mg - kv^2 \]
+    which can be rearraged to 
+    \[ v' = g - \frac{k}{m} v^2. \]
+    The data given in the table below give the distance (in feet) measured from the drop
+    point as a function of time (in seconds).  Use the data and the differential equation
+    to find the ratio of the drag coefficient to the mass, $k/m$. Then use the
+    differential equation and your value of $k/m$ to determine the terminal velocity of
+    the whiffle ball. \\
+    Note that 1 meter $\approx 3.28 feet$.
+    \begin{center}
+        \begin{tabular}{|c|c|}
+            \hline
+            Time (sec) & Distance (feet) \\ \hline \hline
+0  & 0\\
+0.32601&1.6154\\
+0.72587&8.073\\
+0.86624&11.3219\\
+0.97305&14.232\\
+1.18558&20.0783\\
+1.28771&23.4167\\
+1.41354&27.3056\\
+1.61894&34.1013\\
+1.76001&39.3958\\ \hline
+        \end{tabular}
+    \end{center}
+\end{problem}
+
+\begin{problem}
     In the Great Lakes region, rivers flowing into the lakes carry a great deal of
     pollution in the form of small pieces of plastic averaging 1 millimeter in diameter.
     In order to understand how the amount of plastic in Lake Michigan is changing,

@@ -35,27 +35,27 @@
 \contentsline {subsection}{\numberline {3.8.1}Solution Technique: Separation of Variables}{77}{subsection.3.8.1}
 \contentsline {subsection}{\numberline {3.8.2}Solution Technique: Undetermined Coefficients}{82}{subsection.3.8.2}
 \contentsline {section}{\numberline {3.9}Modeling Explorations with Difference and Differential Equations}{88}{section.3.9}
-\contentsline {chapter}{\numberline {4}Second Order Models}{99}{chapter.4}
-\contentsline {section}{\numberline {4.1}Modeling Oscillations}{99}{section.4.1}
-\contentsline {section}{\numberline {4.2}Homogeneous Linear $2^{nd}$ Order Differential Equations}{101}{section.4.2}
-\contentsline {section}{\numberline {4.3}Forced Oscillations}{108}{section.4.3}
-\contentsline {section}{\numberline {4.4}Energy in Mass Spring Systems -- A Lab Exploration}{109}{section.4.4}
-\contentsline {section}{\numberline {4.5}Modeling Explorations with $2^{nd}$ Oder Differential Equations}{112}{section.4.5}
-\contentsline {chapter}{\numberline {5}Systems of Difference and Differential Equations}{116}{chapter.5}
-\contentsline {section}{\numberline {5.1}Rumor Spreading System (Finish)}{116}{section.5.1}
-\contentsline {section}{\numberline {5.2}Linear Systems (Finish)}{116}{section.5.2}
-\contentsline {section}{\numberline {5.3}The Eigenvalue / Eigenvector Problem (Finish)}{116}{section.5.3}
-\contentsline {section}{\numberline {5.4}Analysis of Linear Systems (Finish)}{116}{section.5.4}
-\contentsline {section}{\numberline {5.5}Modeling Explorations with Systems (FINISH)}{116}{section.5.5}
-\contentsline {chapter}{Appendices}{119}{section*.28}
-\contentsline {chapter}{\numberline {A}MATLAB Basics}{120}{Appendix.a.A}
-\contentsline {section}{\numberline {A.1}Vectors and Matrices}{120}{section.a.A.1}
-\contentsline {section}{\numberline {A.2}Looping}{122}{section.a.A.2}
-\contentsline {subsection}{\numberline {A.2.1}For Loops}{122}{subsection.a.A.2.1}
-\contentsline {subsection}{\numberline {A.2.2}The While Loop}{123}{subsection.a.A.2.2}
-\contentsline {section}{\numberline {A.3}Conditional Statements}{124}{section.a.A.3}
-\contentsline {subsection}{\numberline {A.3.1}If Statements}{124}{subsection.a.A.3.1}
-\contentsline {subsection}{\numberline {A.3.2}Case-Switch Statements}{125}{subsection.a.A.3.2}
-\contentsline {section}{\numberline {A.4}Functions}{125}{section.a.A.4}
-\contentsline {section}{\numberline {A.5}Plotting}{126}{section.a.A.5}
-\contentsline {section}{\numberline {A.6}Animations}{127}{section.a.A.6}
+\contentsline {chapter}{\numberline {4}Second Order Models}{100}{chapter.4}
+\contentsline {section}{\numberline {4.1}Modeling Oscillations}{100}{section.4.1}
+\contentsline {section}{\numberline {4.2}Homogeneous Linear $2^{nd}$ Order Differential Equations}{102}{section.4.2}
+\contentsline {section}{\numberline {4.3}Forced Oscillations}{109}{section.4.3}
+\contentsline {section}{\numberline {4.4}Energy in Mass Spring Systems -- A Lab Exploration}{110}{section.4.4}
+\contentsline {section}{\numberline {4.5}Modeling Explorations with $2^{nd}$ Oder Differential Equations}{113}{section.4.5}
+\contentsline {chapter}{\numberline {5}Systems of Difference and Differential Equations}{117}{chapter.5}
+\contentsline {section}{\numberline {5.1}Rumor Spreading System (Finish)}{117}{section.5.1}
+\contentsline {section}{\numberline {5.2}Linear Systems (Finish)}{117}{section.5.2}
+\contentsline {section}{\numberline {5.3}The Eigenvalue / Eigenvector Problem (Finish)}{117}{section.5.3}
+\contentsline {section}{\numberline {5.4}Analysis of Linear Systems (Finish)}{117}{section.5.4}
+\contentsline {section}{\numberline {5.5}Modeling Explorations with Systems (FINISH)}{117}{section.5.5}
+\contentsline {chapter}{Appendices}{120}{section*.28}
+\contentsline {chapter}{\numberline {A}MATLAB Basics}{121}{Appendix.a.A}
+\contentsline {section}{\numberline {A.1}Vectors and Matrices}{121}{section.a.A.1}
+\contentsline {section}{\numberline {A.2}Looping}{123}{section.a.A.2}
+\contentsline {subsection}{\numberline {A.2.1}For Loops}{123}{subsection.a.A.2.1}
+\contentsline {subsection}{\numberline {A.2.2}The While Loop}{124}{subsection.a.A.2.2}
+\contentsline {section}{\numberline {A.3}Conditional Statements}{125}{section.a.A.3}
+\contentsline {subsection}{\numberline {A.3.1}If Statements}{125}{subsection.a.A.3.1}
+\contentsline {subsection}{\numberline {A.3.2}Case-Switch Statements}{126}{subsection.a.A.3.2}
+\contentsline {section}{\numberline {A.4}Functions}{126}{section.a.A.4}
+\contentsline {section}{\numberline {A.5}Plotting}{127}{section.a.A.5}
+\contentsline {section}{\numberline {A.6}Animations}{128}{section.a.A.6}
