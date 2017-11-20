@@ -800,107 +800,834 @@ $\frac{dy}{dt}=-\frac{1}{2}(y-4)$}
 \end{problem}
 
 \newpage
-\section{Euler's Method}
+\section{Euler's Method: Numerical Solutions for Differential Equations}
 For a complete discussion of Euler's method see the
 \href{http://faculty.gvsu.edu/boelkinm/Home/AC/sec-7-3-euler.html}{Active Calculus book Section
 7.3}.
 \newpage
 
-\section{Solution Techniques for First Order Models (FINISH)}
-We now turn to finding analytic solutions to the difference equations and differential
-equation that we've encountered thus far.   We will solve the difference and differential
-equations in parallel as the techniques are almost identical; the only primary difference
-is that in a differential equation we can leverage the ideas of calculus to solve the
-differential equation.
+
+\section{Classifying Difference and Differential Equations}
+In order to properly analyze difference equations it is useful to develop a classification
+system for all difference and differential equations.  The following definitions describe
+several broad classes of difference and differential equations that will be studied in
+detail.  These classifications are not merely just names, but they give a hint to the
+behavior of the system and the solution techniques.
+
+\begin{definition}[Linear Difference Equations]
+    In a {\bf linear} difference equation, the terms that involve sequence variables
+    ($a_{n+1}$ or $a_n$) involve no products, no powers, nor functions of sequences
+    variables such as exponentials, logarithmic, or trigonometric.  
+\end{definition}
+\begin{definition}[Linear Differential Equations]
+    In a {\bf linear} differential equation, the terms that involve output function $y(t)$
+    involve no products, no powers, nor nonlinear functions of $y(t)$ such as exponentials,
+    logarithmic, or trigonometric.  
+\end{definition}
+
+\begin{definition}[Nonlinear Difference and Differential Equations]
+    A difference or differential equation is called {\it non linear} if it is not linear.
+\end{definition}
+\begin{problem}
+    Classify each equation as either a difference or differential equation.  Then classify
+    it as either linear or nonlinear
+    \begin{flalign}
+        a_{n+1} - a_n &= 3a_n + n^2 \label{eqn:9.5.ex1a} \\
+        P_{n+1} - P_n &= 5P_n \label{eqn:9.5.ex1b} \\
+        P'(t) &= 5 P(t) \\
+        b'(t) &= (b(t))^2 + 1 \\
+        b_{n+1} - b_n &= (b_n)^2 + 1  \label{eqn:9.5.ex1c} \\
+        a_{n+2} &= a_na_{n+1} \label{eqn:9.5.ex1d} \\
+        f'(t) &= \frac{2}{f(t)}+t \label{eqn:9.5.ex1e} \\
+        a_{n+2} &= a_{n+1} + 3a_n \label{eqn:9.5.ex1f}  \\
+        y'(t) &=  3y(t) + t^2 \label{eqn:9.5.ex1aa} 
+    \end{flalign}
+%     \begin{itemize}
+%         \item Difference equation \eqref{eqn:9.5.ex1a} is linear. 
+%         \item Differential equation \eqref{eqn:9.5.ex1aa} is linear. 
+%         \item Difference equation \eqref{eqn:9.5.ex1b} is linear
+%         \item Difference equation \eqref{eqn:9.5.ex1c} is nonlinear
+%         \item Difference equation \eqref{eqn:9.5.ex1d} is nonlinear
+%         \item Difference equation \eqref{eqn:9.5.ex1e} is nonlinear
+%         \item Difference equation \eqref{eqn:9.5.ex1f} is linear
+%     \end{itemize}
+\end{problem}
+% 
+\begin{definition}[Homogeneous Difference and Differential Equations]
+    A difference or differential equation is called {\bf homogeneous} if the only terms that appear
+    in the relationship are ones which involve the output variable (e.g. $a_n$ or
+    $a_{n+1}$ in difference equations or $y(t)$ in differential equations).
+\end{definition}
+
+\begin{definition}[Nonhomogeneous Equations]
+    A difference or differential equation is called {\bf nonhomogeneous} if it is not homogeneous.
+\end{definition}
+
+\begin{problem}
+    Classify the following using the words 
+    \begin{itemize}
+        \item ``difference equation'' or ``differential equation''
+        \item ``linear'' or ``nonlinear''
+        \item ``homogeneous'' or ``non-homogeneous''
+    \end{itemize}
+    If an equation is nonhomogeneous then give the type of function for the
+    nonhomogeneity.  For example, the equation $a_{n+1} - a_n = 0.5 a_n + 10$ is a linear
+    nonhomogenous difference equation with a constant nonhomogeneity.
+    \begin{flalign}
+        a_{n+1} - a_n &= 3a_n + n^2 \\
+        P_{n+1} - P_n &= 5P_n \\
+        P'(t) &= 5 P(t) \\
+        b'(t) &= (b(t))^2 + 1 \\
+        b_{n+1} - b_n &= (b_n)^2 + 1  \\
+        a_{n+2} &= a_na_{n+1} \\
+        f'(t) &= \frac{2}{f(t)}+t \\
+        a_{n+2} &= a_{n+1} + 3a_n \\
+        y'(t) &=  3y(t) + t^2 
+    \end{flalign}
+\end{problem}
 
 
-We wish to solve $a_{n+1} = ra_n$ with initial condition $a_0$.  We have seen this type of
-discrete dynamical system before, and the solution technique comes from
-observing the following pattern in the sequence:
+\section{Technique: Solving $1^{st}$ Order Linear Homogeneous Equations}
+In this section we will solve the most basic difference and differential equations.  
+\begin{flalign}
+    a_{n+1} - a_n &= r a_n \quad \text{with initial condition} \quad a_0 
+    \label{eqn:1st_order_hom_difference} \\
+    y'(t) &= r y(t) \quad \text{with initial condition} \quad y(0) = y_0.
+    \label{eqn:1st_order_hom_differential}
+\end{flalign}
+The reader should note that \eqref{eqn:1st_order_hom_difference} is a linear homogeneous
+difference equation and \eqref{eqn:1st_order_hom_differential} is a linear homogeneous
+differential equation. These solution techniques will be the basis for all future solution
+techniques so take careful note of the techniques \ldots we'll use them a lot!!
+
+\begin{problem}
+We wish to solve the difference equation $a_{n+1} - a_n = ra_n$ with initial condition $a_0$.  
+Fill in the blanks in the following table to arrive at an analytic solution to this
+difference equation.
 \begin{center}
-    \begin{tabular}{|c|c|}
+    \begin{tabular}{|c|l|}
         \hline
         $n$ & $a_n$ \\ \hline \hline
         $0$ & $a_0$ \\
-        $1$ & $a_1 = r a_0$ \\
-        $2$ & $a_2 = r a_1 = r(ra_0) = r^2 a_0$ \\
-        $3$ & $a_3 = ra_2 = r(r^2 a_0) = r^3a_0$ \\
-        $4$ & $a_4 = ra_3 = r(r^3a_0) = r^4 a_0$ \\
+        $1$ & $a_1 = \underline{\hspace{0.4in}} a_0$ \\
+        $2$ & $a_2 = \underline{\hspace{0.4in}} a_1 =  \underline{\hspace{0.4in}}a_0$ \\
+        $3$ & $a_3 = \underline{\hspace{0.4in}}a_2  = \underline{\hspace{0.4in}}a_0$ \\
+        $4$ & $a_4 = \underline{\hspace{0.4in}}a_3 =  \underline{\hspace{0.4in}}a_0$ \\
         $\vdots$ & $\vdots$ \\
-        $k$ & $a_k = r^k a_0$ \\ \hline
+        $k$ & $a_k =  \underline{\hspace{0.4in}}a_0$ \\ \hline
     \end{tabular}
 \end{center}
-Hence, we have just provided sufficient evidence to believe following theorem. \footnote{We
-hesitate to call this a proof since technically the proof would use the principle of
-mathematical induction.}
+\end{problem}
+
+Your work in the previous problem has just provided sufficient evidence to believe following theorem. 
 \begin{thm}\label{thm:9.6.linearhom}
-    If $a_{n+1} = ra_n$ with initial condition $a_0$ then the analytic solution to the DDS
+    If $a_{n+1} - a_n = ra_n$ with initial condition $a_0$ then the analytic solution to the DDS
     is
 \begin{flalign}
-    a_k = a_0\cdot r^k.
+    a_k = \underline{\hspace{0.4in}} \cdot a_0.
     \label{eqn:9.6.lienarhom_soln}
 \end{flalign}
 \end{thm}
 
 \begin{problem}
-    Find the solution to the difference equation
+    Returning now to the original difference equation from this chapter, find the solution
+    to the difference equation
     \[ P_{n+1} - P_n = -0.5 P_n \]
-    with initial condition $P_0 = 50$.
+    with initial condition $P_0 = 50$.  Use Excel to make a plot of the analytic solution
+    along with a numerical solution.
 \end{problem}
 
-Now let's solve almost the exact same differential equation: $\frac{dy}{dt} = ky$.  
+
+Now let's solve equation \eqref{eqn:1st_order_hom_differential}.  To do this we'll need to
+make a simple observation about calculus.
 \begin{problem}
-    Which function(s) from calculus has the property that if you take the derivative you
-    get the exact same function back?
+    There are two functions that have the property that they are equal to their
+    derivative. Both of these equations solve the differential equation $y'(t) = y(t)$.
+    The first solution is the function $y(t) = 0$ since $\frac{d}{dt}(0) = 0$.  What
+    is the other solution function?
 \end{problem}
 
-\subsection{Separation of Variables}
+Now let's solve almost the exact same differential equation: $y'(t) = ry(t)$.  
 \begin{problem}
     Based on your answer to the previous problem, what is the solution to the differential
-    equation $\frac{dy}{dt} = ky$?
+    equation $y'(t) = ry(t)$?
 \end{problem}
-You should notice that in both the difference equation, $a_{n+1} - a_n = ka_n$, and the
-differential equation, $\frac{dy}{dt} = ky$, the solution turns out to be exponential.
+You should notice that in both the difference equation, $a_{n+1} - a_n = ra_n$, and the
+differential equation, $y(t) = ry(t)$, the solution turns out to be exponential.
 The only big difference is the base of the exponential.  
 
+\begin{thm}
+    The solution to the differential equation $y'(t) = ry(t)$ with initial condition $y(0)
+    = y_0$ is
+    \[ y(t) = \underline{\hspace{1in}}. \]
+\end{thm}
+
 
 \begin{problem}
-    Now follow these steps to develop another technique for solving the differential
-    equation $\frac{dy}{dt} = ky$.
-\ba
-    \item Divide both sides of the equation by $y$ and multiply both sides by $dt$.
-    \item You should now have an equation where the only variable on the left-hand side is
-        $y$ and the only variable on the right-hand side is $t$.  Integrate both sides.
-    \item Solve for $y$.  You should find the same solution that we {\it guessed} before,
-        but this time we did it without any guesswork.
-\ea
+    Solve the following first order homogeneous difference and differential equations.
+    \begin{flalign*}
+        a_{n+1} - a_n &= 3 a_n \quad \text{with} \quad a_0 = 7 \\ 
+        y'(t) &= 3 y(t) \quad \text{with} \quad y(0) = 7 \\ 
+        b_{n+1} - b_n &= -0.3 b_n \quad \text{with} \quad b_0 = 7 \\ 
+        x'(t) &= -0.3 x(t) \quad \text{with} \quad x(0) = 2 
+    \end{flalign*}
+\end{problem}
+
+\begin{problem}
+    Write a mathematical model associated with each of the previous equations.
+\end{problem}
+
+\section{Technique: Solving $1^{st}$ Order Linear Nonhomogeneous Equations}
+We now turn to finding analytic solutions to the difference equations and differential
+equation that we've encountered thus far.   We will start with a technique, called {\it
+separation of variables}, that only applies to differential equations since in
+differential equation we can leverage the ideas of calculus.   We will then look at a
+powerful technique called {\it the method of undetermined coefficients} that works for
+both differential equations and difference equations.  With practice you'll get the hang
+of which one to use in which instances.
+
+\subsection{Solution Technique: Separation of Variables}
+\begin{problem}
+    Consider the differential equation 
+    \[ \frac{dy}{dt} = y \]
+    with the initial condition $y(0) = 1$.
+    \begin{enumerate}
+        \item[(a)] Putting the differential equation into words: \\ {\it the derivative of
+            some unknown function is equal to the function itself.} \\
+            what is the function?
+        \item[(b)] Allow me to abuse some notation: \\
+            If you multiply both sides by $dt$ and divide both sides by $y$ we end up with
+            \[ \frac{dy}{y} = dt. \]
+            Integrate both sides and solve for $y$.
+        \item[(c)] Compare your answers to parts (b) and (c).
+    \end{enumerate}
+\end{problem}
+\solution{
+The solution is clearly $y(t) = e^t$.
+}
+
+\begin{problem}
+    In part (b) of the previous problem we said that we were ``abusing notation''.  What does
+    that mean?  What notation is being abused?
+\end{problem}
+
+\begin{technique}[Separation of Variables]
+    To solve a differential equation of the form
+    \[ \frac{dy}{dx} = f(y)\cdot g(x) \]
+    Separate and integrate by treating the ``$dy/dt$'' as a fraction\footnote{Technically
+        speaking the ``$dy/dt$'' is not a fraction it is a shorthand notation for a
+    limit.  More technically there is some sneaky chain rule happening behind the scenes
+here \ldots can you find it.}
+    \[ \int \frac{dy}{f(y)} = \int g(x) dx \]
+    Notice that the right-hand side of the differential equation factors perfectly hence
+    separating the variables into the functions $f$ and $g$.
+\end{technique}
+
+\begin{problem}
+    With your partner, write a differential equation that can be solved via separation of
+    variables.  Once you have your equation trade with a different group and solve their
+    equation.
+\end{problem}
+
+\begin{example}
+    Solve the differential equation 
+    \[ \frac{dy}{dt} = 0.5 y \quad \text{with} \quad y(0) = 7 \]
+    using the method of separation of variables.\\{\bf Solution:} Notice that this
+    differential equation is separable since we can separate the functions of $y$ and the
+    functions of $t$
+    \[ \frac{dy}{y} = 0.5 dt. \]
+    Integrating both sides of this equation we get
+    \[ \int \frac{1}{y} dy = \int 0.5 dt \quad \implies \quad \ln(y) + C_1 = 0.5 t + C_2.
+    \]
+    Notice that if we subtraction the constant $C_1$ from both sides we actually just get
+    a new arbitrary constant on the right-hand side.  For this reason it is customary to
+    only write one of the two constants when showing the work for this method
+    \[ \ln(y) = 0.5 t + C. \]
+    Exponentiating both sides of this equation gives 
+    \[ y(t) = e^{0.5 t + C} \]
+    and we can now recognize that this is the same, algebraically, as
+    \[ y(t) = e^{0.5t} e^C.  \]
+    Furthermore, $e^C$ is just another constant so we write the general solution as 
+    \[ y(t) = Ce^{0.5t}. \]
+    To get the value of $C$ we substitute $t=0$ into the equation to get $7 = Ce^0$ which
+    implies that $C= 7$ and the solution is 
+    \[ y(t) = 7e^{0.5t}. \]
+\end{example}
+
+\begin{example}
+    Solve the differential equation 
+    \[ \frac{dy}{dt} = 3y+12 \quad \text{with} \quad y(0) = 2 \]
+    using separation of variables. \\{\bf Solution:} We're first going to factor the
+    right-hand side of the differential equation so that the integration that we run in to
+    is not so hard.
+    \[ \frac{dy}{dt} = 3(y+4). \]
+    Separating and integrating gives
+    \[ \int \frac{1}{y+4} dy = \int 3dt \quad \implies \quad \ln(y+4) = 3t+C. \]
+    Exponentiating both sides and repeating the same type of algebra as in the previous
+    example we get
+    \[ y + 4 = Ce^{3t}. \]
+    Finally, we can subtract 4 from both sides of the equation to get the general solution
+    \[ y(t) = Ce^{3t} - 4. \]
+    Using the initial condition we see that 
+    \[ 2 = C - 4 \quad \implies \quad C=6 \]
+    which implies that 
+    \[ y(t) = 6 e^{3t} - 4. \]
+\end{example}
+
+
+\begin{problem}
+    A drug is eliminated from the body via natural metabolism.  Assume that there is an
+    initial amount of $A_0$ drug in the body.  Which of the following is the best
+    differential equation model for the drug removal?  Once you have the model solve it
+    with the appropriate technique.
+    \begin{enumerate}
+        \item $A' = -kt$
+        \item $A' = -kA$
+        \item $A' = -kA(1-A/N)$
+        \item $A' = -kAt$
+    \end{enumerate}
+\end{problem}
+\solution{
+    $A'=-kA$ so $A(t) = Ce^{-kt}$ with separation of variables.  \\ Show a slope field for
+    this and discuss stability and equilibrium. Also discuss why the other won't work.
+}
+
+\begin{problem}
+    An ideal ice cube that is exactly cube shaped (perfect squares on all sides) melts in
+    your drink.  A differential equation that models the melting of the ice is 
+    \[ \frac{dV}{dt} = k S(t) \]
+    where $S(t)$ is a function describing the surface area of the ice cube.  
+    \begin{enumerate}
+        \item[(a)] Explain why this differential equation is physically reasonable.
+        \item[(b)] Write down the geometric formulas for the volume and the surface area
+            of a cube in terms of the length of the side, $x$:
+            \[ V(x) = \underline{\hspace{1in}} \qquad S(x) = \underline{\hspace{1in}} \]
+        \item[(c)] Solve the surface area function for $x$ as a function of $S$.
+        \item[(d)] Substitute your answer from part (c) into the $x$ in the volume
+            equation in part (b). 
+        \item[(e)] Rewrite the differential equation 
+            \[ \frac{dV}{dt} = kS \]
+            in terms of $V$ using your answer from part (d).
+        \item[(f)] Solve the differential equation resulting from part (e) using
+            separation of variables.
+    \end{enumerate}
 \end{problem}
 
 
 \begin{problem}
-    Next we'll consider a differential equation of the form $\frac{dy}{dt} = y+1$.  Follow
-    the exact same steps as in the previous problem to solve for $y$.
+    Suppose that a cup of coffee is initially at a temperature of $105^\circ$ F and is
+    placed in a $75^\circ$ F room.  Newton's law of cooling says that 
+    \[ \frac{dT}{dt} = -k\left( T - 75 \right) \]
+    where $k$ is a constant related to the insulation properties of the coffee mug.  
+    \begin{enumerate}
+        \item[(a)] Suppose you measure that the coffee is cooling at one degree per minute
+            at the time the coffee is brought into the room.  Use the differential
+            equation to determine the value of the constant $k$.
+        \item[(b)] Find all solutions to this differential equation.
+        \item[(c)] What happens to all of the solutions as $t\to\infty$?  Explain how this
+            agrees with your intuition.
+        \item[(d)] What is the temperature of the cup of coffee after 20 minutes?
+        \item[(e)] How long does it take for the coffee to cool to $80^\circ$F?
+    \end{enumerate}
 \end{problem}
+
+\begin{problem}
+    In a dog, an intravenous dose of 30 mg of pentobarbital sodium per kilogram of body
+    weight will usually produce surgical anesthesia. Also in the dog, pentobarbital has a
+    biological halflife of about 4.5 hours, due almost entirely to metabolism.  You
+    anesthetize a 14-kg dog with the above dose of pentobarbital. Two hours later the
+    anesthesia is obviously beginning to lighten and you want to restore the original
+    depth of anesthesia. How many milligrams of pentobarbital sodium should you inject?
+    Write and solve a differential equation to answer this question.
+\end{problem}
+\solution{
+    The simplest differential equation model is 
+    \[ \frac{dP}{dt} = -kP \]
+    where $P$ is the amount of pentobarbital (in mg) and $t$ is time (in hours).  The
+    solution is clearly $P(t) = C e^{-kt}$ where $C = 420 = (14 \text{kg})(30
+    \text{mg/kg})$.  Since we know the half life of the drug we can find $k$ as
+    \[ 0.5P_0 = P_0 e^{-k(4.5)} \quad \implies \quad k \approx 0.154033 \]
+    and hence $P(t) = 420 e^{-0.15033t}$.
+}
+
+
+\begin{problem}
+    In a local pine forest the Pine Beetle is killing the trees at a rate proportional to the
+    number of available trees in the forest.  A conservation group is attempting to curb the
+    problem by planting 5 live trees per week.  Write a differential equation describing
+    this scenario, classify the differential equation, and determine if it can be solved
+    with separation of variables.
+%     Which of the following is a mathematical model
+%     for the number of live trees as a function of time (measured in weeks)?
+%     \begin{enumerate}
+%         \item $T' = -kT + 5$
+%         \item $T' = -kT + 5*t$
+%         \item $T' = -5k*T*t$
+%         \item $T' = -5k*t$
+%     \end{enumerate}
+\end{problem}
+\solution{
+$T' = -kT + 5$.  First order, linear, autonomous, non-homogeneous. Separation is fine
+since is it autonomous.
+\[ \int \frac{dT}{T-5/k} = \int -k dt = -kt+C \implies \ln(T-5/k) = -kt+C \implies T =
+Ce^{-kt} + \frac{5}{k} \]
+}
+
+
+\begin{problem}
+    Solve each of the following differential equations.  If an initial condition is given
+    then use it to find any unknown constants. (Some of these may require advanced
+    integration techniques)
+    \begin{flalign*}
+        \frac{dy}{dt} - (2-t)y &= 2-t \\
+        \frac{1}{t} \frac{dy}{dt} &= e^{t^2-2y} \\
+        \frac{dy}{dt} &= 2y+2,\, y(0) = 2 \\
+        \frac{dy}{dt} &= 2y^2, \, y(-1) = 2
+    \end{flalign*}
+\end{problem}
+
+We'll wrap up this subsection with a few more examples.
+\begin{example}
+    Solve the differential equation
+    \[ \frac{dy}{dt} = \frac{y}{t^2} \quad \text{with} \quad y(1) = 5 \]
+    using separation of variables.  \\{\bf Solution:} We can separate variables,
+    integrate, and do some algebra to get
+    \[ \int \frac{dy}{y} = \int \frac{dt}{t^2} \quad \implies \quad \ln(y) =
+    -\frac{1}{t} + C \quad \implies \quad y(t) = Ce^{-1/t}. \]
+    Using the condition $y(1) = 5$ we see that $5 = Ce^{-1}$ which implies that $C = 5e$
+    and the solution to the differential equation is 
+    \[ y(t) = 5e^{1-1/t}. \]
+\end{example}
+
+\begin{example}
+   Solve the differential equation 
+   \[ \frac{dy}{dt} = \frac{2ty}{t^2+1} \]
+   using separation of variables. \\{\bf Solution:}
+   If we separate the variables and integrate we see that 
+   \[ \int \frac{dy}{y} = \int \frac{2t}{t^2+1} dt \quad \implies \quad \ln(y) =
+   \ln(t^2+1)+C. \]
+   The right-hand integral used the idea of $u$-substitution (you should stop now and work
+   out the $u$-substitution by hand).  Exponentiating both sides gives
+   \[ y(t) = e^{\ln(t^2+1)+C} = Ce^{\ln(t^2+1)} = C(t^2+1). \]
+\end{example}
 
 For more problems related to separation of variables see
 \href{http://faculty.gvsu.edu/boelkinm/Home/AC/sec-7-4-separable.html}{Active Calculus Section
 7.3}.  
 
 
-\subsection{Undetermined Coefficients (FINISH)}
-FINISH
+% \begin{problem}
+%     True or False: Every first order autonomous differential equation is separable. Be
+%     able to defend your answer.
+% \end{problem}
+% \solution{True, but the integration may be horrible!}
+% 
+% 
+% \begin{problem}
+%     In the movie Interstellar, ``Plan B'' was for the astronauts to start a colony on a new
+%     planet.  There was 1 female in the group so she would presumably carry the children.
+%     Genetic diversity was no problem because of the donor eggs.  The supplies on the colony
+%     would be limited by local resources as well as what they brought with them
+%     (which minimal).  Which of the following models should the astronauts use to plan
+%     their future reproduction, and what do the parameters mean?  Explain your choice for the best one.
+%     \begin{itemize}
+%         \item $P' = kP$
+%         \item $P' = kt$
+%         \item $P' = -kP\ln(P/N)$
+%         \item $P' = kP(1-P/N) $
+%     \end{itemize}
+% \end{problem}
+% \solution{A logistic model is the best choice. Either of the last two choice could work.
+%     \[ \int \frac{dP}{P\ln(P/N)} = \int -k dt \implies \int \frac{dP}{P\ln(P/N)} = -kt + C
+%     \]
+%     \[ \implies (\text{with } u=P/N) \,  \int \frac{1}{u\ln(u)} = -kt+C \implies
+%     (\text{with } v=1/u) \, \int \frac{1}{v}dv = -kt + C \]
+%     \[ \implies \ln(v) = -kt+c \implies \ln(\ln(P/N))=-kt+C \implies \ln(P/N) = Ce^{-kt}
+%     \implies P(t) = N e^{Ce^{-kt}} \]
+% 
+%     For the more standard logistic model:
+%     \[ \int \frac{dP}{P(1-P/N)} = -kt+C \implies \int \frac{A}{P} + \frac{B}{1-P/N} dP =
+%     -kt + C \implies \int \frac{1}{P} + \frac{(1/N)}{1-P/N} dP = -kt+ C \]
+%     \[ \implies \ln(P) - \ln(1-P/N) = -kt+C \implies \ln \left( \frac{P}{1-P/N} \right) =
+%     -kt+C\]
+%     \[ \implies \frac{P}{1-P/N} = Ce^{-kt} \implies P(t) = \frac{Ce^{-kt}}{1-Ce^{-kt}/N}
+%     \]
+% 
+% }
+% 
+
+\subsection{Solution Technique: Undetermined Coefficients}
+Now let's focus on a solution technique that works for both difference and differential
+equations.  When faced with a separable differential equation you'll find that separation
+of variables will always be easier.  However, not all differential equations are
+separable!  For example, the differential equation $y' = 0.5y + t$ cannot be separated.
+Furthermore, separation of variables makes no sense on difference equations since there
+are no derivatives.
+
+% Some folks call this technique the ``four step method'', but in reality this is just one
+% of many techniques for solving non-homogeneous differential equations.  Instead of
+% thinking of this in ``four steps'' you should really just consider this a bit of
+% mathematical detective work.  
+You can think of this new method, {\it the method of undetermined coefficients}, as {\it
+mathematical detective work}.  We're going to guess the form of the solution and then
+follow our noses to find the missing coefficients -- hence the name {\it undetermined
+coefficients}.  
+
+\begin{technique}[Undetermined Coefficients]
+    The method of {\it undetermined coefficients} is roughly outlined as:
+    \begin{enumerate}
+        \item find a solution for the homogeneous equation,
+        \item conjecture a particular solution for the non-homogeneous equation, 
+        \item use the initial condition to find a relationship between some of the
+            coefficients, and
+        \item use the particular solution in the equation to find the
+            remaining coefficients.
+    \end{enumerate}
+\end{technique}
+
+We'll highlight this technique with a sample problem.  Work through all of these steps to
+get the idea of how to use undetermined coefficients.
+\begin{problem}
+    Solve the following first order linear non-homogeneous differential equation by
+    following the steps outlined.
+    \[ \frac{dy}{dt} = -0.2 y + 3 \quad \text{with} \quad y(0) = 5 \]
+    \begin{enumerate}
+        \item[(a)] First solve the homogeneous part of the equation: $y' = -0.2y$.  Don't
+            use the initial condition yet.
+            \[ y_{hom}(t) = \underline{\hspace{1in}} \]
+            \solution{$y_h(t) = C_0 e^{-0.2t}$}
+        \item[(b)] Next conjecture that a {\it particular} solution has the same functional
+            form as the non-homogeneity.  In this case the non-homogeneity is a constant
+            function so we guess that the particular function is a generic constant
+            function
+            \[ y_{particular}(t) = C. \]
+        \item[(c)] The full analytic solution to the differential equation is the sum of the
+            homogeneous and particular solutions: $y(t) = y_{hom}(t) + y_{part}(t)$.  Note
+            that this is only the case for linear difference or differential equations.
+            \[ y(t) = \underline{\hspace{2in}} \]
+            \solution{$y(t) = C_0 e^{-0.2t} + C_1$}
+        \item[(d)] Substitute the particular solution into the differential equation and see
+            what equation comes out
+            \[ \underline{\hspace{1in}} = \underline{\hspace{1in}} \]
+            \solution{$0=-0.2C_1+3 \implies C_1 = 3/0.2=15$ }
+        \item[(e)] Substitute the initial condition into the analytic solution and see what
+            equation comes out
+            \[ \underline{\hspace{1in}} = \underline{\hspace{1in}} \]
+            \solution{$5=C_0 + 15 \implies C_0 = -10$ }
+        \item[(f)] Determine the final solution
+            \solution{$y(t) = -10e^{-0.2t} + 15$}
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}
+    Leave all of your work from the previous problem somewhere you can see it.  We're now
+    going to solve a difference equation of the exact same form using the method of
+    undetermined coefficients. \\
+    Solve the difference equation
+    \[ a_{n+1} - a_n = -0.2 a_n + 3 \quad \text{with} \quad a_0 = 5. \]
+    \begin{enumerate}
+        \item[(a)] First solve the homogeneous part of the equation: $a_{n+1} - a_n = -0.2
+            a_n$. Don't use the initial condition yet. 
+            \[ a_{hom} = \underline{\hspace{1in}} \]
+            \solution{
+                \[ a_{hom} = C (1-0.2)^n. \]
+            }
+        \item[(b)] Next conjecture that a {\it particular} solution has the same functional
+            form as the non-homogeneity.  In this case the non-homogeneity is a constant
+            function so we guess that the particular function is a generic constant
+            function
+            \[ a_{particular} = C. \]
+        \item[(c)] The full analytic solution to the differential equation is the sum of the
+            homogeneous and particular solutions: $a_n = a_{hom} + a_{part}$.  Note
+            that this is only the case for linear difference or differential equations.
+            \[ a_n = \underline{\hspace{2in}} \]
+            \solution{$a_n = C_0 (0.8)^n + C_1$}
+        \item[(d)] Substitute the particular solution into the difference equation and see
+            what equation comes out
+            \[ \underline{\hspace{1in}} = \underline{\hspace{1in}} \]
+            \solution{$0=-0.2C_1+3 \implies C_1 = 3/0.2=15$ }
+        \item[(e)] Substitute the initial condition into the analytic solution and see what
+            equation comes out
+            \[ \underline{\hspace{1in}} = \underline{\hspace{1in}} \]
+            \solution{$5=C_0 + 15 \implies C_0 = -10$ }
+        \item[(f)] Determine the final solution
+            \solution{$a_n = -10 (0.8)^n + 15$}
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}
+    Time for a compare and contrast.  Put the solutions to both of the previous two
+    problems somewhere you can see both of them.  Compare and contrast the steps.  Once
+    you've convinced yourself that there is essentially no difference in the technique for
+    either difference or differential equations, plot both equations on the same
+    coordinate plane and discuss the similarities and differences. Where did the
+    differences come from? 
+\end{problem}
+
+
+\begin{technique}[Undetermined Coefficients]
+    To solve a non-homogenous linear difference or differential equation:
+    \begin{enumerate}
+        \item Solve the associated homogeneous equation.
+        \item Conjecture a {\it particular solution} that has the same functional form as
+            the non-homogeneity.
+        \item Build the full analytic solution as a linear combination of the homogeneous and
+            particular solutions.
+        \item Substitute the particular solution into the difference or differential equation.
+        \item Substitute the initial condition(s) into the analytic solution.
+        \item Use the equations that you found in steps 4 and 5 to find the constants.
+    \end{enumerate}
+\end{technique}
+
+\begin{problem}\label{prob:undet_coeff}
+    For each of the following linear non-homogeneous difference or differential equations
+    write the homogeneous solution and the particular solution. 
+    \begin{enumerate}
+        \item[(a)] $y' = 3y + 4$ \qquad $y_{hom}(t) = \underline{\hspace{1in}}$\, and\, $y_{part}(t) = \underline{\hspace{1in}}$
+        \item[(b)] $a_{n+1} - a_n = 3a_n + 4$ \qquad $a_{hom} =
+            \underline{\hspace{1in}}$\, and\, $a_{part} = \underline{\hspace{1in}}$
+        \item[(c)] $y' = 3y + 4t$\qquad $y_{hom}(t) = \underline{\hspace{1in}}$\, and\, $y_{part}(t) = \underline{\hspace{1in}}$
+        \item[(d)] $a_{n+1}-a_n = 3a_n + 4t$\qquad $a_{hom} =
+            \underline{\hspace{1in}}$\, and\, $a_{part} = \underline{\hspace{1in}}$
+        \item[(e)] $y' = 3y + 4\sin(t)$\qquad $y_{hom}(t) = \underline{\hspace{1in}}$\,
+            and\, $y_{part}(t) = \underline{\hspace{1in}}$
+        \item[(f)] $a_{n+1} - a_n = 3a_n + 4\sin(n)$\qquad $a_{hom} = \underline{\hspace{1in}}$\,
+            and\, $a_{part} = \underline{\hspace{1in}}$
+        \item[(g)] $y' = 3y + 4e^{-t}$\qquad $y_{hom}(t) = \underline{\hspace{1in}}$\,
+            and\, $y_{part}(t) = \underline{\hspace{1in}}$
+        \item[(h)] $a_{n+1} - a_n = 3a_n + 4e^{-n}$\qquad $a_{hom} = \underline{\hspace{1in}}$\,
+            and\, $a_{part} = \underline{\hspace{1in}}$
+    \end{enumerate}
+\end{problem}
+\solution{
+    \begin{enumerate}
+        \item[(a)] $y_h(t) = C_0e^{3t}$ and $y_p(t) = C_1$
+        \item[(b)] $y_h(t) = C_0e^{3t}$ and $y_p(t) = C_1t + C_2$
+        \item[(c)] $y_h(t) = C_0e^{3t}$ and $y_p(t) = C_1\sin(t) + C_2 \cos(t)$
+        \item[(d)] $y_h(t) = C_0e^{3t}$ and $y_p(t) = C_1e^{-t}$
+    \end{enumerate}
+}
+
+
+\begin{problem}
+    Solve all of the differential equations in the previous problem using either
+    separation of variables (if possible) or undetermined coefficients. For each one use
+    $y(0) = 2$.
+\end{problem}
+\solution{
+    Part (a)
+    \[ y' = 3(y+\frac{4}{3}) \implies \cdots\implies y(t) = Ce^{3t} -
+        \frac{4}{3} \]
+    \[ y_{hom} = C_0e^{3t} \quad y_{part} = C_1 \implies 0 = 3C_1 + 4 \implies C_1 =
+        -\frac{4}{3} \]
+        Using the initial conditions we see that $2 = C_0 - \frac{4}{3} \implies C_0 =
+        \frac{10}{3}$ so
+        \[ y(t) = \frac{10}{3} e^{3t} - \frac{4}{3}. \]
+    Part (b)
+    \[ y_{hom} = C_0e^{3t} \quad y_{part} = C_1 t + C_2 \implies C_1 = 3(C_1 t + C_2) + 4t
+        \]
+    \[ \implies 3C_1 + 4 = 0 \quad \text{and} \quad C_1 = 3C_2 \implies C_1 =
+    -\frac{4}{3}, \quad C_2 = -\frac{4}{9} \]
+    \[ \implies y(t) = C_0 e^{3t} - \frac{4}{3} t - \frac{4}{9} \implies 2 = C_0 -
+        \frac{4}{9} \implies
+    C_0 = \frac{22}{9} \implies y(t) = \frac{22}{9} e^{3t} - \frac{4}{3}t -
+\frac{4}{9} \]
+}
+
+% \begin{problem}
+%     Solve part (c) of problem \ref{prob:undet_coeff} with $y(0) =2$.
+% \end{problem}
+% 
+% \begin{problem}
+%     Solve part (d) of problem \ref{prob:undet_coeff} with $y(0) =2$.
+% \end{problem}
+
+
+\begin{example}
+    Solve the difference equation $a_{n+1} - a_n = a_n - 1$ with $a_0 = 5$.  \\{\bf
+    Solution:} Notice that this is a linear non-homogeneous difference equation so we can
+    use the method of undetermined coefficients.
+    \begin{enumerate}
+        \item The homogeneous difference equation is $a_{n+1} - a_n = a_n$ so we know that
+            the general homogeneous solution is $a_{hom} = C_0\cdot 2^n$.
+        \item The non-homogeneity is constant so we guess that the particular solution
+            will be constant: $a_{part} = C_1$.
+        \item The analytic solution takes the form $a_n = C_0 \cdot 2^n + C_1$.  
+        \item Putting the initial condition into the analytic solution gives $5= C_1 +
+            C_1$.
+        \item Putting the particular solution into the original difference equation gives
+            $C_1 - C_1 = C_1 - 1$ which implies that $C_1 = 1$.  Together with the
+            information from the previous step we also now know that $C_0 = 4$.
+        \item The analytic solution to the difference equation is $a_n = 4 \cdot 2^n + 1$.
+    \end{enumerate}
+\end{example}
+
+\begin{example}
+    Solve the differential equation $y' = y - 1$ with $y(0) = 5$.  \\{\bf Solution:} We
+    know that the steps from the previous example will be exactly the same with the
+    exception of the homogeneous solution.  Therefore we know that the general solution is
+    $y(t) = C_0 e^{t} + C_1$, the value of $C_1$ is $C_1 = 1$, and the value of $C_0$ is
+    $C_0 = 4$.  Therefore the analytic solution to this differential equation is $y(t) = 4 e^t + 1$.
+\end{example}
+
+\begin{example}
+    Solve the differential equation $y' = 2y + 7t$ with $y(0) = 3$. \\{\bf Solution:} We
+    will use the method of undetermined coefficients.  
+    \begin{enumerate}
+        \item The homogeneous differential equation is $y' = 2y$ and the associated
+            solution is $y_{hom}(t) = Ce^{2t}$.  
+        \item The non-homogeneity is linear so we assume that the particular solution is a
+            linear function.  The most general form of a linear function is: $y_{part}(t)
+            = C_1 t + C_2$.
+        \item The full general solution is
+            \[ y(t) = C_0 e^{2t} + C_1 t + C_2. \]
+        \item Putting the initial condition into the analytic solution gives 
+            \[ 5 = C_0 + 0 C_1 + C_2. \]
+        \item Putting the particular solution into the differential equation gives
+            \[ C_1 = 2(C_1t + C_2) + 7t. \]
+            We can rewrite this as 
+            \[ 0t + C_1 = 2C_1 t + 2C_2 + 7t, \]
+            and now we match coefficients to get
+            \[ 0 = 2C_1 + 7 \]
+            and 
+            \[ C_1 = 2C_2. \]
+            From this we see that $C_1 = 7/2$ and $C_2 = 7/4.$  Furthermore, we can use
+            the result from the previous step to get $C_0 = 5 - C_2 = 5 - 7/4 = 13/4.$
+        \item The solution is
+            \[ y(t) = \frac{13}{4} e^{2t} + \frac{7}{2} t + \frac{7}{4}. \]
+    \end{enumerate}
+\end{example}
+
+\begin{problem}
+    Solve the difference equation $a_{n+1} - a_n = 2a_n + 7n$ with $a_0 = 3$.
+\end{problem}
+
+
+\begin{example}
+    Solve the differential equation $y'(t) = \frac{1}{3} y + \cos(t)$ with $y(0) = 1$.
+    \\{\bf Solution:} We will use the method of undetermined coefficients.  
+    \begin{enumerate}
+        \item The homogeneous equation is $y' = \frac{1}{3} y$ and the solution is
+            $y_{hom}(t) = C_0 e^{t/3}$.
+        \item The non-homogeneity is a trigonometric function so we use a linear
+            combination of both sine and cosine for the particular solution:
+            \[ y_{part}(t) = C_1 \cos(t) + C_2 \sin(t). \]
+        \item The full general solution is
+            \[ y(t) = C_0 e^{t/3} + C_1 \cos(t) + C_2 \sin(t). \]
+        \item Putting the initial condition into the analytic solution gives 
+            \[ 1 = C_0 + C_1 + 0 C_2 \quad \implies 1 = C_0 + C_1. \]
+        \item Putting the particular solution into the differential equation gives
+            \begin{flalign*}
+                -C_1 \sin(t) + C_2 \cos(t) = \frac{1}{3} \left( C_1 \cos(t) + C_2 \sin(t)
+                \right) + \cos(t).
+            \end{flalign*}
+            At this point we do some fun algebra.  The ``equal sign'' must be true for all
+            $t$ so we can match the like terms and write two equations.  For the
+            coefficients of the sine functions we must have 
+            \[ -C_1 = \frac{1}{3} C_2. \]
+            for the coefficients of the cosine functions we must have 
+            \[ C_2 = \frac{1}{3} C_1 + 1. \]
+        \item We now have three equations with three unknowns.  I'll write them very
+            carefully so we can switch to matrices and solve using Gaussian Elimination
+            easily.
+            \begin{flalign*}
+                1 C_0 + 1 C_1 + 0 C_2 &= 0 \\
+                0 C_0 + 1 C_1 + \frac{1}{3} C_2 &= 0 \\
+                0 C_0 + \frac{1}{3} C_1 - 1 C_2 &= -1
+            \end{flalign*}
+            Switching to matrix notation we have the augmented system and resulting row reduction
+            \[ \left( \begin{array}{ccc|c} 
+                    1 & 1 & 0 & 0 \\ 
+                    0 & 1 & 1/3 & 0 \\ 
+                    0 & 1/3 & -1 & -1 \end{array} \right) \to 
+                \left( \begin{array}{ccc|c}  
+                    1 & 0 & -1/3 & 0 \\ 
+                    0 & 1 & 1/3 & 0 \\ 
+                    0 & 0 & -10/9 & -1 \end{array} \right) \to 
+                \left( \begin{array}{ccc|c}  
+                    1 & 0 & 0 & 3/10 \\ 
+                    0 & 1 & 0 & -3/10 \\ 
+                    0 & 0 & 1 & 9/10 \end{array} \right).
+            \]
+        \item The analytic solution is
+            \[ \frac{3}{10} e^{t/3} - \frac{3}{10} \cos(t) + \frac{9}{10} \sin(t). \]
+    \end{enumerate}
+\end{example}
 
 
 
 
+\section{Labs and Explorations for Difference and Differential Equations}
 
-\section{First Order Modeling Problems (FINISH)}
-{\color{blue} In this section I intend to show a few modeling problems with fully worked solutions to
-the resulting difference or differential equation}
+\begin{problem}
+    In the Great Lakes region, rivers flowing into the lakes carry a great deal of
+    pollution in the form of small pieces of plastic averaging 1 millimeter in diameter.
+    In order to understand how the amount of plastic in Lake Michigan is changing,
+    construct a model for how this type pollution has built up in the lake.  We'll walk
+    through the process.
+
+    You'll need the following basic facts:
+    \begin{itemize}
+        \item The volume of the lake is $5 \times 10^{12}$ cubic meters.
+        \item Water flows into the lake at a rate of $5 \times 10^{10}$ cubic meters per
+            year.  It flows out of the lake at the same rate.
+        \item Each cubic meter flowing into the lake contains roughly $3 \times 10^{-8}$
+            cubic meters of plastic pollution.
+    \end{itemize}
+    \begin{enumerate}
+        \item[(a)] Let's denote the amount of pollution in the lake by $P(t)$ where $P$ is
+            measured in cubic meters of plastic and $t$ is in years.  We want to build a
+            differential equation for the amount of pollution:
+            \[ \frac{dP}{dt} = \text{Rate that Pollution Enters} - \text{Rate that
+            Pollution Exits} \]
+            \begin{itemize}
+                \item What is the rate that pollution is entering the lake?  This will be
+                    a number.
+                \item What is the rate that pollution is exiting the lake?  This will be a
+                    function of $P$ since we don't know how much pollution is in each
+                    cubic meter of water in the lake.
+            \end{itemize}
+            
+        \item[(b)] Write the differential equation.
+        \item[(c)] Find and classify all equilibrium points for the differential equation.
+            What do the equilibrium points mean in context?
+        \item[(d)] Solve the differential equation using an appropriate technique assuming
+            that $P(0) = 0$ (what does this initial condition mean?).
+        \item[(e)] Make a plot of your solution.
+    \end{enumerate}
+\end{problem}
 
 
 
-\section{Lab Exercises and Explorations for Difference and Differential Equations}
+\begin{problem}
+    For each of the following situations, write a first order nonhomogeneous linear
+    differential equation, find the general solution to the differential equation, and use
+    the given information to find all of the all of the constants and parameters.
+    \begin{enumerate}
+        \item[(a)] A patient is hooked to an IV which infuses 3mg of morphine per hour. The
+            patient's body absorbs the morphine at a rate proportional to the amount in the bloodstream.
+            Let $M(t)$ be the amount of morphine in the patient's bloodstream and let $k$ be
+            the constant of proportionality. Assume that the patient starts with no
+            morphine in their blood stream and 1 hour later they have 2mg of morphine in
+            their bloodstream.
+        \item[(b)] When a skydiver jumps from a plane, gravity causes her downward
+            velocity to increase at a rate of $g \approx −9.8$ meters per second per second. At
+            the same time, wind resistance causes her downward velocity to decrease at a
+            rate proportional to the square of the velocity. Let $v(t)$ be the velocity of the skydiver.
+            If there is no initial downward velocity then $v(0) = 0$. Assume that 1 second
+            after the jump the sky diver is traveling $8m/s$.
+        \item[(c)] Suppose that you have a water tank that holds 100 gallons of water. A
+            briny solution, which contains 20 grams of salt per gallon, enters the take at
+            a rate of 3 gallons per minute. At the same time, the solution is well mixed,
+            and water is pumped out of the tank at the rate of 3 gallons per minute
+            (obviously the water level in the tank remains constant). Let $S(t)$ denote the
+            number of grams of salt in the tank at minute $t$.
+    \end{enumerate}
+\end{problem}
+
+
+
+
 \begin{problem}
 Watch the following YouTube videos 
     \begin{itemize}
@@ -1338,3 +2065,4 @@ The data for this experiment can be found in the \texttt{Newton.xlsx} Excel file
     \item How would the data (and your solution) change if the beaker had been insulated?
 \end{enumerate}
 \end{lab}
+% \end{document}

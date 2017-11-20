@@ -28,30 +28,31 @@
 \contentsline {section}{\numberline {3.2}Models for Birth, Death, and Immigration}{62}{section.3.2}
 \contentsline {section}{\numberline {3.3}Difference Equations and Differential Equations}{65}{section.3.3}
 \contentsline {section}{\numberline {3.4}Stability and Equilibria}{70}{section.3.4}
-\contentsline {section}{\numberline {3.5}Euler's Method}{73}{section.3.5}
-\contentsline {section}{\numberline {3.6}Solution Techniques for First Order Models (FINISH)}{74}{section.3.6}
-\contentsline {subsection}{\numberline {3.6.1}Separation of Variables}{74}{subsection.3.6.1}
-\contentsline {subsection}{\numberline {3.6.2}Undetermined Coefficients (FINISH)}{75}{subsection.3.6.2}
-\contentsline {section}{\numberline {3.7}First Order Modeling Problems (FINISH)}{75}{section.3.7}
-\contentsline {section}{\numberline {3.8}Lab Exercises and Explorations for Difference and Differential Equations}{75}{section.3.8}
-\contentsline {chapter}{\numberline {4}Second Order Models}{84}{chapter.4}
-\contentsline {section}{\numberline {4.1}$F = ma$ (Finish)}{84}{section.4.1}
-\contentsline {section}{\numberline {4.2}Modeling Mass Spring Oscillators (Finish)}{84}{section.4.2}
-\contentsline {section}{\numberline {4.3}Solution Techniques for Second Order Differential Equations (Finish)}{84}{section.4.3}
-\contentsline {chapter}{\numberline {5}Systems of Difference and Differential Equations}{85}{chapter.5}
-\contentsline {section}{\numberline {5.1}Rumor Spreading System (Finish)}{85}{section.5.1}
-\contentsline {section}{\numberline {5.2}Linear Systems (Finish)}{85}{section.5.2}
-\contentsline {section}{\numberline {5.3}The Eigenvalue / Eigenvector Problem (Finish)}{85}{section.5.3}
-\contentsline {section}{\numberline {5.4}Analysis of Linear Systems (Finish)}{85}{section.5.4}
-\contentsline {chapter}{Appendices}{86}{section*.20}
-\contentsline {chapter}{\numberline {A}MATLAB Basics}{87}{Appendix.a.A}
-\contentsline {section}{\numberline {A.1}Vectors and Matrices}{87}{section.a.A.1}
-\contentsline {section}{\numberline {A.2}Looping}{89}{section.a.A.2}
-\contentsline {subsection}{\numberline {A.2.1}For Loops}{89}{subsection.a.A.2.1}
-\contentsline {subsection}{\numberline {A.2.2}The While Loop}{90}{subsection.a.A.2.2}
-\contentsline {section}{\numberline {A.3}Conditional Statements}{91}{section.a.A.3}
-\contentsline {subsection}{\numberline {A.3.1}If Statements}{91}{subsection.a.A.3.1}
-\contentsline {subsection}{\numberline {A.3.2}Case-Switch Statements}{92}{subsection.a.A.3.2}
-\contentsline {section}{\numberline {A.4}Functions}{92}{section.a.A.4}
-\contentsline {section}{\numberline {A.5}Plotting}{93}{section.a.A.5}
-\contentsline {section}{\numberline {A.6}Animations}{94}{section.a.A.6}
+\contentsline {section}{\numberline {3.5}Euler's Method: Numerical Solutions for Differential Equations}{73}{section.3.5}
+\contentsline {section}{\numberline {3.6}Classifying Difference and Differential Equations}{74}{section.3.6}
+\contentsline {section}{\numberline {3.7}Technique: Solving $1^{st}$ Order Linear Homogeneous Equations}{75}{section.3.7}
+\contentsline {section}{\numberline {3.8}Technique: Solving $1^{st}$ Order Linear Nonhomogeneous Equations}{77}{section.3.8}
+\contentsline {subsection}{\numberline {3.8.1}Solution Technique: Separation of Variables}{77}{subsection.3.8.1}
+\contentsline {subsection}{\numberline {3.8.2}Solution Technique: Undetermined Coefficients}{82}{subsection.3.8.2}
+\contentsline {section}{\numberline {3.9}Labs and Explorations for Difference and Differential Equations}{88}{section.3.9}
+\contentsline {chapter}{\numberline {4}Second Order Models}{99}{chapter.4}
+\contentsline {section}{\numberline {4.1}$F = ma$ (Finish)}{99}{section.4.1}
+\contentsline {section}{\numberline {4.2}Modeling Mass Spring Oscillators (Finish)}{99}{section.4.2}
+\contentsline {section}{\numberline {4.3}Solution Techniques for Second Order Differential Equations (Finish)}{99}{section.4.3}
+\contentsline {chapter}{\numberline {5}Systems of Difference and Differential Equations}{100}{chapter.5}
+\contentsline {section}{\numberline {5.1}Rumor Spreading System (Finish)}{100}{section.5.1}
+\contentsline {section}{\numberline {5.2}Linear Systems (Finish)}{100}{section.5.2}
+\contentsline {section}{\numberline {5.3}The Eigenvalue / Eigenvector Problem (Finish)}{100}{section.5.3}
+\contentsline {section}{\numberline {5.4}Analysis of Linear Systems (Finish)}{100}{section.5.4}
+\contentsline {chapter}{Appendices}{101}{section*.20}
+\contentsline {chapter}{\numberline {A}MATLAB Basics}{102}{Appendix.a.A}
+\contentsline {section}{\numberline {A.1}Vectors and Matrices}{102}{section.a.A.1}
+\contentsline {section}{\numberline {A.2}Looping}{104}{section.a.A.2}
+\contentsline {subsection}{\numberline {A.2.1}For Loops}{104}{subsection.a.A.2.1}
+\contentsline {subsection}{\numberline {A.2.2}The While Loop}{105}{subsection.a.A.2.2}
+\contentsline {section}{\numberline {A.3}Conditional Statements}{106}{section.a.A.3}
+\contentsline {subsection}{\numberline {A.3.1}If Statements}{106}{subsection.a.A.3.1}
+\contentsline {subsection}{\numberline {A.3.2}Case-Switch Statements}{107}{subsection.a.A.3.2}
+\contentsline {section}{\numberline {A.4}Functions}{107}{section.a.A.4}
+\contentsline {section}{\numberline {A.5}Plotting}{108}{section.a.A.5}
+\contentsline {section}{\numberline {A.6}Animations}{109}{section.a.A.6}
