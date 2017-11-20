@@ -4,7 +4,7 @@
 \contentsline {section}{\numberline {0.3}To the Instructor}{6}{section.0.3}
 \contentsline {chapter}{\numberline {1}Fundamental Notions from Calculus}{8}{chapter.1}
 \contentsline {section}{\numberline {1.1}Sections from Active Calculus}{8}{section.1.1}
-\contentsline {section}{\numberline {1.2}Lab Activities for Calculus and Modeling}{9}{section.1.2}
+\contentsline {section}{\numberline {1.2}Modeling Explorations with Calculus}{9}{section.1.2}
 \contentsline {chapter}{\numberline {2}An Introduction to Linear Algebra}{15}{chapter.2}
 \contentsline {section}{\numberline {2.1}Why Linear Algebra?}{15}{section.2.1}
 \contentsline {section}{\numberline {2.2}Matrix Operations and Gaussian Elimination}{18}{section.2.2}
@@ -15,14 +15,14 @@
 \contentsline {subsection}{\numberline {2.6.1}Inverses}{37}{subsection.2.6.1}
 \contentsline {subsection}{\numberline {2.6.2}Determinants}{39}{subsection.2.6.2}
 \contentsline {section}{\numberline {2.7}Technology For Linear Algebra}{42}{section.2.7}
-\contentsline {section}{\numberline {2.8}Span, Linear Independence and Basis}{44}{section.2.8}
-\contentsline {subsection}{\numberline {2.8.1}Span}{45}{subsection.2.8.1}
-\contentsline {subsection}{\numberline {2.8.2}Linear Independence, Linear Dependence, and Basis}{47}{subsection.2.8.2}
-\contentsline {subsection}{\numberline {2.8.3}The Column and Null Spaces of a Matrix}{52}{subsection.2.8.3}
-\contentsline {section}{\numberline {2.9}Lab Activities for Linear Algebra}{54}{section.2.9}
-\contentsline {subsection}{\numberline {2.9.1}Input-Output Economies}{55}{subsection.2.9.1}
-\contentsline {subsection}{\numberline {2.9.2}Traffic Networks}{57}{subsection.2.9.2}
-\contentsline {subsection}{\numberline {2.9.3}Balancing Chemical Equations}{59}{subsection.2.9.3}
+\contentsline {section}{\numberline {2.8}The Magic Carpet Ride}{44}{section.2.8}
+\contentsline {section}{\numberline {2.9}Span}{45}{section.2.9}
+\contentsline {section}{\numberline {2.10}Linear Independence, Linear Dependence, and Basis}{47}{section.2.10}
+\contentsline {section}{\numberline {2.11}The Column and Null Spaces of a Matrix}{52}{section.2.11}
+\contentsline {section}{\numberline {2.12}Modeling Explorations with Linear Algebra}{54}{section.2.12}
+\contentsline {subsection}{\numberline {2.12.1}Input-Output Economies}{55}{subsection.2.12.1}
+\contentsline {subsection}{\numberline {2.12.2}Traffic Networks}{57}{subsection.2.12.2}
+\contentsline {subsection}{\numberline {2.12.3}Balancing Chemical Equations}{59}{subsection.2.12.3}
 \contentsline {chapter}{\numberline {3}First Order Models}{61}{chapter.3}
 \contentsline {section}{\numberline {3.1}Birth, Death, and Immigration Exploration}{61}{section.3.1}
 \contentsline {section}{\numberline {3.2}Models for Birth, Death, and Immigration}{62}{section.3.2}
@@ -34,25 +34,28 @@
 \contentsline {section}{\numberline {3.8}Technique: Solving $1^{st}$ Order Linear Nonhomogeneous Equations}{77}{section.3.8}
 \contentsline {subsection}{\numberline {3.8.1}Solution Technique: Separation of Variables}{77}{subsection.3.8.1}
 \contentsline {subsection}{\numberline {3.8.2}Solution Technique: Undetermined Coefficients}{82}{subsection.3.8.2}
-\contentsline {section}{\numberline {3.9}Labs and Explorations for Difference and Differential Equations}{88}{section.3.9}
+\contentsline {section}{\numberline {3.9}Modeling Explorations with Difference and Differential Equations}{88}{section.3.9}
 \contentsline {chapter}{\numberline {4}Second Order Models}{99}{chapter.4}
-\contentsline {section}{\numberline {4.1}$F = ma$ (Finish)}{99}{section.4.1}
-\contentsline {section}{\numberline {4.2}Modeling Mass Spring Oscillators (Finish)}{99}{section.4.2}
-\contentsline {section}{\numberline {4.3}Solution Techniques for Second Order Differential Equations (Finish)}{99}{section.4.3}
-\contentsline {chapter}{\numberline {5}Systems of Difference and Differential Equations}{100}{chapter.5}
-\contentsline {section}{\numberline {5.1}Rumor Spreading System (Finish)}{100}{section.5.1}
-\contentsline {section}{\numberline {5.2}Linear Systems (Finish)}{100}{section.5.2}
-\contentsline {section}{\numberline {5.3}The Eigenvalue / Eigenvector Problem (Finish)}{100}{section.5.3}
-\contentsline {section}{\numberline {5.4}Analysis of Linear Systems (Finish)}{100}{section.5.4}
-\contentsline {chapter}{Appendices}{101}{section*.20}
-\contentsline {chapter}{\numberline {A}MATLAB Basics}{102}{Appendix.a.A}
-\contentsline {section}{\numberline {A.1}Vectors and Matrices}{102}{section.a.A.1}
-\contentsline {section}{\numberline {A.2}Looping}{104}{section.a.A.2}
-\contentsline {subsection}{\numberline {A.2.1}For Loops}{104}{subsection.a.A.2.1}
-\contentsline {subsection}{\numberline {A.2.2}The While Loop}{105}{subsection.a.A.2.2}
-\contentsline {section}{\numberline {A.3}Conditional Statements}{106}{section.a.A.3}
-\contentsline {subsection}{\numberline {A.3.1}If Statements}{106}{subsection.a.A.3.1}
-\contentsline {subsection}{\numberline {A.3.2}Case-Switch Statements}{107}{subsection.a.A.3.2}
-\contentsline {section}{\numberline {A.4}Functions}{107}{section.a.A.4}
-\contentsline {section}{\numberline {A.5}Plotting}{108}{section.a.A.5}
-\contentsline {section}{\numberline {A.6}Animations}{109}{section.a.A.6}
+\contentsline {section}{\numberline {4.1}Modeling Oscillations}{99}{section.4.1}
+\contentsline {section}{\numberline {4.2}Homogeneous Linear $2^{nd}$ Order Differential Equations}{101}{section.4.2}
+\contentsline {section}{\numberline {4.3}Forced Oscillations}{108}{section.4.3}
+\contentsline {section}{\numberline {4.4}Energy in Mass Spring Systems -- A Lab Exploration}{109}{section.4.4}
+\contentsline {section}{\numberline {4.5}Modeling Explorations with $2^{nd}$ Oder Differential Equations}{112}{section.4.5}
+\contentsline {chapter}{\numberline {5}Systems of Difference and Differential Equations}{116}{chapter.5}
+\contentsline {section}{\numberline {5.1}Rumor Spreading System (Finish)}{116}{section.5.1}
+\contentsline {section}{\numberline {5.2}Linear Systems (Finish)}{116}{section.5.2}
+\contentsline {section}{\numberline {5.3}The Eigenvalue / Eigenvector Problem (Finish)}{116}{section.5.3}
+\contentsline {section}{\numberline {5.4}Analysis of Linear Systems (Finish)}{116}{section.5.4}
+\contentsline {section}{\numberline {5.5}Modeling Explorations with Systems (FINISH)}{116}{section.5.5}
+\contentsline {chapter}{Appendices}{119}{section*.28}
+\contentsline {chapter}{\numberline {A}MATLAB Basics}{120}{Appendix.a.A}
+\contentsline {section}{\numberline {A.1}Vectors and Matrices}{120}{section.a.A.1}
+\contentsline {section}{\numberline {A.2}Looping}{122}{section.a.A.2}
+\contentsline {subsection}{\numberline {A.2.1}For Loops}{122}{subsection.a.A.2.1}
+\contentsline {subsection}{\numberline {A.2.2}The While Loop}{123}{subsection.a.A.2.2}
+\contentsline {section}{\numberline {A.3}Conditional Statements}{124}{section.a.A.3}
+\contentsline {subsection}{\numberline {A.3.1}If Statements}{124}{subsection.a.A.3.1}
+\contentsline {subsection}{\numberline {A.3.2}Case-Switch Statements}{125}{subsection.a.A.3.2}
+\contentsline {section}{\numberline {A.4}Functions}{125}{section.a.A.4}
+\contentsline {section}{\numberline {A.5}Plotting}{126}{section.a.A.5}
+\contentsline {section}{\numberline {A.6}Animations}{127}{section.a.A.6}

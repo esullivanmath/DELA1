@@ -1431,19 +1431,8 @@ x = A\b
 
 
 \newpage
-\section{Span, Linear Independence and Basis} \label{S:10.5.IndependenceDependenceBasis}
-The importance of linear algebra cannot be under stated.  Indeed, most every mathematician will
-agree that linear algebra is the most important mathematical subject that a mathematical
-scientist can possibly learn.  Let's say that again
-\begin{quote}
-    {\bf Linear algebra is the most important mathematical subject a student can learn!}
-\end{quote}
-
-As such, this section is dedicated to a few of the fundamental theoretical ideas behind
-linear algebra.  The presentation in this section is restricted to matrices and vectors
-but we'll soon see that the ideas presented herein are applicable in a very wide variety
-of areas.  Let's start with a short exploration.
-
+% \section{Span, Linear Independence and Basis} \label{S:10.5.IndependenceDependenceBasis}
+\section{The Magic Carpet Ride}
 
 \begin{problem}[The Magic Carpet Ride 1]
     You are a young traveler leaving home for the first time.  Your parents want to help
@@ -1510,8 +1499,20 @@ of areas.  Let's start with a short exploration.
 
 
 
-\subsection{Span}
-Now let's formalize a few of the ideas that we just ran into.
+\section{Span}
+The importance of linear algebra cannot be under stated.  Indeed, most every mathematician will
+agree that linear algebra is the most important mathematical subject that a mathematical
+scientist can possibly learn.  Let's say that again
+\begin{quote}
+    {\bf Linear algebra is the most important mathematical subject a student can learn!}
+\end{quote}
+
+As such, this section and the next few are dedicated to a few of the fundamental theoretical ideas behind
+linear algebra.  The presentation in these section is restricted to matrices and vectors
+but we'll soon see that the ideas presented herein are applicable in a very wide variety
+of areas.  
+
+Now let's formalize a few of the ideas that we explored in the Magic Carpet Ride problems.
 \begin{definition}
     The {\bf span} of a collection of vectors $\{\bu_1,\bu_2,\ldots,\bu_n\}$ is the set \[
     \{ c_1 \bu_1 + c_2 \bu_2 + \cdots c_n \bu_n \, : \, c_j \in \mathbb{R} \} \] This is
@@ -1618,7 +1619,7 @@ is not in the span of $\bv_1$ and $\bv_2$.
 \ea
 \end{problem}
 
-\subsection{Linear Independence, Linear Dependence, and Basis}
+\section{Linear Independence, Linear Dependence, and Basis}
 The span of the vectors $\bu = (1,0)^T$ and $\bv = (0,1)^T$ is the entire two dimensional
 plane $\mathbb{R}^2$.  This means that if we have a vector in $\mathbb{R}^2$, say $\bx =
 (3,5)^T$ then we know that it can be written as a linear combination of the vectors $\bu$
@@ -1829,7 +1830,7 @@ so they cannot possible span all of $\mathbb{R}^2$.
 
 \end{problem}
 % 
-\subsection{The Column and Null Spaces of a Matrix}
+\section{The Column and Null Spaces of a Matrix}
 For any matrix there are several fundamental spaces that fully describe the actions that a
 matrix can have on a vector.  The two that we focus on here are the column space and the
 null space.
@@ -1880,7 +1881,7 @@ The matrix $A$ is $3 \times 4$.  Be sure to specify where the null and column sp
 
 
 
-\section{Lab Activities for Linear Algebra}
+\section{Modeling Explorations with Linear Algebra}
 In 1973, Wassily Leontief was awarded the Nobel prize for his work in economics.  Part of
 his work was to apply the basic concepts of linear algebra to model supply and demand
 within simple economies.  His theory, called the Leontief Input Output model, serves as a

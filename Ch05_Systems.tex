@@ -7,3 +7,114 @@
 \section{The Eigenvalue / Eigenvector Problem (Finish)}
 
 \section{Analysis of Linear Systems (Finish)}
+
+
+\section{Modeling Explorations with Systems (FINISH)}
+\begin{problem}
+We are going to build a difference equation model that predicts the populations of cougars
+$C$ and deer $D$ (predators and prey) at year $t$
+\begin{enumerate}
+    \item {\bf The Mathematical Model:} 
+        \begin{enumerate}
+            \item {\bf Deer Population:} The change in deer population can be modeled as 
+                \[ D'(t) = (\text{logistic population growth}) - (\text{deer removed
+                by interactions with cougars}) \]
+                \begin{itemize}
+                    \item a generic logistic growth difference equation takes the form: 
+                        \[ y'(t) = k y \left(1-\frac{y}{N}\right) \]
+                        where $k$ is the growth rate parameter and
+                        $N$ is the carrying capacity of the population.
+                    \item Assume that the carrying capacity for the deer is $N = 4,500$,
+                        and assume that $k \approx 0.3$
+                    \item The rate at which the deer population is removed due to
+                        interactions with cougars is proportional to the product of the
+                        deer and cougar populations.  Assume that the proporationality
+                        constant is $-0.15$.
+                    \item Write the differential equation for the deer population. 
+                \end{itemize}
+            \item {\bf Cougar Population:} The change in cougar population can be modeled
+                as
+                \[ C'(t) = \left( \text{natural death rate} \right) + \left(
+                    \text{gain due to abundance of food source}
+                \right) \]
+                \begin{itemize}
+                    \item Assume that the natural death rate for the cougar population is
+                        proportional to the current number of cougars.  Let the
+                        proportionality constant be $-0.30$.
+                    \item Assume that the gain in population is proportional to the
+                        product of the deer and cougar populations with proportionality
+                        constant $0.00015$.
+                    \item Write the difference equation for the cougar population.
+                \end{itemize}
+            \item {\bf The Model:} The two difference equations that you've written along
+                with the initial conditions $D_0 = 500$ and $C_0 = 2$ are now your
+                mathematical model!  Summarize them in one place in your lab.
+        \end{enumerate}
+    \item {\bf Model Description:} Describe some features of this model by answering the following questions.
+        (please restate the questions in your lab writeup)
+        \begin{enumerate}
+            \item Which animal is the predator and which is the prey? 
+            \item What is the significance of the $+$ sign in the equation for cougars? 
+            \item What is the significance of the $-$ sign in the equation for deer? 
+            \item In the absence of deer, does the cougar population increase or decrease?
+                At what rate?
+            \item In the absence of cougars, does the deer population increase or
+                decrease? At what rate?
+            \item How many deer does each cougar consume when there are 1000 deer vs when
+                there are 2000 deer?
+        \end{enumerate}
+
+    \item {\bf Numerical Solution:}  Construct a numerical solution to this system of
+        difference equations.  Recall that a numerical solution for a differential
+        equation model will use Euler's method.  This time you'll need to build both
+        equations simultaneously.  Your numerical approximation will give you both the
+        deer population and the cougar population.
+        For a system of differential equations there are three appropriate plots that you
+        need to generate.
+        \begin{description}
+            \item[Deer vs Time:] Plot the number of deer on the $y$ axis and time ($t$) on the
+                $x$ axis.
+            \item[Cougars vs Time:] Plot the number of cougars on the $y$ axis and time ($t$) on the
+                $x$ axis.
+            \item[Deer vs Cougars:] Plot the number of deer on the $y$ axis and the number
+                of cougars on the $x$ axis (or visa versa).  This is called the phase
+                plot.
+        \end{description}
+        Write a paragraph describing the behavior of the deer and cougar populations over
+        the course of 100 years. Identify each of the key features\footnote{{\it Key
+        features} would include maximums, minimums, regions of increase or decrease,
+    extinction, overpopulation, equilibrium, etc.} of the population dynamics.
+
+    \item {\bf Analysis:} 
+        \begin{enumerate}
+            \item There are several assumptions in this model, but in particular we have
+                assumed that the cougar population will only go up via direct interactions
+                with prey (deer).  Change the death rate term in the cougar population to
+                a plausible model that depends on the current number of cougars.  Repeat
+                the numerical solutions for several possible parameters.
+            \item Is either model (the original or the new from part (a)) sensitive to
+                initial conditions?  Vary each initial condition slightly and discuss how
+                the dynamical system behaves. Support your disucssion with appropriate
+                plots or tables.
+            \item There are {\it interaction terms} in each equation of the model (the
+                terms involving both $C$ and $D$).  How sensitive is the model to the
+                interaction rate $0.15$?  Vary this interaction term slightly and discuss
+                the behavior of the dynamical system. Support your discussion with
+                appropriate plots or tables.
+            \item Attack several other assumptions built into this model, make the
+                appropriate changes to the model, and determine what the impact is on the
+                resulting populations.
+        \end{enumerate}
+
+
+
+    \item Write an Executive Summary describing what you did in this lab.  This is meant
+        to be a reference to you when you need to re-use the ideas (both mathematical and
+        computational) from this lab. Your executive summary should be immediately under
+        the title on the front page of the lab.  It should be no more than a paragraph or
+        two, and it should make for easy reference later.
+
+\end{enumerate}
+\end{problem}
+
+

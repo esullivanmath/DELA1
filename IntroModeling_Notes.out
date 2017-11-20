@@ -4,7 +4,7 @@
 \BOOKMARK [1][-]{section.0.3}{To the Instructor}{chapter.0}% 4
 \BOOKMARK [0][-]{chapter.1}{Fundamental Notions from Calculus}{}% 5
 \BOOKMARK [1][-]{section.1.1}{Sections from Active Calculus}{chapter.1}% 6
-\BOOKMARK [1][-]{section.1.2}{Lab Activities for Calculus and Modeling}{chapter.1}% 7
+\BOOKMARK [1][-]{section.1.2}{Modeling Explorations with Calculus}{chapter.1}% 7
 \BOOKMARK [0][-]{chapter.2}{An Introduction to Linear Algebra}{}% 8
 \BOOKMARK [1][-]{section.2.1}{Why Linear Algebra?}{chapter.2}% 9
 \BOOKMARK [1][-]{section.2.2}{Matrix Operations and Gaussian Elimination}{chapter.2}% 10
@@ -15,14 +15,14 @@
 \BOOKMARK [2][-]{subsection.2.6.1}{Inverses}{section.2.6}% 15
 \BOOKMARK [2][-]{subsection.2.6.2}{Determinants}{section.2.6}% 16
 \BOOKMARK [1][-]{section.2.7}{Technology For Linear Algebra}{chapter.2}% 17
-\BOOKMARK [1][-]{section.2.8}{Span, Linear Independence and Basis}{chapter.2}% 18
-\BOOKMARK [2][-]{subsection.2.8.1}{Span}{section.2.8}% 19
-\BOOKMARK [2][-]{subsection.2.8.2}{Linear Independence, Linear Dependence, and Basis}{section.2.8}% 20
-\BOOKMARK [2][-]{subsection.2.8.3}{The Column and Null Spaces of a Matrix}{section.2.8}% 21
-\BOOKMARK [1][-]{section.2.9}{Lab Activities for Linear Algebra}{chapter.2}% 22
-\BOOKMARK [2][-]{subsection.2.9.1}{Input-Output Economies}{section.2.9}% 23
-\BOOKMARK [2][-]{subsection.2.9.2}{Traffic Networks}{section.2.9}% 24
-\BOOKMARK [2][-]{subsection.2.9.3}{Balancing Chemical Equations}{section.2.9}% 25
+\BOOKMARK [1][-]{section.2.8}{The Magic Carpet Ride}{chapter.2}% 18
+\BOOKMARK [1][-]{section.2.9}{Span}{chapter.2}% 19
+\BOOKMARK [1][-]{section.2.10}{Linear Independence, Linear Dependence, and Basis}{chapter.2}% 20
+\BOOKMARK [1][-]{section.2.11}{The Column and Null Spaces of a Matrix}{chapter.2}% 21
+\BOOKMARK [1][-]{section.2.12}{Modeling Explorations with Linear Algebra}{chapter.2}% 22
+\BOOKMARK [2][-]{subsection.2.12.1}{Input-Output Economies}{section.2.12}% 23
+\BOOKMARK [2][-]{subsection.2.12.2}{Traffic Networks}{section.2.12}% 24
+\BOOKMARK [2][-]{subsection.2.12.3}{Balancing Chemical Equations}{section.2.12}% 25
 \BOOKMARK [0][-]{chapter.3}{First Order Models}{}% 26
 \BOOKMARK [1][-]{section.3.1}{Birth, Death, and Immigration Exploration}{chapter.3}% 27
 \BOOKMARK [1][-]{section.3.2}{Models for Birth, Death, and Immigration}{chapter.3}% 28
@@ -34,25 +34,28 @@
 \BOOKMARK [1][-]{section.3.8}{Technique: Solving 1st Order Linear Nonhomogeneous Equations}{chapter.3}% 34
 \BOOKMARK [2][-]{subsection.3.8.1}{Solution Technique: Separation of Variables}{section.3.8}% 35
 \BOOKMARK [2][-]{subsection.3.8.2}{Solution Technique: Undetermined Coefficients}{section.3.8}% 36
-\BOOKMARK [1][-]{section.3.9}{Labs and Explorations for Difference and Differential Equations}{chapter.3}% 37
+\BOOKMARK [1][-]{section.3.9}{Modeling Explorations with Difference and Differential Equations}{chapter.3}% 37
 \BOOKMARK [0][-]{chapter.4}{Second Order Models}{}% 38
-\BOOKMARK [1][-]{section.4.1}{F = ma \(Finish\)}{chapter.4}% 39
-\BOOKMARK [1][-]{section.4.2}{Modeling Mass Spring Oscillators \(Finish\)}{chapter.4}% 40
-\BOOKMARK [1][-]{section.4.3}{Solution Techniques for Second Order Differential Equations \(Finish\)}{chapter.4}% 41
-\BOOKMARK [0][-]{chapter.5}{Systems of Difference and Differential Equations}{}% 42
-\BOOKMARK [1][-]{section.5.1}{Rumor Spreading System \(Finish\)}{chapter.5}% 43
-\BOOKMARK [1][-]{section.5.2}{Linear Systems \(Finish\)}{chapter.5}% 44
-\BOOKMARK [1][-]{section.5.3}{The Eigenvalue / Eigenvector Problem \(Finish\)}{chapter.5}% 45
-\BOOKMARK [1][-]{section.5.4}{Analysis of Linear Systems \(Finish\)}{chapter.5}% 46
-\BOOKMARK [0][-]{section*.20}{Appendices}{}% 47
-\BOOKMARK [0][-]{Appendix.a.A}{MATLAB Basics}{}% 48
-\BOOKMARK [1][-]{section.a.A.1}{Vectors and Matrices}{Appendix.a.A}% 49
-\BOOKMARK [1][-]{section.a.A.2}{Looping}{Appendix.a.A}% 50
-\BOOKMARK [2][-]{subsection.a.A.2.1}{For Loops}{section.a.A.2}% 51
-\BOOKMARK [2][-]{subsection.a.A.2.2}{The While Loop}{section.a.A.2}% 52
-\BOOKMARK [1][-]{section.a.A.3}{Conditional Statements}{Appendix.a.A}% 53
-\BOOKMARK [2][-]{subsection.a.A.3.1}{If Statements}{section.a.A.3}% 54
-\BOOKMARK [2][-]{subsection.a.A.3.2}{Case-Switch Statements}{section.a.A.3}% 55
-\BOOKMARK [1][-]{section.a.A.4}{Functions}{Appendix.a.A}% 56
-\BOOKMARK [1][-]{section.a.A.5}{Plotting}{Appendix.a.A}% 57
-\BOOKMARK [1][-]{section.a.A.6}{Animations}{Appendix.a.A}% 58
+\BOOKMARK [1][-]{section.4.1}{Modeling Oscillations}{chapter.4}% 39
+\BOOKMARK [1][-]{section.4.2}{Homogeneous Linear 2nd Order Differential Equations}{chapter.4}% 40
+\BOOKMARK [1][-]{section.4.3}{Forced Oscillations}{chapter.4}% 41
+\BOOKMARK [1][-]{section.4.4}{Energy in Mass Spring Systems \205 A Lab Exploration}{chapter.4}% 42
+\BOOKMARK [1][-]{section.4.5}{Modeling Explorations with 2nd Oder Differential Equations}{chapter.4}% 43
+\BOOKMARK [0][-]{chapter.5}{Systems of Difference and Differential Equations}{}% 44
+\BOOKMARK [1][-]{section.5.1}{Rumor Spreading System \(Finish\)}{chapter.5}% 45
+\BOOKMARK [1][-]{section.5.2}{Linear Systems \(Finish\)}{chapter.5}% 46
+\BOOKMARK [1][-]{section.5.3}{The Eigenvalue / Eigenvector Problem \(Finish\)}{chapter.5}% 47
+\BOOKMARK [1][-]{section.5.4}{Analysis of Linear Systems \(Finish\)}{chapter.5}% 48
+\BOOKMARK [1][-]{section.5.5}{Modeling Explorations with Systems \(FINISH\)}{chapter.5}% 49
+\BOOKMARK [0][-]{section*.28}{Appendices}{}% 50
+\BOOKMARK [0][-]{Appendix.a.A}{MATLAB Basics}{}% 51
+\BOOKMARK [1][-]{section.a.A.1}{Vectors and Matrices}{Appendix.a.A}% 52
+\BOOKMARK [1][-]{section.a.A.2}{Looping}{Appendix.a.A}% 53
+\BOOKMARK [2][-]{subsection.a.A.2.1}{For Loops}{section.a.A.2}% 54
+\BOOKMARK [2][-]{subsection.a.A.2.2}{The While Loop}{section.a.A.2}% 55
+\BOOKMARK [1][-]{section.a.A.3}{Conditional Statements}{Appendix.a.A}% 56
+\BOOKMARK [2][-]{subsection.a.A.3.1}{If Statements}{section.a.A.3}% 57
+\BOOKMARK [2][-]{subsection.a.A.3.2}{Case-Switch Statements}{section.a.A.3}% 58
+\BOOKMARK [1][-]{section.a.A.4}{Functions}{Appendix.a.A}% 59
+\BOOKMARK [1][-]{section.a.A.5}{Plotting}{Appendix.a.A}% 60
+\BOOKMARK [1][-]{section.a.A.6}{Animations}{Appendix.a.A}% 61
