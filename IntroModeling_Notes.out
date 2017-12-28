@@ -47,15 +47,17 @@
 \BOOKMARK [1][-]{section.5.3}{The Eigenvalue / Eigenvector Problem \(Finish\)}{chapter.5}% 47
 \BOOKMARK [1][-]{section.5.4}{Analysis of Linear Systems \(Finish\)}{chapter.5}% 48
 \BOOKMARK [1][-]{section.5.5}{Modeling Explorations with Systems \(FINISH\)}{chapter.5}% 49
-\BOOKMARK [0][-]{section*.28}{Appendices}{}% 50
-\BOOKMARK [0][-]{Appendix.a.A}{MATLAB Basics}{}% 51
-\BOOKMARK [1][-]{section.a.A.1}{Vectors and Matrices}{Appendix.a.A}% 52
-\BOOKMARK [1][-]{section.a.A.2}{Looping}{Appendix.a.A}% 53
-\BOOKMARK [2][-]{subsection.a.A.2.1}{For Loops}{section.a.A.2}% 54
-\BOOKMARK [2][-]{subsection.a.A.2.2}{The While Loop}{section.a.A.2}% 55
-\BOOKMARK [1][-]{section.a.A.3}{Conditional Statements}{Appendix.a.A}% 56
-\BOOKMARK [2][-]{subsection.a.A.3.1}{If Statements}{section.a.A.3}% 57
-\BOOKMARK [2][-]{subsection.a.A.3.2}{Case-Switch Statements}{section.a.A.3}% 58
-\BOOKMARK [1][-]{section.a.A.4}{Functions}{Appendix.a.A}% 59
-\BOOKMARK [1][-]{section.a.A.5}{Plotting}{Appendix.a.A}% 60
-\BOOKMARK [1][-]{section.a.A.6}{Animations}{Appendix.a.A}% 61
+\BOOKMARK [0][-]{chapter.6}{Infinite Series}{}% 50
+\BOOKMARK [1][-]{section.6.1}{Sections from Active Calculus}{chapter.6}% 51
+\BOOKMARK [0][-]{section*.28}{Appendices}{}% 52
+\BOOKMARK [0][-]{Appendix.a.A}{MATLAB Basics}{}% 53
+\BOOKMARK [1][-]{section.a.A.1}{Vectors and Matrices}{Appendix.a.A}% 54
+\BOOKMARK [1][-]{section.a.A.2}{Looping}{Appendix.a.A}% 55
+\BOOKMARK [2][-]{subsection.a.A.2.1}{For Loops}{section.a.A.2}% 56
+\BOOKMARK [2][-]{subsection.a.A.2.2}{The While Loop}{section.a.A.2}% 57
+\BOOKMARK [1][-]{section.a.A.3}{Conditional Statements}{Appendix.a.A}% 58
+\BOOKMARK [2][-]{subsection.a.A.3.1}{If Statements}{section.a.A.3}% 59
+\BOOKMARK [2][-]{subsection.a.A.3.2}{Case-Switch Statements}{section.a.A.3}% 60
+\BOOKMARK [1][-]{section.a.A.4}{Functions}{Appendix.a.A}% 61
+\BOOKMARK [1][-]{section.a.A.5}{Plotting}{Appendix.a.A}% 62
+\BOOKMARK [1][-]{section.a.A.6}{Animations}{Appendix.a.A}% 63

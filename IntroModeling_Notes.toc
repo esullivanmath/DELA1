@@ -47,15 +47,17 @@
 \contentsline {section}{\numberline {5.3}The Eigenvalue / Eigenvector Problem (Finish)}{117}{section.5.3}
 \contentsline {section}{\numberline {5.4}Analysis of Linear Systems (Finish)}{117}{section.5.4}
 \contentsline {section}{\numberline {5.5}Modeling Explorations with Systems (FINISH)}{117}{section.5.5}
-\contentsline {chapter}{Appendices}{120}{section*.28}
-\contentsline {chapter}{\numberline {A}MATLAB Basics}{121}{Appendix.a.A}
-\contentsline {section}{\numberline {A.1}Vectors and Matrices}{121}{section.a.A.1}
-\contentsline {section}{\numberline {A.2}Looping}{123}{section.a.A.2}
-\contentsline {subsection}{\numberline {A.2.1}For Loops}{123}{subsection.a.A.2.1}
-\contentsline {subsection}{\numberline {A.2.2}The While Loop}{124}{subsection.a.A.2.2}
-\contentsline {section}{\numberline {A.3}Conditional Statements}{125}{section.a.A.3}
-\contentsline {subsection}{\numberline {A.3.1}If Statements}{125}{subsection.a.A.3.1}
-\contentsline {subsection}{\numberline {A.3.2}Case-Switch Statements}{126}{subsection.a.A.3.2}
-\contentsline {section}{\numberline {A.4}Functions}{126}{section.a.A.4}
-\contentsline {section}{\numberline {A.5}Plotting}{127}{section.a.A.5}
-\contentsline {section}{\numberline {A.6}Animations}{128}{section.a.A.6}
+\contentsline {chapter}{\numberline {6}Infinite Series}{120}{chapter.6}
+\contentsline {section}{\numberline {6.1}Sections from Active Calculus}{120}{section.6.1}
+\contentsline {chapter}{Appendices}{121}{section*.28}
+\contentsline {chapter}{\numberline {A}MATLAB Basics}{122}{Appendix.a.A}
+\contentsline {section}{\numberline {A.1}Vectors and Matrices}{122}{section.a.A.1}
+\contentsline {section}{\numberline {A.2}Looping}{124}{section.a.A.2}
+\contentsline {subsection}{\numberline {A.2.1}For Loops}{124}{subsection.a.A.2.1}
+\contentsline {subsection}{\numberline {A.2.2}The While Loop}{125}{subsection.a.A.2.2}
+\contentsline {section}{\numberline {A.3}Conditional Statements}{126}{section.a.A.3}
+\contentsline {subsection}{\numberline {A.3.1}If Statements}{126}{subsection.a.A.3.1}
+\contentsline {subsection}{\numberline {A.3.2}Case-Switch Statements}{127}{subsection.a.A.3.2}
+\contentsline {section}{\numberline {A.4}Functions}{127}{section.a.A.4}
+\contentsline {section}{\numberline {A.5}Plotting}{128}{section.a.A.5}
+\contentsline {section}{\numberline {A.6}Animations}{129}{section.a.A.6}
