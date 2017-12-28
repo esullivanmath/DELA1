@@ -40,7 +40,7 @@
 \contentsline {section}{\numberline {4.2}Homogeneous Linear $2^{nd}$ Order Differential Equations}{102}{section.4.2}
 \contentsline {section}{\numberline {4.3}Forced Oscillations}{109}{section.4.3}
 \contentsline {section}{\numberline {4.4}Energy in Mass Spring Systems -- A Lab Exploration}{110}{section.4.4}
-\contentsline {section}{\numberline {4.5}Modeling Explorations with $2^{nd}$ Oder Differential Equations}{113}{section.4.5}
+\contentsline {section}{\numberline {4.5}Modeling Explorations with $2^{nd}$ Order Differential Equations}{113}{section.4.5}
 \contentsline {chapter}{\numberline {5}Systems of Difference and Differential Equations}{117}{chapter.5}
 \contentsline {section}{\numberline {5.1}Rumor Spreading System (Finish)}{117}{section.5.1}
 \contentsline {section}{\numberline {5.2}Linear Systems (Finish)}{117}{section.5.2}
