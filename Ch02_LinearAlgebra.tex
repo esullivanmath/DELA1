@@ -199,7 +199,7 @@ Research on study time vs. exam scores yields the following data points
 
 
 
-\section{Matrix Operations and Gaussian Elimination} \label{S:10.2.MatrixAlgebra}
+\newpage\section{Matrix Operations and Gaussian Elimination} \label{S:10.2.MatrixAlgebra}
 One of the first natural questions to ask when first encountering matrices is whether the
 regular operations of addition, subtraction, multiplication, division, and exponentiation
 make sense.  In the cases of addition and subtraction the answer is simple: Yes!  Addition
@@ -325,7 +325,7 @@ Consider the matrices
 \ea
 \end{problem}
 
-\section{Gaussian Elimination: A First Look At Solving Systems}
+\newpage\section{Gaussian Elimination: A First Look At Solving Systems}
 A truly beautiful application of matrices, and the first real application of linear
 algebra, is the technique of solving systems of linear equations.  The technique that
 we'll describe in the next several activities and examples is used to solve systems of
@@ -588,7 +588,7 @@ $x_1$, $x_2$, and $x_3$.
 
 
 
-\section{Systems of Linear Equations} \label{S:10.3.Systems}
+\newpage\section{Systems of Linear Equations} \label{S:10.3.Systems}
 
 In this section we further explore the notion of solving a linear system of equations. To
 begin out study consider the following Preview Activity.
@@ -934,7 +934,7 @@ In vector form, this solution can be written as
 \end{problem}
 
 
-\section{Linear Combinations}
+\newpage\section{Linear Combinations}
 One of the most beautiful parts of linear algebra is the richness of the structure of
 matrices.  As we showed earlier, every system of linear equations can be written several
 different ways (as a system, as a matrix equation, as a vector equation, or as an
@@ -1022,7 +1022,7 @@ $2\bpm2\\4\epm$} $+$ {\color{blue} $(1/3)\bpm3\\-6\epm$} as seen in Figure
 
 
 
-\section{Inverses and Determinants} \label{S:10.4.InvDet}
+\newpage\section{Inverses and Determinants} \label{S:10.4.InvDet}
 Division is always a bit of a touchy subject.  In the real numbers division is well
 defined except when the denominator is zero.  The same story is true in the rational
 numbers: a fraction divided by a fraction is another fraction so long as the divisor is
@@ -1327,22 +1327,25 @@ not work.
 The following Theorem states several properties of determinants.  While these are all very
 useful in their own right, we will not take the time here to expand upon their proofs.
 
-\begin{thm}
-    Important properties of determinants:
+\begin{thm}[Important Properties of Determinants]\label{thm:10.4.det}
+    Let $A$ be a square matrix.
     \begin{enumerate}
-        \item A square matrix $A$ is invertible if and only if $\det(A) \ne 0$.
-        \item The determinant of the identity matrix is $\det(I) = 1$.
-        \item If $A$ is a triangular matrix, then $\det(A)$ is the product of the entries
-            on the main diagonal of $A$.
-        \item If $A$ and $B$ are both square matrices of the same size, then $\det(AB) =
-            \det(A) \det(B)$.
-        \item If $A$ is a square matrix, then $\det(A^T) = \det(A)$.
-        \item If $A$ is an $n \times n$ matrix and $c$ is a real number, then $\det(cA) =
-            c^n \det(A)$.
-        \item If $A$ is an invertible square matrix then from parts (2) and (4) above,
-            $\det(A^{-1}) = \frac{1}{\det(A)}$.
+        \item The determinant of the identity matrix is 1.
+        \item The $n \times n$ matrix $A$ is invertible if and only if $\det(A) \ne 0$
+        \item $\det(A^T) = \det(A)$.
+        \item $\det(AB) = \det(A) \det(B)$
+        \item $\det(A^{-1}) = 1/\det(A)$
+        \item If $A$ is an $n \times n$ matrix and $c$ is a real number then
+            $\det(c A) = c^n \det(A)$ 
+        \item If a multiple of one row of $A$ is added to another row to produce matrix
+            $B$ then $\det(A) = \det(B)$.
+        \item If two rows are interchanged in matrix $A$ to produce matrix $B$ then
+            $\det(B) = -\det(A)$.
+        \item If one row of $A$ is multiplied by $k$ to product matrix $B$ then $\det(B) =
+            k \det(A)$.
+        \item The absolute value of the determinant of a matrix $A$ is the volume of the parallelepiped
+            formed by the column vectors of $A$.
     \end{enumerate}
-    \label{thm:10.4.det}
 \end{thm}
 
 In Theorem \ref{thm:10.4.det}, every property listed has significant impact on the
@@ -1371,8 +1374,120 @@ determinant computation on a large matrix should be immediately suspect! For thi
 it is often preferred to avoid the use of the determinant if at all possible when dealing
 with large matrices. 
 
+\begin{problem}
+    If $A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$ and $\det(A) = 8$ then what is
+        $\det(B)$ where $B = \begin{pmatrix} a & b \\ 3c & 3d \end{pmatrix}$
+\end{problem}
+\solution{$\det(B) = 3\cdot8 = 24$}
 
-\section{Technology For Linear Algebra}
+
+\begin{problem}
+    If $A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$ and $\det(A) = 8$ then what is
+    $\det(B)$ where $B = \begin{pmatrix} a & b \\ 2a+c & 2b + d \end{pmatrix}$    
+\end{problem}
+\solution{24}
+
+
+\begin{problem}
+    True or False: The determinant of $A$ is the same as the determinant of the row
+    reduced form of $A$.  Explain your answer.
+\end{problem}
+\solution{False.  Row reduction often leads swapping and scaling rows}
+
+
+The last statement of Theorem \ref{thm:10.4.det} give a bit of a deeper insight
+to the geometry of determinants and why invertible matrices must have a non-zero
+determinant.  Think about a $2 \times 2$ matrix with non-zero determinant.  Under matrix
+multiplication by this matrix, a shape with non-zero area will be transformed to another
+shape with non-zero area.  Hence, if we were to reverse the mapping then we have all of
+the vectors accounted for and can reverse the transformation.  If, on the other hand, a
+matrix has a determinant of zero then a shape with non-zero area will be transformed into
+a shape with zero area.  Naturally, in this case, many vectors will be mapped on top of
+each other and any hope of reversing the transformation is lost -- hence the fact that a
+matrix with a zero determinant is not invertible.
+
+For example, if we consider the matrix $A = \begin{pmatrix} 2&1\\1&2\end{pmatrix}$, the
+determinant is $\det(A) = 4-1=3 \ne 0$ and we know that $A^{-1}$ exists.  To see the
+action on the vectors $\bu_1 = \begin{pmatrix}1\\0\end{pmatrix}$ and $\bu_2 =
+\begin{pmatrix}0\\1\end{pmatrix}$ see Figure \ref{fig:determinant_vol_1}.  Notice that
+before the multiplication by $A$ the parallelogram (square) formed by $\bu_1$ and $\bu_2$ is 1
+(since the determinant of the identity is 1).  After the multiplication by $A$ the
+original square is stretched into the parallelogram on the right of Figure
+\ref{fig:determinant_vol_1} and with some geometry we can see that the area of the
+parallelogram is $3$.  If we were to imagine reversing the transformation, morphing the
+red parallelogram back into the blue square, we can see visually how each vector in the plane gets
+stretched and rotated -- hence giving a good meaning to {\it reversing} the
+transformation and giving us a visual sense that the inverse of $A$ exists.
+
+Now consider the matrix $A = \begin{pmatrix}2&1\\1&0.5\end{pmatrix}$.  The determinant of
+this matrix is clearly zero, and geometrically in Figure \ref{fig:determinant_vol_2} we
+see that the square gets {\it squished} into a single line segment with zero area.  In
+fact, both of the vectors $\bu_1$ and $\bu_2$ are mapped to exactly the same line segment
+and figuring out how to reverse these actions for every vector in the plane is impossible
+-- hence giving us a sense that if the determinant is zero then the inverse of the matrix
+$A$ must not exist.
+
+\begin{figure}[ht!]
+    \begin{center}
+        \begin{tikzpicture}
+            \begin{axis}[axis lines=center, axis equal, grid, xmin=-1, xmax=3, ymin=-1,
+                ymax=3, title={The vectors $\bu_1=\begin{pmatrix}1\\0\end{pmatrix}$ and
+            $\bu_2 = \begin{pmatrix}0\\1\end{pmatrix}$}]
+                \draw[fill=gray!50, opacity=0.3] (axis cs:0,0) -- (axis cs:1,0) -- (axis
+                cs:1,1) -- (axis cs:0,1) -- (axis cs:0,0);
+                \draw[very thick, blue, ->] (axis cs:0,0) -- (axis cs:1,0);
+                \draw[very thick, blue, ->] (axis cs:0,0) -- (axis cs:0,1);
+                \draw[very thick, dashed, blue, ->] (axis cs:1,0) -- (axis cs:1,0.95);
+                \draw[very thick, dashed, blue, ->] (axis cs:0,1) -- (axis cs:0.95,1); 
+            \end{axis}
+        \end{tikzpicture}
+        \begin{tikzpicture}
+            \begin{axis}[axis lines=center, axis equal, grid, xmin=-1, xmax=3, ymin=-1,
+                ymax=3, title={$A\bu_1=\begin{pmatrix}2\\1\end{pmatrix}$ and $A\bu_2=\begin{pmatrix}1\\2\end{pmatrix}$}]
+                \draw[fill=red!50, opacity=0.3] (axis cs:0,0) -- (axis cs:2,1) -- (axis
+                cs:3,3) -- (axis cs:1,2) -- (axis cs:0,0);
+                \draw[very thick, red, ->] (axis cs:0,0) -- (axis cs:2,1);
+                \draw[very thick, red, ->] (axis cs:0,0) -- (axis cs:1,2);
+                \draw[very thick, dashed, red, ->] (axis cs:2,1) -- (axis cs:2.975,2.95);
+                \draw[very thick, dashed, red, ->] (axis cs:1,2) -- (axis cs:2.95,2.975); 
+            \end{axis}
+        \end{tikzpicture}
+    \end{center}
+    \caption{A 2D mapping from region with non-zero area to a region non-zero area.}
+    \label{fig:determinant_vol_1}
+\end{figure}
+
+\begin{figure}[ht!]
+    \begin{center}
+        \begin{tikzpicture}
+            \begin{axis}[axis lines=center, axis equal, grid, xmin=-1, xmax=3, ymin=-1,
+                ymax=3, title={The vectors $\bu_1=\begin{pmatrix}1\\0\end{pmatrix}$ and
+            $\bu_2 = \begin{pmatrix}0\\1\end{pmatrix}$}]
+                \draw[fill=gray!50, opacity=0.3] (axis cs:0,0) -- (axis cs:1,0) -- (axis
+                cs:1,1) -- (axis cs:0,1) -- (axis cs:0,0);
+                \draw[very thick, blue, ->] (axis cs:0,0) -- (axis cs:1,0);
+                \draw[very thick, blue, ->] (axis cs:0,0) -- (axis cs:0,1);
+                \draw[very thick, dashed, blue, ->] (axis cs:1,0) -- (axis cs:1,0.95);
+                \draw[very thick, dashed, blue, ->] (axis cs:0,1) -- (axis cs:0.95,1); 
+            \end{axis}
+        \end{tikzpicture}
+        \begin{tikzpicture}
+            \begin{axis}[axis lines=center, axis equal, grid, xmin=-1, xmax=3, ymin=-1,
+                ymax=3, title={$A\bu_1=\begin{pmatrix}2\\1\end{pmatrix}$ and
+            $A\bu_2=\begin{pmatrix}1\\0.5\end{pmatrix}$}]
+                \draw[very thick, red,->] (axis cs:0,0) -- (axis cs:2,1);
+                \draw[very thick, red,->] (axis cs:0,0) -- (axis cs:1,0.5);
+            \end{axis}
+        \end{tikzpicture}
+    \end{center}
+    \caption{A 2D mapping from a region non-zero area to a region with zero area.}
+    \label{fig:determinant_vol_2}
+\end{figure}
+
+
+
+
+\newpage\section{Technology For Linear Algebra}
 There are many technological tools designed to efficiently perform linear algebra
 operations.  At this stage in many student's academic careers they are very familiar with
 the TI calculators (TI-89, TI-Nspire, TI-Voyage 200, etc).  The computer software MatLab
@@ -1432,7 +1547,7 @@ x = A\b
 
 \newpage
 % \section{Span, Linear Independence and Basis} \label{S:10.5.IndependenceDependenceBasis}
-\section{The Magic Carpet Ride}
+\newpage\section{The Magic Carpet Ride}
 
 \begin{problem}[The Magic Carpet Ride 1]
     You are a young traveler leaving home for the first time.  Your parents want to help
@@ -1499,7 +1614,7 @@ x = A\b
 
 
 
-\section{Span}
+\newpage\section{Span}
 The importance of linear algebra cannot be under stated.  Indeed, most every mathematician will
 agree that linear algebra is the most important mathematical subject that a mathematical
 scientist can possibly learn.  Let's say that again
@@ -1619,7 +1734,7 @@ is not in the span of $\bv_1$ and $\bv_2$.
 \ea
 \end{problem}
 
-\section{Linear Independence, Linear Dependence, and Basis}
+\newpage\section{Linear Independence, Linear Dependence, and Basis}
 The span of the vectors $\bu = (1,0)^T$ and $\bv = (0,1)^T$ is the entire two dimensional
 plane $\mathbb{R}^2$.  This means that if we have a vector in $\mathbb{R}^2$, say $\bx =
 (3,5)^T$ then we know that it can be written as a linear combination of the vectors $\bu$
@@ -1830,7 +1945,7 @@ so they cannot possible span all of $\mathbb{R}^2$.
 
 \end{problem}
 % 
-\section{The Column and Null Spaces of a Matrix}
+\newpage\section{The Column and Null Spaces of a Matrix}
 For any matrix there are several fundamental spaces that fully describe the actions that a
 matrix can have on a vector.  The two that we focus on here are the column space and the
 null space.
@@ -1881,7 +1996,7 @@ The matrix $A$ is $3 \times 4$.  Be sure to specify where the null and column sp
 
 
 
-\section{Modeling Explorations with Linear Algebra}
+\newpage\section{Modeling Explorations with Linear Algebra}
 In 1973, Wassily Leontief was awarded the Nobel prize for his work in economics.  Part of
 his work was to apply the basic concepts of linear algebra to model supply and demand
 within simple economies.  His theory, called the Leontief Input Output model, serves as a
