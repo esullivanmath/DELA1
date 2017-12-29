@@ -801,10 +801,234 @@ $\frac{dy}{dt}=-\frac{1}{2}(y-4)$}
 
 \newpage
 \section{Euler's Method: Numerical Solutions for Differential Equations}
-For a complete discussion of Euler's method see the
-\href{http://faculty.gvsu.edu/boelkinm/Home/AC/sec-7-3-euler.html}{Active Calculus book Section
-7.3}.
-\newpage
+One of the fastest ways to get an approximate solution to a difference or a differential
+equation is to use technology.  You have already used technology such as MX Excel to build
+numerical solutions to difference equations, but what about differential equations?  Let's
+look at the two in parallel.  Consider the difference and differential equations
+\begin{flalign}
+    &\text{difference equation: } a_{n+1} - a_n = -0.5 a_n + 0.1, \text{ and }
+    \label{eqn:euler_discrete_ex1} \\
+    &\text{differential equation: } \frac{dy}{dt} = -0.5 y + 0.1. 
+    \label{eqn:euler_continuous_ex1} 
+\end{flalign}
+We can turn the differential equation \eqref{eqn:euler_continuous_ex1} into a difference
+equation by recalling from Calculus that 
+\[ \frac{dy}{dt} \approx \frac{\Delta y}{\Delta t}. \]
+Taking $\Delta y = y_{n+1} - y_n$ we arrive at an approximate form of the differential
+equation \eqref{eqn:euler_continuous_ex1}
+\begin{flalign}
+    \frac{y_{n+1} - y_n}{\Delta t} \approx -0.5 y_n + 0.1.
+    \label{eqn:euler_continuous_approx}
+\end{flalign}
+In \eqref{eqn:euler_continuous_approx} we can then rearrange algebraically to get
+\begin{flalign}
+    y_{n+1} \approx y_n + \Delta t \left( -0.5 y_n + 0.1 \right).
+    \label{eqn:euler_continuous_approx2}
+\end{flalign}
+All we have done at this point is to approximate the derivative $\frac{dy}{dt}$
+
+\begin{problem}
+    In MS Excel we are going to solve the difference equation
+    \eqref{eqn:euler_discrete_ex1} alongside the differential equation
+    \eqref{eqn:euler_continuous_ex1}.  For both we will use the initial condition $a_0 =
+    y(0) = 1$.  Notice that these two equations model the same
+    behavior with the difference being that the difference equation models in discrete
+    time and the differential equations models in continuous time.
+    \begin{enumerate}
+        \item[(a)] In MS Excel label column \texttt{A} ``Discrete Time'' and label column
+            \texttt{B} ``Difference Equation''.  Fill in the times starting at 0 and
+            increasing by 1 in column \texttt{A}.  Put the initial condition in cell
+            \texttt{B2} and build the difference equation starting in cell \texttt{B3}.
+            See the left side of Table \ref{tab:euler_excel}.
+        \item[(b)] In the same Excel worksheet label column \texttt{D} ``Continuous Time''
+            and label column \texttt{E} ``Differential Equation''.  Put in ``0'' for the
+            initial time, choose a time step, and fill in column \texttt{D} with times
+            progressing by that time step.  Put the initial condition in cell \texttt{E2}
+            and build the approximation to the differential equation
+            \eqref{eqn:euler_continuous_approx2} starting at cell \texttt{E3}.
+            See the right side of Table \ref{tab:euler_excel}.
+        \item[(c)] Fill both numerical solutions so that they end at the same time (the
+            continuous time model will obviously be 10 times longer if you use $\Delta t =
+            0.1$).  
+        \item[(d)] Make a plot showing both solutions on top of each other.
+    \end{enumerate}
+\end{problem}
+
+\begin{table}[ht!]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        & A & B & C & D & E \\
+        \hline
+        1 & Discrete Time & Difference Equation & & Continuous Time & Differential Equation \\
+        \hline 
+        2 & 0 & 1 &  & 0 & 1 \\
+        3 & 1 & \verb|=B2-0.5*B2+0.1| &  & 0.1 & \verb|=E2+(0.1)*(-0.5*E2+0.2)| \\
+        4 & 2 &  &  &  0.2 & \\
+        5 & \vdots & \vdots & & \vdots & \vdots \\ \hline
+    \end{tabular}
+    \caption{Excel setup for a difference equation (left) and differential equation
+    (right).}
+    \label{tab:euler_excel}
+\end{table}
+
+
+You should have noticed in the previous problem that the solutions to the difference and
+differential equations are slightly different than each other.  This is no surprise since
+we are taking time steps of ``1'' in the difference equation and we are taking much finer
+time steps in the differential equation.  Note further that the only way to make the
+approximate solution to the differential equation accurately portray the actual dynamics
+of the differential equation we would need to take $\Delta t \to 0$.  Doing so is clearly
+infeasible on a computer since we would need infinite memory to do so.  We settle,
+instead, for taking $\Delta t$ to be small (0.1 or 0.01 or smaller).  
+
+\begin{definition}[Euler's Method]
+    To numerically approximate the solutions to the differential equation
+    \[ \frac{dy}{dt} = f(t,y) \]
+    we approximate the derivative with 
+    \[ \frac{dy}{dt} \approx \frac{y_{n+1} - y_n}{\Delta t} \]
+    and use the difference equation
+    \[ y_{n+1} = y_n + \Delta t f(t_n,y_n  \]
+    to build an approximate solution.  
+\end{definition}
+Remember that the only reasonable choice for
+$\Delta t$ is to make it {\it very small}.  The trade off to choosing $\Delta t$ small
+is that it will take more computer memory to approximate the problem.
+
+A way to think about Euler's method is that at a given point, the slope is approximated by
+the value of the right-hand side of the differential equation and then we step forward
+$\Delta t$
+units in time following that slope.  Figure \ref{fig:Euler} shows a depiction of the idea.
+Notice in the figure that in regions of high curvature Euler's method will overshoot the
+exact solution to the differential equation.  However, taking $\Delta t \to 0$ theoretically
+gives the exact solution at the trade off of needing infinite computational resources.
+
+\begin{figure}[ht!]
+    \begin{center}
+        \begin{tikzpicture}
+            \begin{axis}[axis lines=center, grid, xmin=0, xmax=5, ymin=0, ymax=5,
+                domain=0:5, xlabel={$t$}, ylabel={$y$}, legend pos=outer north east]
+                \addplot[very thick, smooth, black] {0.25*(x-2)^2+2};
+                \addlegendentry{Exact solution};
+                \addplot[red, dashed, very thick]
+                coordinates{(0,3)(1,2)(2,1.5)(3,1.5)(4,2)(5,3)};
+                \addlegendentry{Euler with $h=1$};
+                \addplot[blue, dotted, very thick]
+                coordinates{(0,3)(0.5,2.5)(1,2.125)(1.5,1.875)(2,1.75)(2.5,1.75)(3,1.875)(3.5,2.125)(4,2.5)(4.5,3)(5,3.625)};
+                \addlegendentry{Euler with $h=0.5$};
+            \end{axis}
+        \end{tikzpicture}
+    \end{center}
+    \caption{A depiction of Euler's method with step size $h=1$ (red) and $h=0.5$ (blue).}
+    \label{fig:Euler}
+\end{figure}
+
+
+In Figure \ref{fig:Euler_graphical} we see a graphical depiction of how Euler's method
+works on the differential equation $y' = y$ with $\Delta t = 1$ and $y(0) = 1$.  The exact
+solution to the differential equation is $y(t) = e^t$ and at $t=1$ the solution is $y(1) =
+e^1 \approx 2.718$ and is shown in red in the figure. We can see that for large step sizes
+Euler's method will drastically miss the true dynamics of the differential equation.
+
+\begin{figure}[ht!]
+    \begin{center}
+        \begin{tikzpicture}
+            \begin{axis}[axis lines=center, grid, xmin=-0.1, xmax=1.1, ymin=0, ymax=3,
+                title={Euler}]
+                \draw[fill=red] (axis cs:1,2.7182) circle(0.07cm); 
+                \addplot[dashed, red, samples=50] {1*exp(x)};
+                \draw[fill=black] (axis cs:0,1) circle(0.07cm); 
+                \draw[blue, ->] (axis cs:0,1) -- (axis cs:0.98,1.99);
+                \draw[fill=blue] (axis cs:1,2) circle(0.07cm);
+                \draw (axis cs:0.5,1.5) node[anchor=north]{$m=1$};
+                \draw[color=blue] (axis cs:1,2) node[anchor=north]{$(1,2)$};
+                \draw[color=red] (axis cs:1,2.7182) node[anchor=south east]{$(1,2.71)$};
+            \end{axis}
+        \end{tikzpicture}
+    \end{center}
+    \caption{Graphical depiction of Euler's method.  Here we use the simple differential equation
+$y'=y$ with $y(0) = 0.5$ and $\Delta t = 1$.  The exact solution is shown in red.}
+    \label{fig:Euler_graphical}
+\end{figure}
+
+
+
+In Excel the process of building an Euler solver is relatively simple.  In \texttt{MATLAB}
+it takes a bit more work the very first time, but trust me, the work will pay off in the
+long run!  Think carefully about the computer resources necessary to truly capture the
+dynamics of a differential equation with Euler's method: very small step size and lots of
+computer memory.  In Excel this means lots of dragging with the mouse which is slow,
+cumbersome, and annoying.  Let's build the same problem in \texttt{MATLAB}.
+\begin{problem}[Euler's Method in MATLAB]
+    Open \texttt{MATLAB} and create a new script.  
+    The code given below sets up and plots the numerical solution to the problem
+    \[ \frac{dy}{dt} = -0.5 y + 0.1. \]
+    Explain what each line of code
+    does using comments. Some of the lines of code are likely new to you so I suggest you
+    either use the help command or you do some basic experimentation.
+\begin{lstlisting}
+clear; clc; clf;
+tmin=0; % define the minimum time
+tmax=5; % define the maximum time
+dt = 0.1; % what is this line doing?
+IC = 1; % define the initial condition for the problem
+t=tmin : dt : tmax;  % what does this line do?
+y=zeros(size(t)); % what does this line do?
+y(1) = IC; % what does this line do?
+for n=1:length(t)-1 % what does this line do?
+    y(n+1) = y(n) + dt*(-0.5*y(n)+0.1);
+end
+plot(t,y,'b'), grid on, xlabel('time'), ylabel('y(t)')
+title('Euler Approximation')
+\end{lstlisting}
+\end{problem}
+
+\begin{problem}
+    Experiment with different values of $\Delta t$ in your MATLAB code.  I hope that you
+    realize that this code is now FAR more flexible than using Excel even though it takes
+    a bit more thought to set up at the beginning.
+\end{problem}
+
+\begin{problem}
+    Modify your Euler's method \texttt{MATLAB} code to get an approximate solution to the differential equation
+        \[ y' = -y \cdot \left( 1-\frac{y}{5} \right) + 0.1 t \quad \text{where} \quad
+            y(0)=2 \]
+\end{problem}
+
+\begin{problem}
+    Modify your Euler's method \texttt{MATLAB} code to get an approximate solution to the differential equation
+        \[ y' = -y\left( 1-\frac{y}{5} \right)^2 + \sin(t) \]
+        for several different initial conditions. Save your plot in an appropriate place
+        with appropriate labels and title.
+\end{problem}
+
+
+
+\begin{problem}
+    Solve both of the problems below with MATLAB.  For the difference equation your code
+    should be absolutely identical to that of Euler's method with the exception that
+    $\Delta t = 1$.  Put the plots on top of each other so you can easily see the
+    differences and similarities.
+    \begin{flalign*}
+        a_{n+1} - a_n &= 0.25 a_n \left( 1 - \frac{a_n}{10} \right) \\
+        \frac{dy}{dt} &= 0.25 y \left( 1 - \frac{y}{10} \right). 
+    \end{flalign*}
+\end{problem}
+
+\begin{problem}
+    Go back to every difference and differential equation that we have build thus far in
+    this chapter and solve it with both Excel and with MATLAB.
+\end{problem}
+
+Save all of the code from both Excel and MATLAB.  We will be using numerical
+approximations to solve both difference and differential equations throughout the
+remainder of this course.  You will need to be able to build the Euler code in MATLAB
+without looking back at old code so take some time in the next few days and practice
+writing this code.
+
+% For a complete discussion of Euler's method see the
+% \href{http://faculty.gvsu.edu/boelkinm/Home/AC/sec-7-3-euler.html}{Active Calculus book Section
+% 7.3}.
 
 
 \newpage\section{Classifying Difference and Differential Equations}
