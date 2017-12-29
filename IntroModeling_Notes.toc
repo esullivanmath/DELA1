@@ -42,22 +42,29 @@
 \contentsline {section}{\numberline {4.4}Energy in Mass Spring Systems -- A Lab Exploration}{110}{section.4.4}
 \contentsline {section}{\numberline {4.5}Modeling Explorations with $2^{nd}$ Order Differential Equations}{113}{section.4.5}
 \contentsline {chapter}{\numberline {5}Systems of Difference and Differential Equations}{117}{chapter.5}
-\contentsline {section}{\numberline {5.1}Rumor Spreading System (Finish)}{117}{section.5.1}
-\contentsline {section}{\numberline {5.2}Linear Systems (Finish)}{117}{section.5.2}
-\contentsline {section}{\numberline {5.3}The Eigenvalue / Eigenvector Problem (Finish)}{117}{section.5.3}
-\contentsline {section}{\numberline {5.4}Analysis of Linear Systems (Finish)}{117}{section.5.4}
-\contentsline {section}{\numberline {5.5}Modeling Explorations with Systems (FINISH)}{117}{section.5.5}
-\contentsline {chapter}{\numberline {6}Infinite Series}{120}{chapter.6}
-\contentsline {section}{\numberline {6.1}Sections from Active Calculus}{120}{section.6.1}
-\contentsline {chapter}{Appendices}{121}{section*.28}
-\contentsline {chapter}{\numberline {A}MATLAB Basics}{122}{Appendix.a.A}
-\contentsline {section}{\numberline {A.1}Vectors and Matrices}{122}{section.a.A.1}
-\contentsline {section}{\numberline {A.2}Looping}{124}{section.a.A.2}
-\contentsline {subsection}{\numberline {A.2.1}For Loops}{124}{subsection.a.A.2.1}
-\contentsline {subsection}{\numberline {A.2.2}The While Loop}{125}{subsection.a.A.2.2}
-\contentsline {section}{\numberline {A.3}Conditional Statements}{126}{section.a.A.3}
-\contentsline {subsection}{\numberline {A.3.1}If Statements}{126}{subsection.a.A.3.1}
-\contentsline {subsection}{\numberline {A.3.2}Case-Switch Statements}{127}{subsection.a.A.3.2}
-\contentsline {section}{\numberline {A.4}Functions}{127}{section.a.A.4}
-\contentsline {section}{\numberline {A.5}Plotting}{128}{section.a.A.5}
-\contentsline {section}{\numberline {A.6}Animations}{129}{section.a.A.6}
+\contentsline {section}{\numberline {5.1}Spread of Disease}{117}{section.5.1}
+\contentsline {section}{\numberline {5.2}Spreading a Juicy Rumor}{118}{section.5.2}
+\contentsline {section}{\numberline {5.3}The H1N1 Virus}{121}{section.5.3}
+\contentsline {section}{\numberline {5.4}Writing Systems of Difference Equations}{122}{section.5.4}
+\contentsline {section}{\numberline {5.5}Linear Systems}{126}{section.5.5}
+\contentsline {section}{\numberline {5.6}The Eigenvalue / Eigenvector Problem (Finish)}{129}{section.5.6}
+\contentsline {subsection}{\numberline {5.6.1}Geometry of Eigenvectors and Eigenvalues}{130}{subsection.5.6.1}
+\contentsline {subsection}{\numberline {5.6.2}The Eigenvalue Eigenvector Problem}{132}{subsection.5.6.2}
+\contentsline {subsection}{\numberline {5.6.3}Technology for the Eigenvalue Eigenvector Problem}{132}{subsection.5.6.3}
+\contentsline {section}{\numberline {5.7}Markov Chains (FINISH)}{132}{section.5.7}
+\contentsline {section}{\numberline {5.8}Analysis of Linear Systems (Finish)}{132}{section.5.8}
+\contentsline {section}{\numberline {5.9}Modeling Explorations with Systems (FINISH)}{132}{section.5.9}
+\contentsline {chapter}{\numberline {6}Infinite Series}{138}{chapter.6}
+\contentsline {section}{\numberline {6.1}Sections from Active Calculus}{138}{section.6.1}
+\contentsline {chapter}{Appendices}{139}{section*.36}
+\contentsline {chapter}{\numberline {A}MATLAB Basics}{140}{Appendix.a.A}
+\contentsline {section}{\numberline {A.1}Vectors and Matrices}{140}{section.a.A.1}
+\contentsline {section}{\numberline {A.2}Looping}{142}{section.a.A.2}
+\contentsline {subsection}{\numberline {A.2.1}For Loops}{142}{subsection.a.A.2.1}
+\contentsline {subsection}{\numberline {A.2.2}The While Loop}{143}{subsection.a.A.2.2}
+\contentsline {section}{\numberline {A.3}Conditional Statements}{144}{section.a.A.3}
+\contentsline {subsection}{\numberline {A.3.1}If Statements}{144}{subsection.a.A.3.1}
+\contentsline {subsection}{\numberline {A.3.2}Case-Switch Statements}{145}{subsection.a.A.3.2}
+\contentsline {section}{\numberline {A.4}Functions}{145}{section.a.A.4}
+\contentsline {section}{\numberline {A.5}Plotting}{146}{section.a.A.5}
+\contentsline {section}{\numberline {A.6}Animations}{147}{section.a.A.6}

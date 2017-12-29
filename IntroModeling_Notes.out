@@ -42,22 +42,29 @@
 \BOOKMARK [1][-]{section.4.4}{Energy in Mass Spring Systems \205 A Lab Exploration}{chapter.4}% 42
 \BOOKMARK [1][-]{section.4.5}{Modeling Explorations with 2nd Order Differential Equations}{chapter.4}% 43
 \BOOKMARK [0][-]{chapter.5}{Systems of Difference and Differential Equations}{}% 44
-\BOOKMARK [1][-]{section.5.1}{Rumor Spreading System \(Finish\)}{chapter.5}% 45
-\BOOKMARK [1][-]{section.5.2}{Linear Systems \(Finish\)}{chapter.5}% 46
-\BOOKMARK [1][-]{section.5.3}{The Eigenvalue / Eigenvector Problem \(Finish\)}{chapter.5}% 47
-\BOOKMARK [1][-]{section.5.4}{Analysis of Linear Systems \(Finish\)}{chapter.5}% 48
-\BOOKMARK [1][-]{section.5.5}{Modeling Explorations with Systems \(FINISH\)}{chapter.5}% 49
-\BOOKMARK [0][-]{chapter.6}{Infinite Series}{}% 50
-\BOOKMARK [1][-]{section.6.1}{Sections from Active Calculus}{chapter.6}% 51
-\BOOKMARK [0][-]{section*.28}{Appendices}{}% 52
-\BOOKMARK [0][-]{Appendix.a.A}{MATLAB Basics}{}% 53
-\BOOKMARK [1][-]{section.a.A.1}{Vectors and Matrices}{Appendix.a.A}% 54
-\BOOKMARK [1][-]{section.a.A.2}{Looping}{Appendix.a.A}% 55
-\BOOKMARK [2][-]{subsection.a.A.2.1}{For Loops}{section.a.A.2}% 56
-\BOOKMARK [2][-]{subsection.a.A.2.2}{The While Loop}{section.a.A.2}% 57
-\BOOKMARK [1][-]{section.a.A.3}{Conditional Statements}{Appendix.a.A}% 58
-\BOOKMARK [2][-]{subsection.a.A.3.1}{If Statements}{section.a.A.3}% 59
-\BOOKMARK [2][-]{subsection.a.A.3.2}{Case-Switch Statements}{section.a.A.3}% 60
-\BOOKMARK [1][-]{section.a.A.4}{Functions}{Appendix.a.A}% 61
-\BOOKMARK [1][-]{section.a.A.5}{Plotting}{Appendix.a.A}% 62
-\BOOKMARK [1][-]{section.a.A.6}{Animations}{Appendix.a.A}% 63
+\BOOKMARK [1][-]{section.5.1}{Spread of Disease}{chapter.5}% 45
+\BOOKMARK [1][-]{section.5.2}{Spreading a Juicy Rumor}{chapter.5}% 46
+\BOOKMARK [1][-]{section.5.3}{The H1N1 Virus}{chapter.5}% 47
+\BOOKMARK [1][-]{section.5.4}{Writing Systems of Difference Equations}{chapter.5}% 48
+\BOOKMARK [1][-]{section.5.5}{Linear Systems}{chapter.5}% 49
+\BOOKMARK [1][-]{section.5.6}{The Eigenvalue / Eigenvector Problem \(Finish\)}{chapter.5}% 50
+\BOOKMARK [2][-]{subsection.5.6.1}{Geometry of Eigenvectors and Eigenvalues}{section.5.6}% 51
+\BOOKMARK [2][-]{subsection.5.6.2}{The Eigenvalue Eigenvector Problem}{section.5.6}% 52
+\BOOKMARK [2][-]{subsection.5.6.3}{Technology for the Eigenvalue Eigenvector Problem}{section.5.6}% 53
+\BOOKMARK [1][-]{section.5.7}{Markov Chains \(FINISH\)}{chapter.5}% 54
+\BOOKMARK [1][-]{section.5.8}{Analysis of Linear Systems \(Finish\)}{chapter.5}% 55
+\BOOKMARK [1][-]{section.5.9}{Modeling Explorations with Systems \(FINISH\)}{chapter.5}% 56
+\BOOKMARK [0][-]{chapter.6}{Infinite Series}{}% 57
+\BOOKMARK [1][-]{section.6.1}{Sections from Active Calculus}{chapter.6}% 58
+\BOOKMARK [0][-]{section*.36}{Appendices}{}% 59
+\BOOKMARK [0][-]{Appendix.a.A}{MATLAB Basics}{}% 60
+\BOOKMARK [1][-]{section.a.A.1}{Vectors and Matrices}{Appendix.a.A}% 61
+\BOOKMARK [1][-]{section.a.A.2}{Looping}{Appendix.a.A}% 62
+\BOOKMARK [2][-]{subsection.a.A.2.1}{For Loops}{section.a.A.2}% 63
+\BOOKMARK [2][-]{subsection.a.A.2.2}{The While Loop}{section.a.A.2}% 64
+\BOOKMARK [1][-]{section.a.A.3}{Conditional Statements}{Appendix.a.A}% 65
+\BOOKMARK [2][-]{subsection.a.A.3.1}{If Statements}{section.a.A.3}% 66
+\BOOKMARK [2][-]{subsection.a.A.3.2}{Case-Switch Statements}{section.a.A.3}% 67
+\BOOKMARK [1][-]{section.a.A.4}{Functions}{Appendix.a.A}% 68
+\BOOKMARK [1][-]{section.a.A.5}{Plotting}{Appendix.a.A}% 69
+\BOOKMARK [1][-]{section.a.A.6}{Animations}{Appendix.a.A}% 70

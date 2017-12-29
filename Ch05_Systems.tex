@@ -1,16 +1,1309 @@
 \chapter{Systems of Difference and Differential Equations}
+Thus far we have only discussed difference and differential equations that involved a
+single unkonwn.  Unfortunately the world is much more complicated than that!  It is more
+common to have several variables interacting with each other in a model, and that is the
+type of problem that we'll attack in this chapter.  The first three sections are dedicated
+to one modeling problem each.  The subsequent sections focus on linear systems of
+equations and some extremely powerful linear algebra tools that we use to analyze such
+systems.
 
-\section{Rumor Spreading System (Finish)}
+\section{Spread of Disease}
+\begin{problem}
+    We're going to try a social experiment.  
+    \begin{enumerate}
+        \item[(a)] Everyone in the class get a random number between 1 and 5. 
+        \item[(b)] I'm sorry, but if your random number is ``1'' then you just got infected
+            with the horribly contagious disease ODEbola.  Raise your hand if you are
+            infected.
+        \item[(c)] For the next 15 seconds everyone needs to walk aimlessly around the
+            classroom (move the tables out of the way and don't be afraid to bump into
+            each other).  This step is supposed to simulate {\it homogeneous mixing} so
+            \ldots mix homogeneously!
+        \item[(d)] At the end of the 15 seconds stop and stand still.  Reach your arms
+            out.  If someone within arm's reach is infected with ODEbola then you now are
+            too!  Raise your hand if you are infected.
+        \item[(e)] Repeat steps (c) and (d) again. At the end of every step 10\% of the
+            infected people that are infected will recover and are removed from the
+            experiment.  Keep track of the number of
+            people that are infected and recovered at each step.  Run the experiment for
+            several iterations
+    \end{enumerate}
+\end{problem}
 
-\section{Linear Systems (Finish)}
+\begin{problem}\label{prob:SIR_outbreak_simulation}
+    Watch the video \href{https://youtu.be/NSNWDUXN2p4}{https://youtu.be/NSNWDUXN2p4} to
+    see a simulation where a 150 person population has an outbreak and the virus is spread
+    via close proximity contact.  Notice, in particular,
+    the homogeneous mixing.
+\end{problem}
+
+% \begin{challenge}
+%     Write computer code to produce a simulation similar to what you see in Problem
+%     \ref{prob:SIR_outbreak_simulation}.
+% \end{challenge}
+
+\begin{problem}
+    In the previous problems there were three distinct populations: Susceptible ($S$),
+    Infected and contagious ($I$), and Recovered ($R$).  
+    \begin{enumerate}
+        \item[(a)] Does this problem call for difference equations or differential
+            equations?  Why?
+        \item[(b)] The three populations depend on each other?  That is, at any given
+            time step do we need to know all three populations to propagate forward in
+            time or does it suffice to only know one of them?
+        \item[(c)] Write a system of difference or differential equations for the experiment that we ran
+            and remember to keep in mind that we were homogeneously mixing the population
+            the entire time. Think very carefully about how a susceptible person is
+            actually infected.
+    \begin{flalign*}
+        \text{Susceptible Population: } \underline{\hspace{1in}} &= \underline{\hspace{1.5in}} \quad \text{with} \quad S(0) =
+        \underline{\hspace{1in}} \\
+        \text{Infective Population: } \underline{\hspace{1in}} &= \underline{\hspace{1.5in}} \quad \text{with} \quad I(0) = 
+        \underline{\hspace{1in}} \\
+        \text{Recovered Population: } \underline{\hspace{1in}} &= \underline{\hspace{1.5in}}  \quad \text{with} \quad R(0) = 
+        \underline{\hspace{1in}} 
+    \end{flalign*}
+    A model equation would read
+    \[ \text{rate at which pop is changing} = \text{an expression for how the pop is
+    changing} \]
+    \end{enumerate}
+    
+\end{problem}
+\solution{
+    The system should be a standard SIR model where the recovered people can also get
+    infected.
+    \begin{flalign*}
+        S' &= -\alpha SI \\
+        I' &= \alpha SI - \beta I \\
+        R' &= \beta I
+    \end{flalign*}
+    where $\alpha$ is a parameter related to the likelihood that someone will get infected
+    (subject to the homogeneous mixing) and $\beta = 0.1$ is the recovery rate.
+}
+
+
+\begin{problem}
+    Consider the system from the previous problem.
+    \begin{enumerate}
+%         \item[(a)] How did you take the homogeneous mixing into account?
+        \item[(a)] Is the system linear or nonlinear?  Why?
+        \item[(b)] What is the expected long-term behavior of this system?  Why?
+    \end{enumerate}
+\end{problem}
+
+
+\section{Spreading a Juicy Rumor}
+A particularly juicy rumor has cropped up on your college campus.  The goal of this
+activity is to model the spread of the rumor through the student body by classifying
+students into three compartments: 
+\begin{itemize}
+    \item people who have \underline{heard} the rumor and spread it to other people ($H$),
+    \item people who are \underline{ignorant} of the rumor ($I$), and
+    \item people who have heard the rumor but \underline{refuse} to spread it ($R$).
+\end{itemize}
+
+
+\begin{problem}
+    Assume that in a population of 2000 student there is 1 person who knows the
+    rumor initially so $H_0 = 1$.  This
+    means that $I_0 = 1999$ and $R_0=0$.  Using the plots below, make several conjectures
+    about how the three sub-populations change over time.
+    \begin{center}
+        \includegraphics[width=1.0\columnwidth]{BlankAxes.eps}
+    \end{center}
+\end{problem}
+
+
+\begin{problem}
+The three sub-populations clearly trade individuals as the rumor spreads.  Since
+    this is a closed system we can treat this as a {\it compartment model} where each
+    state ($H$, $I$, and $R$) is connected to the other states based on how the
+    transfer occurs. 
+
+    There are several ways to organize the model.  Use Table \ref{tab:hir_table}, Table
+    \ref{tab:hir_transfer}, the graphical
+    representation (Figure \ref{fig:hir_graph}), and partially complete difference equations to complete the
+    mathematical model. Some of the model has been completed for you to, but note that
+    only one possibility is presented (feel free to change it later). The biggest
+    challenge here is making conjectures about the way in which the transfers happens.
+
+\end{problem}
+
+        \begin{table}[ht!]
+            \centering
+            \begin{tabular}{|c|c|c|c|c|c|c|}
+                \hline
+                {\bf New Pop.} & $=$ & {\bf Old Pop.} & $+$ & {\bf Influx From} & $-$ &
+                {\bf Output To} \\ \hline \hline
+                Heard (new) & $=$ & Heard (old) & $+$ & Influx from Ignorant & $-$ &
+                Output to Refuse \\ \hline
+                Ignorant (new) & $=$ & Ignorant (old) & $+$ &  & $-$ &
+                 \\ \hline
+                Refuse (new) & $=$ & Refuse (old) & $+$ &   & $-$ &
+                 \\ \hline
+            \end{tabular}
+            \caption{Table to organize transfer between compartments. Fill in the blanks.}
+            \label{tab:hir_table}
+        \end{table}
+
+
+        \begin{table}[ht!]
+            \centering
+            \begin{tabular}{cc|ccc}
+                & & \multicolumn{3}{|c}{{\bf From}} \\
+                & & Heard & Ignorant & Refuse \\ \hline 
+                \multirow{3}{*}{{\bf To}} & Heard & $-$ & proportional to $H_n \cdot I_n$
+                &  \underline{\hspace{1in}} \\ 
+                & Ignorant & \underline{\hspace{1in}} & $-$ & \underline{\hspace{1in}} \\
+                & Refuse & proportional to $H_n$  & \underline{\hspace{1in}}  & $-$ \\ 
+            \end{tabular}
+            \caption{Organization table for how the populations might transfer people. Fill in the blanks.}
+            \label{tab:hir_transfer}
+        \end{table}
+
+
+        \begin{figure}[ht!]
+            \begin{center}
+                \includegraphics[width=0.5\columnwidth]{NetworkModel.eps}
+            \end{center}
+            \caption{A graphical representation of how the sub-populations trade people. Fill in the blanks.}
+            \label{fig:hir_graph}
+        \end{figure}
+        
+        \begin{flalign*}
+            H_{n+1}-H_n &= \underline{\hspace{2in}}\\
+            I_{n+1}-I_n &= \underline{\hspace{2in}}\\
+            R_{n+1}-R_n &= \underline{\hspace{2in}}
+        \end{flalign*}
+
+        
+
+
+
+        \begin{problem}
+        Now we get to think about the modeling process:
+            \begin{itemize}
+                \item We have a mathematical model.
+                \item Explicitly state your assumptions and simplifications.
+                \item Determine how you might estimate each parameter in the model.
+                \item Solve the mathematical model numerically using Excel (based on your
+                    estimated parameters) and compare with your classmates.
+                \item Analyze the results and see if they seem reasonable.
+                \item Tweak the model to loosen assumptions or to more accurately model
+                    reality.  This can include:
+                    \begin{itemize}
+                        \item allowing people to forget the rumor;
+                        \item changing the way the rumor transfers;
+                        \item adding more compartments; or
+                        \item many other possibilities.
+                    \end{itemize}
+                \item Iterate this process until you think that the model approximates
+                    reality.
+            \end{itemize}
+        \end{problem}
+
+        \begin{problem}
+            The data found
+            \href{https://docs.google.com/spreadsheets/d/1jS6w4gFmxFmgaSzDaD90vDOpN2N3-DdadTxkd9pvaMI/edit?usp=sharing}{HERE} contains the proportion of the population  that has heard
+            the rumor at each given time step.  Use Excel's solver along with your
+            numerical model to estimate the parameters in your model.  Your end result
+            should be a plot of all three population proportions.  One modeling step that
+            may simplify things is that we have a closed population so we know that the
+            sum of the three proportions must be 1 -- hence eliminating one of the
+            populations from the model.
+        \end{problem}
+
+\section{The H1N1 Virus}
+The H1N1 Virus (commonly known as Bird Flu) hit your college back in 2010.  H1N1 is a
+particularly interesting virus since a infected person stays infectious for exactly 7 days
+after the initial infection.  After that time the person may still be ill but is
+recovering and is no longer infectious.  
+
+\begin{problem}
+    Consider a closed population of 1500 students, faculty, and staff at a small college
+    campus.  On a particular day in 2010, 1 person was diagnosed with H1N1.  We'll assume
+    that person was on the second day of their infectious period.  An announcement went
+    out to everyone on campus to come to the health center the moment they started feeling
+    symptoms.  Three days later, two new people showed up at the health center with
+    symptoms.  
+
+    Using the rather small amount of data given in the paragraph above, create a model for
+    spread of the H1N1 virus through the campus.   Consider modeling the population as 9
+    different compartments:
+    \begin{enumerate}
+        \item Susceptible,
+        \item Infectious Day 1,
+        \item Infectious Day 2,
+        \item Infectious Day 3,
+        \item Infectious Day 4,
+        \item Infectious Day 5,
+        \item Infectious Day 6,
+        \item Infectious Day 7, and
+        \item Recovered.
+    \end{enumerate}
+    Use Excel's Solver to find any parameters in your model.  Model first with a system of
+    difference equations, then discuss with your partners whether you think it would be
+    scientifically and mathematically more appropriate to use a system of differential
+    equations instead.
+\end{problem}
+
+
+\section{Writing Systems of Difference Equations}
+In order to get a great feel for setting up systems of difference equations this section
+will present several examples and activities to simply get your hands dirty.  The idea
+being that it takes some practice reading these problems and identifying the key
+components. Each example will include some sensitivity discussion as well as a peak at the
+numerical solutions. Analytical solutions are possible for some classes of systems but we
+will delay this discussion until later.
+
+\begin{example}
+In the Bob Marshall Wilderness of Montana, black bears and grizzly bears compete with each
+other for food.  Suppose that in the absence of any competition or hunting, the black bear
+population will grow by 10\% per year, while the grizzly bear population will grow by 4\%.
+Each year the competition between the two types of bears leads to the death of a certain
+number of each type of bear (due to fighting and food shortages).  The number of black
+bears that die is equal to the product of the black and grizzly bear populations
+multiplied by $0.0003$.  The number of grizzly bears that die is equal to the product of
+the black and grizzly populations multiplied by $0.0001$.  Assume that there are $1500$
+black bears and $730$ grizzly bears currently present in the Bob Marshall Wilderness.
+\ba
+\item Write and numerically solve a pair of difference equations to model the bear populations.
+\item Modify the model from part (a) to include the unfortunate fact that poachers kill
+    30 black bears and 10 grizzly bears per year.
+\ea
+{\bf Solution:} \\
+Let $B_n$ represent the population of black bears at year $n$ and $G_n$ represent the
+population of grizzly bears at year $n$.  
+
+First let us consider the black bear population.
+\begin{itemize}
+    \item The population of black bears increases by $10\%$ per year
+    \item The population of black bears decreases from competition
+\end{itemize}
+With these two key features in mind the model for the black bear population is
+\[ B_{n+1} = B_n + 0.10 \cdot B_n - 0.0003 B_n G_n. \]
+
+Next let us consider the grizzly bear population.
+\begin{itemize}
+    \item The population of grizzly bears increases by $4\%$ per year
+    \item The population of grizzly bears decreases from competition
+\end{itemize}
+With these two key features in mind the model for the bear population is
+\[ G_{n+1} = G_n + 0.04 \cdot G_n - 0.0001 B_n G_n. \]
+
+Obviously these two equations depend on each other because of the competition terms.
+Systems that display this property are called {\it coupled}.  Putting the equations
+together in one place and simplifying the algebra we see that the coupled system of
+difference equations is
+\begin{flalign*}
+    B_{n+1} &= 1.10 \cdot B_n - 0.0003\cdot B_n\cdot G_n \\
+    G_{n+1} &= 1.04 \cdot G_n - 0.0001\cdot B_n\cdot G_n
+\end{flalign*}
+
+A numerical solution of this model will result in three plots: bear population vs. time,
+grizzly population vs. time, and bear population vs. grizzly population. The last of these
+is called the {\it phase plot} for the system. Figure \ref{fig:9.10.ex1bears2} shows the
+population dynamics for the individual bear populations.  The right-hand plot in Figure
+\ref{fig:9.10.ex1bears2} shows the phase plot for the two bear populations. To read the
+phase plot start at the initial condition and follow the trajectory of the points through
+the phase space.  
+
+If poaching is considered then the model becomes
+\begin{flalign*}
+    B_{n+1} &= 1.10 \cdot B_n - 0.0003\cdot B_n\cdot G_n - 30 \\
+    G_{n+1} &= 1.04 \cdot G_n - 0.0001\cdot B_n\cdot G_n - 10
+\end{flalign*}
+Figure \ref{fig:9.10.ex1bears2_poach} shows the new population dynamics when poaching
+occurs. 
+
+In the non-poaching scenario it appears that the black bear population is on the rise
+(over 3000 bears) and the grizzly bear population is driven to extinction.  In the
+poaching scenario it appears that the black bear population reaches 600 bears after 36
+years and the grizzly bears are driven to extinction within the wilderness area. Comparing
+the phase plots (the right-hand figures of Figure \ref{fig:9.10.ex1bears2} and \ref{fig:9.10.ex1bears2_poach}) we
+see very different dynamics with the addition of poaching.
+\end{example}
+
+
+\begin{figure}[ht!]
+    \centering
+    \begin{center}
+        \begin{tikzpicture}[scale=0.6]
+            \begin{axis}[axis lines=center, xlabel={$n$}, ylabel={$B_n$}, grid,
+                title={Black Bears}, ymin=0, ymax=4000]
+                \addplot[black, mark=*, only marks] coordinates{
+(0 , 1500.00)
+(1 , 1321.50)
+(2 , 1196.08)
+(3 , 1104.04)
+(4 , 1034.64)
+(5 , 981.46)
+(6 , 940.45)
+(7 , 908.90)
+(8 , 884.97)
+(9 , 867.36)
+(10, 855.15)
+(11, 847.66)
+(12, 844.44)
+(13, 845.16)
+(14, 849.60)
+(15, 857.64)
+(16, 869.25)
+(17, 884.46)
+(18, 903.36)
+(19, 926.11)
+(20, 952.91)
+(21, 984.06)
+(22, 1019.88)
+(23, 1060.80)
+(24, 1107.29)
+(25, 1159.94)
+(26, 1219.39)
+(27, 1286.40)
+(28, 1361.84)
+(29, 1446.71)
+(30, 1542.10)
+(31, 1649.28)
+(32, 1769.66)
+(33, 1904.79)
+(34, 2056.41)
+(35, 2226.41)
+(36, 2416.86)
+(37, 2629.98)
+(38, 2868.16)
+(39, 3133.95)
+(40, 3430.03)};
+            \end{axis}
+        \end{tikzpicture}
+        \begin{tikzpicture}[scale=0.6]
+            \begin{axis}[axis lines=center, xlabel={$n$}, ylabel={$G_n$}, grid,
+                title={Grizzly Bears}, ymin=0, ymax=4000]
+                \addplot[magenta, mark=*, only marks] coordinates{
+(0  ,730.00)
+(1  ,649.70)
+(2  ,589.83)
+(3  ,542.88)
+(4  ,504.65)
+(5  ,472.63)
+(6  ,445.15)
+(7  ,421.09)
+(8  ,399.66)
+(9  ,380.28)
+(10 ,362.50)
+(11 ,346.00)
+(12 ,330.52)
+(13 ,315.83)
+(14 ,301.77)
+(15 ,288.20)
+(16 ,275.01)
+(17 ,262.11)
+(18 ,249.41)
+(19 ,236.85)
+(20 ,224.39)
+(21 ,211.98)
+(22 ,199.60)
+(23 ,187.23)
+(24 ,174.86)
+(25 ,162.49)
+(26 ,150.14)
+(27 ,137.84)
+(28 ,125.62)
+(29 ,113.54)
+(30 ,101.65)
+(31 ,90.04)
+(32 ,78.80)
+(33 ,68.00)
+(34 ,57.77)
+(35 ,48.20)
+(36 ,39.40)
+(37 ,31.45)
+(38 ,24.44)
+(39 ,18.41)
+(40 ,13.37)};
+            \end{axis}
+        \end{tikzpicture}
+        \begin{tikzpicture}[scale=0.6]
+        \begin{axis}[xlabel={Black Bears}, ylabel={Grizzly Bears}, title={Phase Plot},
+            grid]
+            \addplot[blue, mark=*, only marks] coordinates{
+(1500.00,730.00)
+(1321.50,649.70)
+(1196.08,589.83)
+(1104.04,542.88)
+(1034.64,504.65)
+(981.46 ,472.63)
+(940.45 ,445.15)
+(908.90 ,421.09)
+(884.97 ,399.66)
+(867.36 ,380.28)
+(855.15 ,362.50)
+(847.66 ,346.00)
+(844.44 ,330.52)
+(845.16 ,315.83)
+(849.60 ,301.77)
+(857.64 ,288.20)
+(869.25 ,275.01)
+(884.46 ,262.11)
+(903.36 ,249.41)
+(926.11 ,236.85)
+(952.91 ,224.39)
+(984.06 ,211.98)
+(1019.88,199.60)
+(1060.80,187.23)
+(1107.29,174.86)
+(1159.94,162.49)
+(1219.39,150.14)
+(1286.40,137.84)
+(1361.84,125.62)
+(1446.71,113.54)
+(1542.10,101.65)
+(1649.28,90.04)
+(1769.66,78.80)
+(1904.79,68.00)
+(2056.41,57.77)
+(2226.41,48.20)
+(2416.86,39.40)
+(2629.98,31.45)
+(2868.16,24.44)
+(3133.95,18.41)
+(3430.03,13.37)};
+        \end{axis}
+    \end{tikzpicture}
+    \end{center}
+    \caption{Phase plane showing the bear population dynamics}
+    \label{fig:9.10.ex1bears2}
+\end{figure}
+
+
+\begin{figure}[ht!]
+    \centering
+    \begin{center}
+        \begin{tikzpicture}[scale=0.60]
+            \begin{axis}[axis lines=center, xlabel={$n$}, ylabel={$B_n$}, grid,
+                title={Black Bears with Poaching}, ymin=0, ymax=2000]
+                \addplot[black, mark=*, only marks] coordinates{
+(0 , 1500.00)
+(1 , 1291.50)
+(2 , 1142.80)
+(3 , 1030.74)
+(4 , 942.98)
+(5 , 872.25)
+(6 , 813.97)
+(7 , 765.11)
+(8 , 723.58)
+(9 , 687.88)
+(10, 656.94)
+(11, 629.92)
+(12, 606.21)
+(13, 585.34)
+(14, 566.94)
+(15, 550.72)
+(16, 536.45)
+(17, 523.96)
+(18, 513.11)
+(19, 503.82)
+(20, 496.00)
+(21, 489.61)
+(22, 484.63)
+(23, 481.06)
+(24, 478.93)
+(25, 478.27)
+(26, 479.15)
+(27, 481.67)
+(28, 485.92)
+(29, 492.04)
+(30, 500.20)
+(31, 510.60)
+(32, 523.48)
+(33, 539.09)
+(34, 557.77)
+(35, 579.88)
+(36, 605.86)};
+            \end{axis}
+        \end{tikzpicture}
+        \begin{tikzpicture}[scale=0.60]
+            \begin{axis}[axis lines=center, xlabel={$n$}, ylabel={$G_n$}, grid,
+                title={Grizzly Bears with Poaching}, ymin=0, ymax=2000]
+                \addplot[magenta, mark=*, only marks] coordinates{
+(0 ,730.00)
+(1 ,639.70)
+(2 ,572.67)
+(3 ,520.13)
+(4 ,477.33)
+(5 ,441.41)
+(6 ,410.56)
+(7 ,383.57)
+(8 ,359.56)
+(9 ,337.93)
+(10,318.20)
+(11,300.02)
+(12,283.13)
+(13,267.29)
+(14,252.33)
+(15,238.12)
+(16,224.53)
+(17,211.47)
+(18,198.85)
+(19,186.60)
+(20,174.66)
+(21,162.98)
+(22,151.52)
+(23,140.24)
+(24,129.10)
+(25,118.09)
+(26,107.16)
+(27,96.31)
+(28,85.53)
+(29,74.79)
+(30,64.10)
+(31,53.46)
+(32,42.87)
+(33,32.34)
+(34,21.89)
+(35,11.54)
+(36,1.34)};
+            \end{axis}
+        \end{tikzpicture}
+    \begin{tikzpicture}[scale=0.60]
+        \begin{axis}[xlabel={Black Bears}, ylabel={Grizzly Bears}, title={Phase Plot},
+            grid]
+            \addplot[blue, mark=*, only marks] coordinates{
+(1500.00,730.00)
+(1291.50,639.70)
+(1142.80,572.67)
+(1030.74,520.13)
+(942.98 ,477.33)
+(872.25 ,441.41)
+(813.97 ,410.56)
+(765.11 ,383.57)
+(723.58 ,359.56)
+(687.88 ,337.93)
+(656.94 ,318.20)
+(629.92 ,300.02)
+(606.21 ,283.13)
+(585.34 ,267.29)
+(566.94 ,252.33)
+(550.72 ,238.12)
+(536.45 ,224.53)
+(523.96 ,211.47)
+(513.11 ,198.85)
+(503.82 ,186.60)
+(496.00 ,174.66)
+(489.61 ,162.98)
+(484.63 ,151.52)
+(481.06 ,140.24)
+(478.93 ,129.10)
+(478.27 ,118.09)
+(479.15 ,107.16)
+(481.67 ,96.31)
+(485.92 ,85.53)
+(492.04 ,74.79)
+(500.20 ,64.10)
+(510.60 ,53.46)
+(523.48 ,42.87)
+(539.09 ,32.34)
+(557.77 ,21.89)
+(579.88 ,11.54)
+(605.86 ,1.34)};
+        \end{axis}
+    \end{tikzpicture}
+    \end{center}
+    \caption{Phase plane showing the bear population dynamics}
+    \label{fig:9.10.ex1bears2_poach}
+\end{figure}
+
+
+
+
+\begin{example}
+Suppose that the past voting results of congressional elections at a certain voting
+precinct are represented by the three sequences $D_n$ (Democrats), $R_n$ (Republicans),
+and $T_n$ (Tea Party).  The voting behaviors of people change according to the following
+observations:
+\begin{center}
+    \begin{tabular}{|c|c|c|}
+        \hline 
+        Last Year's Vote & Prediction of This Year's Vote & Percent Making This Switch \\ \hline
+        \hline
+        Democrat & Democrat & 70\% \\
+        Democrat & Republican & 20\% \\
+        Democrat & Tea Party & 10\% \\ \hline
+        Republican & Republican & 50\% \\
+        Republican & Democrat & 20\% \\
+        Republican & Tea Party & 30\% \\ \hline
+        Tea Party & Tea Party & 50\% \\
+        Tea Party & Democrat & 20\% \\
+        Tea Party & Republican & 30\% \\ \hline
+    \end{tabular}
+\end{center}
+For example, the second line of the table means that $20\%$ of people that voted
+democratic last time will vote republican this time. Model this scenario with a system of
+difference equations.  Presume that there are 3,000 people in the precinct that are
+initially split equally among the voting categories.  Is the dynamical system stable over
+many years of voting supposing that the transition percentages stay the same?
+\\{\bf Solution:}\\
+The dynamical system needs only to keep track of how many people are in a particular
+group.  Therefore the dynamical system is
+\begin{flalign*}
+    D_{n+1} &= 0.7 D_n + 0.2 R_n + 0.1 T_n \\
+    R_{n+1} &= 0.2 D_n + 0.5 R_n + 0.3 T_n \\
+    T_{n+1} &= 0.1 D_n + 0.3 R_n + 0.5 T_n
+\end{flalign*}
+Written in a more convenient matrix notation, this three dimensional linear system can be
+written as 
+\begin{flalign*}
+    \begin{pmatrix} D_{n+1} \\ R_{n+1} \\ T_{n+1} \end{pmatrix} = \begin{pmatrix} 0.7 &
+        0.2 & 0.1 \\ 0.2 & 0.5 & 0.3 \\ 0.1 & 0.3 & 0.5 \end{pmatrix} \cdot
+        \begin{pmatrix} D_n \\ R_n \\ T_n \end{pmatrix}
+\end{flalign*}
+Obviously this is a three dimensional dynamical system so visualization of the numerical
+solution is challenging.  There are naturally 6 two-dimensional plots that come out of the numerical
+solution: $D_n$ vs $n$, $R_n$ vs $n$, $T_n$ vs $n$, $D_n$ vs $R_n$, $D_n$ vs $T_n$, and
+$R_n$ vs $T_n$.  This can also be visualized in a three dimensional phase plot of $D_n$ vs
+$R_n$ vs $T_n$ (we leave this to the curious reader). For simplicity we only present the
+three time plots here. It is clear from Figure
+\ref{fig:9.10.ex2_voting} that over the next 20 years the political parties will stabilize
+at equilibrium values and the Democratic party will eventually win.  Given the obvious
+volatile nature of political parties, the flawed assumption in this model is that the
+transition percentages will stay fixed over the next several years.
+\end{example}
+
+\def\scl{0.6}
+\begin{figure}[ht!]
+    \begin{center}
+        \begin{tikzpicture}[scale=0.6]
+            \begin{axis}[axis lines=center, xlabel={$n$}, ylabel={$D_n$}, title={Democrats vs
+                Time}, grid, ymin=0, ymax=1500]
+                \addplot[black, mark=*, only marks] coordinates{(0 ,1000.00) (1 ,1100.00) (2 ,1150.00) (3 ,1175.00) (4 ,1187.50) (5 ,1193.75) (6 ,1196.87) (7 ,1198.43) (8 ,1199.21) (9 ,1199.60) (10,1199.80) (11,1199.90) (12,1199.95) (13,1199.97) (14,1199.98) (15,1199.99) (16,1199.99) (17,1199.99) (18,1199.99) (19,1200.00) (20,1200.00)};
+            \end{axis}
+        \end{tikzpicture}
+        \begin{tikzpicture}[scale=0.6]
+            \begin{axis}[axis lines=center, xlabel={$n$}, ylabel={$R_n$},
+                title={Republicans vs Time}, grid, ymin=0, ymax=1500]
+                \addplot[blue, mark=*, only marks] coordinates{(0 ,1000.000) (1 ,1000.000) (2 ,990.000) (3 ,983.000) (4 ,979.100) (5 ,977.070) (6 ,976.039) (7 ,975.520) (8 ,975.260) (9 ,975.130) (10,975.065) (11,975.033) (12,975.016) (13,975.008) (14,975.004) (15,975.002) (16,975.001) (17,975.001) (18,975.000) (19,975.000) (20,975.000)};
+            \end{axis}
+        \end{tikzpicture}
+        \begin{tikzpicture}[scale=0.6]
+            \begin{axis}[axis lines=center, xlabel={$n$}, ylabel={$T_n$}, title={Tea Party
+                vs Time}, grid, ymin=0, ymax=1500]
+                \addplot[red, mark=*, only marks] coordinates{(0,1000.000) (1,900.000) (2,860.000) (3,842.000) (4,833.400) (5,829.180) (6,827.086) (7,826.042) (8,825.521) (9,825.260) (10,825.130) (11,825.065) (12,825.033) (13,825.016) (14,825.008) (15,825.004) (16,825.002) (17,825.001) (18,825.001) (19,825.000) (20,825.000)};
+            \end{axis}
+        \end{tikzpicture}
+    \end{center}
+    \caption{Numerical visualization of the voting problem. The equilibrium state appears
+    to be $D_n \to 1200$, $R_n \to 975$, and $T_n \to 825$; hence giving the democrats a
+clear advantage.}
+    \label{fig:9.10.ex2_voting}
+\end{figure}
+
+
+\begin{problem}
+    Bull trout and rainbow trout are prevalent fish species in Montana's rivers.  They
+    have very similar feeding, migrating, and spawning habits, and as such they are in
+    competition for the same food sources.  Suppose that in the absence of the other
+    species in the Blackfoot River, both species would exhibit unconstrained growth.
+    Since the effect of the presence of the competitor diminishes the growth rate of the
+    other species, we will consider that this decrease in growth is proportional to the
+    product of the size of the two competing species. Bull trout are protected in Montana
+    so no fish can be legally taken from the river.  Rainbow trout, on the other hand, are
+    a popular sport fish and roughly 155 rainbows are taken from the river each year by
+    fishermen.  Establish a model for this interaction of the two species of fish in the
+    Blackfoot River. Let $n$ be the number of years and evaluate the model over a 30 year
+    span. Based on this information should fishing for bull trout be allowed?
+
+    Use the following data for the competing trout:
+    \begin{itemize}
+        \item Assume equal initial populations of $2500$ fish for each species.
+        \item In the absence of competition, the bull trout population increases by
+            approximately 10\% per year at small populations and follow a logistic growth
+            pattern otherwise with a carrying capacity of 8000 fish.
+        \item In the absence of competition, the rainbow trout population increases by
+            approximately 23\% per year per year at small populations and follow a
+            logistic growth pattern otherwise with a carrying capacity of 8000 fish.
+        \item The constant of proportionality decreasing the bull trout population is
+            estimated to be approximately $0.0001$.
+        \item The constant of proportionality decreasing the rainbow trout population is
+            estimated to approximately $0.0001$
+    \end{itemize}
+
+\end{problem}
+
+
+
+
+\begin{problem}
+    In a distant country, people have only two types of breakfast cereal to eat: Corn
+    Flakes and Raisin Bran. The people in this country are very loyal to their cereal and
+    eat their one type of cereal every morning. Every year 200 new people join the ranks
+    of Corn Flakes eaters, and 650 new people become Raisin Bran eaters every year. Of
+    course sometimes people get sick of eating Corn Flakes all the time, and they switch
+    to Raisin Bran. Each year about 5\% of Corn Flakes eaters switch to Raisin Bran. Write
+    and solve a system of difference equations to represent the number of people eating each type of
+    cereal after $n$ years. 
+    \item The following system of difference equations models the populations of two types
+        of animals, $A$ and $B$.
+        \begin{flalign*}
+            A_{n+1} &= 0.8 A_n + 0.00035 A_n B_n \\
+            B_{n+1} &= 1.14 B_n - 0.00055 A_n B_n.
+        \end{flalign*}
+        In the absence of animal $B$ what is the rate of change of animal $A$?  In the
+        absence of animal $A$ what is the rate of change of animal $B$?  How does the
+        presence of animal $A$ affect the population of animal $B$?  How does the presence
+        of animal $B$ affect the population of animal $A$.  How do these animals interact
+        with each other?  Answer these questions first without solving the system
+        numerically. Check your answers against the numerical solution.
+
+\end{problem}
+
+
+
+\section{Linear Systems}
+The previous sections had us building models for systems of difference or differential
+equations.  In this section (and for the remainder of this chapter) will will focus on a
+particular type of system -- a linear system of difference or differential equations.  As
+you may have guessed from the name, we will be leveraging Linear Algebra to do the
+analysis on these systems.  Before we get to that let's at least build a few linear
+systems.
+
+
+
+\begin{problem}
+The little town of Pudunk is filled with people who cannot make up their minds whether to
+vote Democratic or Republican at the upcoming election.  Each day, 30\% of the Republicans
+switch to the Democratic line, while 50\% of the Democratic voters decide to go with the
+Republicans.  Assume that the population of 1000 people is initial split 50/50.
+    \begin{flalign*}
+        D_{n+1} - D_n = \underline{\hspace{0.5in}} D_n + \underline{\hspace{0.5in}}
+        R_n\\
+        R_{n+1} - R_n = \underline{\hspace{0.5in}} D_n + \underline{\hspace{0.5in}}
+        R_n\\
+    \end{flalign*}
+\begin{itemize}
+    \item[(a)] Write the system of difference equations algebraically
+    \item[(b)]Write the system of difference equations using matrices
+    \item[(c)] Use Excel to find a numerical solutions for the system (discuss stability if
+        applicable)
+\end{itemize}
+\end{problem}
+
+
+\begin{problem}
+Deep in the redwood forest of California, dusky-footed wood rats provide up to
+    80\% of the diet for the spotten owl, the main predator of the wood rat. Assume
+    that initially there are 1000 rats and 10 owls.
+    \begin{itemize}
+        \item In the absence of wood rats, the owl population would decay by 50\% each
+            year.  
+        \item If rats are plentiful then the change in owl population from year
+            to year will increase by 40\% of the total rat population.
+        \item In the absence of owls, the population of the rats will grow by 10\% per
+            year.
+        \item The owls hunt the rats, so if owls are present the rate population will
+            change by, let's say, 10.4\% per year.
+    \end{itemize}
+    \begin{flalign*}
+        O_{n+1} - O_n = \underline{\hspace{0.5in}} O_n + \underline{\hspace{0.5in}}
+        R_n\\
+        R_{n+1} - R_n = \underline{\hspace{0.5in}} O_n + \underline{\hspace{0.5in}}
+        R_n\\
+    \end{flalign*}
+\begin{itemize}
+    \item[(a)] Write the system of difference equations algebraically
+    \item[(b)]Write the system of difference equations using matrices
+    \item[(c)] Use Excel to find a numerical solutions for the system (discuss stability if
+        applicable)
+\end{itemize}
+\end{problem}
+
+
+\begin{problem}
+The female owls in a certain population can be classified as {\it juvenile},
+    {\it subadult}, and {\it adult}. Assume that right now there are 10 juveniles, 30
+    sub-adults, and 20 adults in a small owl population.  In a given year, 
+    \begin{itemize}
+        \item the number of new juvenile females in year $n+1$ is 0.33 times the
+            number of adult females in year $n$, 
+        \item 18\% of least year's juveniles becomes subadults, 
+        \item 71\% of last year's subadults become adults,
+        \item and 94\% of last year's adults survive.
+    \end{itemize}
+\begin{itemize}
+    \item[(a)] Write the system of difference equations algebraically
+    \item[(b)]Write the system of difference equations using matrices
+    \item[(c)] Use Excel to find a numerical solutions for the system (discuss stability if
+        applicable)
+\end{itemize}
+\end{problem}
+
+\begin{problem}
+    Two cell phone service providers, Alpha and Beta, are constantly competing for the largest market
+    share. Each month 5\% of Alpha customers switch their service to Beta, and each month
+    7\% of Beta customers switch their service to Alpha. The total number of customers
+    served by the two companies stays fixed. 
+\begin{itemize}
+    \item[(a)] Write the system of difference equations algebraically
+    \item[(b)]Write the system of difference equations using matrices
+    \item[(c)] Use Excel to find a numerical solutions for the system (discuss stability if
+        applicable)
+\end{itemize}
+\end{problem}
+
+You should now have noticed that every one of the systems we've built thus far in this
+section can be rewritten in the form $\bx_{n+1} = A \bx_n$.   This form is almost exactly
+what we experienced from difference equations in previous chapters.  In fact, we know how
+to find the solution to the difference equation $a_{n+1} = r a_n$ with initial condition
+$a_0$.  Perhaps knowing how to solve the problem in one variable can give us hints about
+how to solve the more general linear system.
+\begin{problem}
+    Work with your partner to remember how to solve the difference equation $a_{n+1} = r
+    a_n$ with initial condition $a_0$. 
+\end{problem}
+\begin{problem}
+    In modeling exercises in this section we wrote the system of difference equations as
+    a matrix equation in the form: $\bx_{n+1} = A \bx_n$.  Using the same logic as
+    with the previous problem, what is the analytic solution to the system of
+    difference equations?
+\end{problem}
+
+
+Wouldn't it be nice if we had a way to {\it easily} raise a matrix to a power \dots
+        
+%         (and no, I'm not talking about MATLAB) \dots maybe a better question is:
+%         what is matrix multiplication really doing geometrically?  Use the applet linked
+%         below to play with how matrix multiplication works geometrically: \\
+%         \href{https://www.geogebra.org/m/JP2XZpzV}{https://www.geogebra.org/m/JP2XZpzV}
+%     \item As you play: you should notice that there are a few {\it special} vectors that
+%         only get scaled by the matrix multiplication \dots keep your eyes out for these.
+%         Are they always there?  How many are there?
+% \end{enumerate}
+
 
 \section{The Eigenvalue / Eigenvector Problem (Finish)}
+To answer the question posed at the end of the previous section we now turn our attention to the second fundamental question of linear algebra: $A \bx =
+\lambda \bx$.  We are going to jump right in to the key definitions and we'll spend the
+remainder of this section exploring these definitions.  The following two sections of the
+book give details about where these ideas arise in application.
+
+\begin{definition}
+    Let $A$ be an $n \times n$ square matrix  
+    \begin{itemize}
+        \item An {\bf eigenvector} of the matrix $A$ is a \underline{nonzero} $n \times 1$
+            vector $\bx$ such that $A\bx = \lambda \bx$.
+        \item The scalar $\lambda$ is called the {\bf eigenvalue} of $A$
+            associated with the eigenvector $\bx$.
+    \end{itemize}
+    Note that an eigenvector MUST be nonzero, but the eigenvalue MAY be zero.
+\end{definition}
+In simple language, If $\bx$ is an eigenvector of $A$ then $A\bx$ only scales $\bx$.  The
+result of $A\bx$ will be a vector parallel to $\bx$, so no rotations (other than
+180$^\circ$) result.
+
+% \input{previews/10.6.PA1}
+\begin{problem}
+    Consider the matrix $A= \bpm -7 & 9 \\ -6 & 8 \epm$.
+\ba
+    \item Is $\bx = \bpm 1 \\ 1 \epm$ an eigenvector for $A$?  If so, what is the
+        associated eigenvalue?  If not, why not?
+    \item Is $\bu = \bpm 3 \\ -2 \epm$ an eigenvector for $A$?  If so, what is the
+        associated eigenvalue?  If not, why not?
+    \item Is $\bv = \bpm 3 \\ 2 \epm$ an eigenvector for $A$?  If so, what is the
+        associated eigenvalue?  If not, why not?
+    \item Is $\by = \bpm -1 \\ 1 \epm$ an eigenvector for $A$?  If so, what is the
+        associated eigenvalue?  If not, why not?
+    \item The plot below shows the four vectors considered in parts (a) - (d) of this
+        problem.  Sketch $A\bx$, $A\bu$, $A\bv$, and $A\by$ on the same coordinate
+        plane, indicate which vectors are eigenvectors, and indicate the eigenvalues
+        geometrically.
+        \begin{center}
+            \begin{tikzpicture}
+                \draw[color=gray!50] (-5,-5) grid (5,5);
+                \draw[very thick, black, <->] (-5,0) -- (5,0);
+                \draw[very thick, black, <->] (0,-5) -- (0,5);
+                \draw[very thick, blue, ->] (0,0) -- (1,1) node[anchor=south]{$\bx$};
+                \draw[very thick, red, ->] (0,0) -- (3,-2) node[anchor=west]{$\bu$};
+                \draw[very thick, green!70!black, ->] (0,0) -- (3,2) node[anchor=west]{$\bv$};
+                \draw[very thick, cyan, ->] (0,0) -- (-1,1) node[anchor=east]{$\by$};
+            \end{tikzpicture}
+        \end{center}
+\ea
+\end{problem}
+
+% \input{activities/10.6.Act1}
+\begin{problem}
+    Use the GeoGebra applet
+    \href{http://www.geogebratube.org/student/m334841}{http://www.geogebratube.org/student/m334841}
+    to explore the following questions.
+    \ba
+        \item Approximate the eigenvalue-eigenvector pairs for the matrix $\bpm 0 & 2 \\ 1
+            & -1 \epm$.
+        \item Approximate the eigenvalue-eigenvector pairs for the matrix $\bpm 1 & 2 \\ 0
+            & -3 \epm$.
+        \item Approximate the eigenvalue-eigenvector pairs for the matrix $\bpm 0.25 & 0.1
+            \\ 0.75 & 0.9 \epm$.
+    \ea
+
+\end{problem}
+
+\subsection{Geometry of Eigenvectors and Eigenvalues}
+In the introduction to this section we saw that an eigenvector of a matrix is only scaled
+by the matrix.  This simple geometric fact leads us to the fact that if you know all of
+the eigenvalue / eigenvector information about a matrix, you can determine its full
+behavior on any vector.  This leads us to the following theorem.
+
+\begin{thm}
+    Let $A$ be an $n \times n$ matrix with eigenvectors $\bv_1, \bv_2, \dots, \bv_n$ and
+    associated eigenvalues $\lambda_1, \lambda_2, \dots, \lambda_n$.  If $\bu$ is an
+    $n$-dimensional vector and we can write $\bu$ as a linear combination of the
+    eigenvectors 
+    \[ \bu = c_1 \bv_1 + c_2 \bv_2 + \cdots c_n \bv_n, \]
+    then we know the action of $A$ on $\bu$
+    \[ A\bu = A\left(c_1 \bv_1 + c_2 \bv_2 + \cdots c_n \bv_n\right) = c_1 \lambda_1 \bv_1
+        + c_2 \lambda_2 \bv_2 + \cdots c_n \lambda_n \bv_n. \]
+    \label{thm:10.6.eig1}
+\end{thm}
+
+The following example illustrates this idea.
+\begin{example}
+Let $\bv_1 = \bpm 0 \\ -3 \\ 1 \epm$, $\bv_2 = \bpm 1 \\ 3 \\ 0 \epm$, and $\bv_3 = \bpm 2
+\\ 0 \\ -1 \epm$ be eigenvectors of the matrix $A$ with corresponding eigenvalues
+$\lambda_1 = -2$, $\lambda_2 = -1$, and $\lambda_3 = 0$.  
+If $\bu = \bpm 3 \\ -3 \\ 1 \epm$ then what is $A\bu$?
+\\{\bf Solution:} \\
+Since we know all of the information about the eigenvectors, if we can write $\bu$ as a
+linear combination of the eigenvectors then we can easily determine $A\bu$.  
+
+We need to find $c_1, c_2,$ and $c_3$ such that $\bu = c_1 \bv_1 + c_2 \bv_2 + c_3 \bv_3$.
+This is a system of equation, and we can write the matrix form of this system as
+\[ \bpm 0 & 1 & 2 \\ -3 & 3 & 0 \\ 1 & 0 & -1 \epm \bpm c_1 \\ c_2 \\ c_3 \epm = \bpm 3 \\
+    -3 \\ 1 \epm. \]
+Augmenting this system and row reducing gives
+\[ \left( \begin{array}{ccc|c} 0 & 1 & 2 & 3 \\ -3 & 3 & 0 & -3 \\ 1 & 0 & -1 & 1
+    \end{array} \right) \to \cdots \to \left( \begin{array}{ccc|c} 1 & 0 & 0 & 2 \\ 0 & 1
+        & 0 & 1 \\ 0 & 0 & 1 & 1 \end{array} \right) \]
+Therefore, 
+\[ \bu = 2 \bv_1 + 1\bv_2 + 1 \bv_3 \]
+and 
+\[ A\bu = 2 \lambda_1 \bv_1 + 1 \lambda_2 \bv_2 + 1 \lambda_3 \bv_3 = -4 \bv_1 - \bv_2 =
+    \bpm -1 \\ 9 \\ -4 \epm \]
+Notice that this was done with NO knowledge of $A$ itself.
+\end{example}
+
+
+In the previous example it wasn't necessary to find the matrix $A$.  In some applications
+the eigenvalues and eigenvectors are well known but the matrix is actually needed.  The
+following example illustrates how to work backwards from eigen-information to the matrix.
+
+\begin{example}
+Assume that $\bv_1 =\bpm 2 \\ -3 \epm$ and $\bv_2 = \bpm 1 \\ -1 \epm$ are the
+eigenvectors of a matrix $A$ with eigenvalues $\lambda_1 = 3$ and $\lambda_2 = -2$.  What
+is the matrix $A$?
+\\{\bf Solution:}\\
+We know that $A$ is a $2 \times 2$ matrix so we can write $A = \bpm a & b \\ c & d \epm$.
+We know that $A \bv_1 = \lambda_1 \bv_1$ and $A \bv_2 = \lambda_2 \bv_2$, and out of these
+equations we can write a system of four equations with unknowns $a,b,c$, and $d$.
+\begin{align*}
+    A\bv_1 = \lambda_1 \bv_1 &\quad \implies \quad \left\{\begin{array}{rl} 2a-3b &= 6 \\ 2c-3d
+        &= -9 \end{array} \right. \\
+    A\bv_2 = \lambda_2 \bv_2 &\quad \implies \quad \left\{ \begin{array}{rl} 1a-1b &= -2 \\ 1c-1d
+        &= 2 \end{array} \right.
+\end{align*}
+The augmented $4 \times 4$ system of equations is
+\[ \left( \begin{array}{cccc|c} 2 & -3 & 0 & 0 & 6 \\
+                                0 & 0 & 2 & -3 & -9 \\
+                                1 & -1 & 0 & 0 & -2 \\
+                                0 & 0 & 1 & -1 & 2 \end{array} \right) 
+    \to \cdots \to
+    \left( \begin{array}{cccc|c} 1 & 0 & 0 & 0 & -12 \\
+                                 0 & 1 & 0 & 0 & -10 \\
+                                 0 & 0 & 1 & 0 & 15 \\
+                                 0 & 0 & 0 & 1 & 13 \end{array} \right)
+        \]
+Therefore, 
+\[A = \bpm -12 & -10 \\ 15 & 13 \epm \]
+\end{example}
+
+% Another advantage to eigenvalue / eigenvector information is the ability to easily examine
+% powers of a matrix.  This will be especially important when examining time-dependent
+% matrix systems where the exponent represents steps in time.
+% \begin{theorem}
+%     If $A$ is an $n \times n$ matrix, $\lambda$ is an eigenvalue of $A$ and $\bv$ is the
+%     associated eigenvector, then 
+%     \[ A^k \bv = \lambda^k \bv \]
+% 
+%     Furthermore,
+%     If $A$ has eigenvalues $\lambda_1, \lambda_2, \ldots, \lambda_n$ and eigenvectors
+%     $\bv_1, \bv_2, \ldots, \bv_n$ then if $\bu$ is an $n$-dimensional vector with $\bu =
+%     c_1 \bv_1 + c_2 \bv_2 + \cdots c_n \bv_n$, then
+%     \[ A^k \bu = c_1 \lambda_1^k \bv_1 +c_2 \lambda_2^k \bv_2 + \cdots c_n \lambda_n^k
+%         \bv_n. \]
+%     
+%     \label{thm:10.6.ev2}
+% \end{theorem}
+% 
+% \bex
+% Let $A$ have eigenvalues $\lambda_1 = 4$ and $\lambda_2 = 0.1$ with eigenvectors $\bv_1 =
+% \bpm 1 \\ -2 \epm$ and $\bv_2 = \bpm 3 \\ 5 \epm$.  Explore the quantities $A^k \bv_1$ and
+% $A^k \bv_2$ for various values of $k$.
+% \eex
+% From Theorem \ref{thm:10.6.ev2} we know that $A^k \bv_j = \lambda_j^k \bv_j$.  Therefore
+% \[ A^k \bv_1 = 4^k \bpm 1 \\ -2 \epm = \bpm 4^k \\ -2 \cdot 4^k \epm. \]
+% Similarly,
+% \[ A^k \bv_2 = (0.1)^k \bpm 3 \\ 5 \epm = \bpm 3 \cdot (0.1)^k \\ 5 \cdot (0.1)^k \epm. \]
+% For larger and larger values of $k$, the entries of $A^k \bv_1$ grow exponentially and the
+% values of $A^k \bv_2$ decay exponentially to zero.
+% \afterex
+% 
+% \input{activities/10.6.Act2}
+% 
+% 
+% 
+% 
+\subsection{The Eigenvalue Eigenvector Problem}
+% Given a matrix and a vector it is easy to determine if the vector is an eigenvector.  If,
+% on the other hand, we try to extract the eigenvectors and eigenvalues from a given matrix
+% the problem is a bit more interesting.  We want to solve $A\bx = \lambda \bx$ for $\bx$,
+% but the unknown is on both sides of the equation.  Doing a bit of (linear) algebra we can
+% rearrange the equation to get
+% \begin{flalign}
+%     A \bx = \lambda \bx \quad \implies \quad A \bx - \lambda \bx = \boldsymbol{0} \quad
+%     \implies \quad \left( A - \lambda I \right) \bx = \boldsymbol{0}.
+%     \label{eqn:10.6.evev1}
+% \end{flalign}
+% The last equation of \eqref{eqn:10.6.evev1} says something very profound about the matrix
+% $A - \lambda I$ when $\lambda$ is an eigenvalue: this matrix must NOT have an inverse!
+% From our properties of determinants, this means that we must have
+% \[ \det\left( A - \lambda I \right) = 0. \]
+% This determinant will be an $n^{th}$-order polynomial equation in $\lambda$.
+% \begin{definition}
+%     The {\bf characteristic polynomial} of a square matrix $A$ is given by
+%     \[ p(\lambda) = \det\left( A - \lambda I \right). \]
+%     If $A$ is $n \times n$ then 
+%     \[ p(\lambda) = c_n \lambda^n + c_{n-1} \lambda^{n-1} + \cdots + p_1 \lambda + p_0. \]
+% \end{definition}
+% We now have a way to find the eigenvalues of a matrix. The process is outlined in
+% Theorem \ref{thm:eigen_process}.
+% 
+% \begin{theorem}
+%     Let $A$ be an $n \times n$ matrix.  To find the eigenvalues and eigenvectors of $A$
+%     \begin{enumerate}
+%         \item Find the characteristic polynomial $p(\lambda) = \det(A-\lambda I)$.
+%         \item Set the characteristic polynomial to zero to get the characteristic equation
+%             \[ \det(A - \lambda I)=0. \]
+%         \item Solve the characteristic equation for all values of $\lambda$. These are the
+%             eigenvalues of $A$.
+%         \item For each eigenvalue $\lambda$, find $\bx$ such that $(A-\lambda I) \bx =
+%             \boldsymbol{0}$.  The nonzero solution to this system of equations is the
+%             eigenvector of $A$ associated with the eigenvalue $\lambda$.
+%     \end{enumerate}
+%     \label{thm:eigen_process}
+% \end{theorem}
+% 
+% The observant reader should note that step 3 of the eigenvalue process is often very
+% difficult or simply impossible to do by hand.  This is the step that makes the eigenvalue
+% / eigenvector problem so difficult! For a $2 \times 2$ matrix, the characteristic equation
+% is quadratic and there is a convenient formula to find the roots.  For a $3 \times 3$
+% matrix the characteristic polynomial is cubic.  There is a formula to solve the general
+% cubic similar to the quadratic formula (due to Gerolamo Cardano in the early 1500's), but
+% it is quite cumbersome to use.  For a $4 \times 4$ matrix the characteristic polynomial is
+% quartic.  Like the previous two cases, there is a general formula (due to Lodovico Ferrari
+% in the 1500's) that solves the general quartic.  At this point, the reader may think that
+% there are general formulas to solve most polynomial equations.  Unfortunately, that is
+% simply false!  In the 1800's, \'Evariste Galois showed that there can not be any such
+% formula for the general quintic polynomial!\footnote{Galois' discovery paved the way for
+% an entire field of study called Abstract Algebra.}  This amazing fact has a huge impact on the
+% search for eigenvalues: If you are dealing with a $5\times 5$ matrix there is not way to
+% get a general solution to the resulting characteristic equation, and a $5 \times 5$ matrix
+% is very small!!
+% 
+% The preceding paragraph leads us to two conclusions:
+% \begin{enumerate}
+%     \item To find the eigenvalues of a matrix by hand we need to be dealing with small
+%         matrices.
+%     \item To find the eigenvalues of a larger matrix, we need computational methods that
+%         will allow us to approximate the roots of polynomials.  
+% \end{enumerate}
+% For now, we'll stick with small examples just to get the hang of the algorithm.  Let's
+% examine a few examples of the eigenvector / eigenvalue problem.
+% 
+% \bex
+% Find the eigenvalue eigenvector pairs for the matrix $A = \bpm 2 & 7 \\ 7 & 2 \epm$.
+% \eex
+% The characteristic polynomial of $A$ is 
+% \[ p(\lambda) = \det \left( \bpm 2 & 7 \\ 7 & 2 \epm - \lambda \bpm 1 & 0 \\ 0 & 1 \epm
+%     \right) = \det \left( \bpm 2-\lambda & 7 \\ 7 & 2-\lambda \epm \right) = \left( 2-\lambda
+%     \right)^2 - 49 \]
+% If we now set the characteristic polynomial to zero and solve we get
+% \begin{flalign*}
+%     & p(\lambda) =0 \\
+%     &\implies (2-\lambda)^2-49=0 \\
+%     &\implies (2-\lambda)^2=49 \\
+%     &\implies 2-\lambda=\pm 7 \\
+%     &\implies -\lambda=-2 \pm 7 \\
+%     &\implies \lambda=2 \pm 7 \\
+%     & \implies \lambda_1 = 9 \quad \text{and} \quad \lambda_2 = -5.
+% \end{flalign*}
+% 
+% Now we need to find the two associated eigenvectors.  
+% \begin{description}
+%     \item[For $\lambda_1=9$:] We need to solve $(A-\lambda_1 I) \bx= \boldsymbol{0}$.
+%         First, $A-\lambda_1 I = \bpm -7 & 7 \\ -7 & 7 \epm$, so augmenting this with the
+%         zero vector and row reducing gives
+%         \[ (A-\lambda_1 I \, | \, 0) = \left( \begin{array}{cc|c} -7 & 7 & 0 \\ 7 & -7 & 0
+%             \end{array} \right) \to \left( \begin{array}{cc|c} 1 & -1 & 0 \\ 0 & 0 & 0
+%             \end{array} \right). \]
+%         Therefore if $\bx = \bpm x_1 \\ x_2 \epm$ then $x_1 = x_2$ and the simplest
+%         nonzero vector describing this is $\bx = \bpm 1 \\ 1 \epm$.  The reader should
+%         verify that $A\bpm 1 \\ 1 \epm = 9 \bpm 1 \\ 1 \epm$ 
+% 
+%     \item[For $\lambda_2=-5$:] We need to solve $(A - \lambda_2 I) \bx = \boldsymbol{0}$.
+%         First, $A - \lambda_2 I = \bpm 7 & 7 \\ 7 & 7 \epm$, so augmenting this wit the
+%         zero vector and row reducing gives
+%         zero vector and row reducing gives
+%         \[ (A-\lambda_2 I \, | \, 0) = \left( \begin{array}{cc|c} 7 & 7 & 0 \\ 7 & 7 & 0
+%             \end{array} \right) \to \left( \begin{array}{cc|c} 1 & 1 & 0 \\ 0 & 0 & 0
+%             \end{array} \right). \]
+%         Therefore if $\bx = \bpm x_1 \\ x_2 \epm$ then $x_1 = -x_2$ and the simplest
+%         nonzero vector describing this is $\bx = \bpm 1 \\ -1 \epm$.  The reader should
+%         verify that $A\bpm 1 \\ -1 \epm = (-5) \bpm 1 \\ -1 \epm$ 
+% \end{description}
+% The eigenvalue / eigenvector pairs for $\bpm 2 & 7 \\ 7 & 2 \epm$ are
+% \[ \lambda_1 = 9 \text{ with } \bx_1 = \bpm 1 \\ 1 \epm \quad \text{and} \quad \lambda_2 =
+%     -5 \text{ with } \bx_2 = \bpm 1 \\ -1 \epm. \]
+% \afterex
+% 
+% In the next example we illustrate a convenient shortcut when the matrix has triangular
+% structure.
+% \bex
+% For $A = \bpm 5 & 5 & 0 & 5 \\0 & 2 & -3 & 6 \\ 0 & 0 & 3 & -2 \\0 & 0 & 0 & 5 \epm$, find
+% the eigenvalues and eigenvectors.
+% \eex
+% Notice that the matrix $A$ is upper triangular.  This means that $A-\lambda I$ is upper
+% triangular and the determinant is the product of the diagonal entries.  Hence, the
+% characteristic polynomial is
+% \[ p(\lambda) = (5-\lambda)(2-\lambda)(3-\lambda)(5-\lambda). \]
+% The resulting characteristic equation $p(\lambda)=0$ is very easy to solve giving
+% $\lambda_1 = 5$, $\lambda_2 = 2$, and $\lambda_3=3$.
+% \begin{description}
+%     \item[For $\lambda_1=5$:] We form the homogeneous system $(A-5I)\bx = \boldsymbol{0}$,
+%         augment, and row reduce to get
+%         \[ \left( \begin{array}{cccc|c} 0 & 5 & 0 & 5 & 0 \\
+%                                         0 & -3 & -3 & 6& 0 \\
+%                                         0 & 0 & -2 & -2 & 0 \\
+%                                         0 & 0 & 0 & 0 & 0 \end{array} \right) 
+%         \to
+%         \left( \begin{array}{cccc|c} 0 & 1 & 0 & 1 & 0 \\
+%                                         0 & 1 & 1 & -2& 0 \\
+%                                         0 & 0 & 1 & 1 & 0 \\
+%                                         0 & 0 & 0 & 0 & 0 \end{array} \right)
+%         \to
+%         \left( \begin{array}{cccc|c} 0 & 1 & 0 & 1 & 0 \\
+%                                         0 & 1 & 0 & -3& 0 \\
+%                                         0 & 0 & 1 & 1 & 0 \\
+%                                         0 & 0 & 0 & 0 & 0 \end{array} \right)
+%         \to \cdots \to
+%         \left( \begin{array}{cccc|c} 0 & 1 & 0 & 0 & 0 \\
+%                                      0 & 0 & 1 & 0& 0 \\
+%                                         0 & 0 & 0 & 1 & 0 \\
+%                                         0 & 0 & 0 & 0 & 0 \end{array} \right)
+%         \]
+%         Hence, if $\bx = \bpm x_1 \\ x_2 \\ x_3 \\ x_4 \epm$ then $x_2=x_3=x_4=0$ and
+%         $x_1$ is free.  Taking $x_1=1$ we get $\bx = \bpm 1 \\ 0 \\ 0 \\
+%         0 \epm$.  The reader should verify that this is indeed an eigenvalue /eigenvector
+%         pair.
+%     \item[For $\lambda_2=2$:] We form the homogeneous system $(A-2I)\bx=\boldsymbol{0}$,
+%         augment, and row reduce to get
+%         \[ \left( \begin{array}{cccc|c} 3 & 5 & 0 & 5 & 0 \\
+%                                         0 & 0 & -3 & 6& 0 \\
+%                                         0 & 0 & 1 & -2 & 0 \\
+%                                         0 & 0 & 0 & 3 & 0 \end{array} \right) 
+%         \to \cdots \to
+%         \left( \begin{array}{cccc|c} 1 & \frac{5}{3} & 0 & 0 & 0 \\
+%                                     0 & 0 & 1 & 0 & 0 \\
+%                                     0 & 0 & 0 & 1 & 0 \\
+%                                     0 & 0 & 0 & 0 & 0 \end{array} \right).
+%         \]
+%         Therefore, $x_3=x_4=0$, $x_2$ is free, and $x_1 = -\frac{5}{3} x_2$.  Picking
+%         $x_4=3$ (for convenience) we see that $\bx = \bpm -5 \\3\\0\\0\epm$ is the
+%         eigenvector associated with $\lambda_2=2$.
+%     \item[For $\lambda_3=3$:] We form the homogeneous system $(A-3I)\bx = \boldsymbol{0}$,
+%         augment, and row reduce to get
+%         \[ \left( \begin{array}{cccc|c} 2 & 5 & 0 & 5 & 0 \\
+%                                         0 & -1 & -3 & 6& 0 \\
+%                                         0 & 0 & 0 & -2 & 0 \\
+%                                         0 & 0 & 0 & 2 & 0 \end{array} \right) 
+%         \to \cdots \to
+%         \left( \begin{array}{cccc|c} 1 & 0 & -\frac{15}{2} & 0 & 0 \\
+%                                     0 & 1 & 3 & 0 & 0 \\
+%                                     0 & 0 & 0 & 1 & 0 \\
+%                                     0 & 0 & 0 & 0 & 0 \end{array} \right).
+%         \]
+%         Hence, $x_4=0$, $x_3$ is free, $x_2=-3x_3$, and $x_1 = \frac{15}{2} x_3$.  Picking
+%         $x_3=2$ (for convenience) gives $\bx = \bpm 15 \\ -6 \\ 2 \\ 0 \epm$.
+% \end{description}
+% Therefore, the eigenvalue / eigenvector pairs are
+% \[ \lambda_1 = 5 \text{ with } \bx_1 = \bpm 1 \\ 0 \\ 0 \\ 0 \epm, \quad \lambda_2=2
+%     \text{ with } \bx_2 = \bpm -5 \\ 3 \\ 0 \\ 0 \epm, \quad \text{and} \quad \lambda_3 =
+%     3 \text{ with } \bx_3 = \bpm 15 \\ -6 \\ 2 \\ 0 \epm \]
+% Notice that in this problem the matrix was $4 \times 4$ but there are only three
+% eigenvalue / eigenvector pairs.  This occasionally occurs with repeated roots in the
+% characteristic polynomial.  
+% \afterex
+% 
+% \input{activities/10.6.Act3}
+% 
+% 
+\subsection{Technology for the Eigenvalue Eigenvector Problem}
+% Linear algebra software is designed to handle the eigenvalue-eigenvector problem with
+% refined efficiency.  Based on the length of the computations in this section it is clear
+% that some technological aid is necessary for many eigvalue-eigenvector computations.  In
+% this final subsection we will illustrate how MatLab computes eigenvalues and eigenvectors.
+% 
+% \bex
+% Consider the matrix 
+% \[ A = \bpm 26  & -18 & 6 \\ 18.5 & -11 & 5.5 \\ -26 & 22 & -2 \epm. \]
+% Use MatLab to find the eigenvalues and eigenvectors.
+% \eex
+% The MatLab code is shown below.  The function \texttt{eig} is the command that finds the
+% eigen-pairs.
+% \begin{verbatim}
+% A = 26 , -18 , 6 ; 
+%     18.5 , -11 , 5.5 ;
+%     -26 , 22 , -2];
+% [vectors , values] = eig(A)
+% \end{verbatim}
+% 
+% The output to the MatLab command line is:
+% \begin{verbatim}
+% vectors =
+%  0.5774    0.3906    0.4851
+%  0.5774    0.1302    0.7276
+% -0.5774   -0.9113    0.4851
+% 
+% values =
+% 2.0000         0         0
+% 0              6.0000    0
+% 0              0         5.0000
+% \end{verbatim}
+% 
+% The eigenvalue and eigenvector pairs in the matrix are
+% \[ \lambda_1 = 2 \text{ with } \bv_1 = \bpm 1 \\ 1 \\ -1 \epm, \quad \lambda_2 = 6
+%     \text{ with } \bv_2 = \bpm 3 \\ 1 \\ -7 \epm, \quad \text{ and } \lambda_3=5 \text{
+%     with } \bv_3 = \bpm 2 \\ 3 \\ 2\epm. \]
+% Reading the values from the eigenvectors is a bit tricky.  MatLab scales the vectors so
+% that the magnitude is 1 so to get integer values out of the eigenvectors (if that is
+% possible) it is a matter of looking at the relative weights of the values.  For example,
+% in $\bv_1$, the numbers are all the same so they might as well be $1$.  In $\bv_2$, on the
+% other hand, taking the smallest value to be 1 we see that the middle value is three times
+% as large and the negative values is seven times as large.
+% \afterex
+
+\section{Markov Chains (FINISH)}
 
 \section{Analysis of Linear Systems (Finish)}
 
 
 \section{Modeling Explorations with Systems (FINISH)}
-\begin{problem}
+\begin{problem}[Deer and Cougar Problem]
 We are going to build a difference equation model that predicts the populations of cougars
 $C$ and deer $D$ (predators and prey) at year $t$
 \begin{enumerate}
@@ -117,4 +1410,122 @@ $C$ and deer $D$ (predators and prey) at year $t$
 \end{enumerate}
 \end{problem}
 
+\begin{problem}[The Bedridden Boys Problem]
+A boarding school is a relatively closed community in which all students live on campus,
+teachers tend to live on or near campus, and students do not regularly interact with
+people not in the boarding school community. The data set in Table
+\ref{tab:bedridden_boys} gives data for an influenza
+outbreak at a boarding school in England during which there were no fatalities. There were
+763 boys at the English boarding school from which the data was obtained. This is only one
+instance of the types of influenza outbreaks that occur every year at boarding schools and
+on college campuses.  {\bf Create a mathematical model for the number of infected people
+    in a closed community (such as a dorm or boarding school) as a function of time.}
+    Assume there is 1 person initially infected.
 
+What makes this situation interesting:
+\begin{itemize}
+    \item People don't generally show symptoms right away after they are exposed to a virus.
+    \item Some people may have been previously exposed to the virus and are therefore
+        immune.
+    \item In a closed community it may or may not be possible to implement a quarantine.
+    \item Some people will not admit themselves for medical care even though they are
+        infected.  Hence, those people will likely not be counted in medical records for
+        the outbreak.
+    \item \ldots and many others \ldots
+\end{itemize}
+Your Tasks:
+\begin{itemize}
+    \item[(a)]create, solve, and analyze a simple model (with as many assumptions as
+        necessary),
+    \item[(b)] refine your model to either reduce the number of assumptions or to increase the
+        complexity (and hence make the model more realistic), and
+    \item[(c)] refine the model a second time to create an even more realistic model.
+\end{itemize}
+At each step your group must do a thorough analysis of the mathematical model.  This
+includes a sensitivity analysis for any model parameters. The modeling process will
+require your group to research the real problem to determine the assumptions and any
+necessary terminology. Be sure to properly cite any sources used and to check the
+reliability of those sources.
+\end{problem}
+
+\begin{table}[ht!]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+       Time (in days) &  Number of Bedridden Boys \\ \hline \hline
+       0  & 1\\\hline
+       1  & 3\\\hline
+       2  & 25\\\hline
+       3  & 72\\\hline
+       4  & 222\\\hline
+       5  & 282\\\hline
+       6  & 256\\\hline
+       7  & 233\\\hline
+       8  & 189\\\hline
+       9  & 123\\\hline
+       10 & 70\\\hline
+       11 & 25\\\hline
+       12 & 11\\\hline
+       13 & 4\\\hline
+    \end{tabular}
+    \caption{Bedridden Boys Data}
+    \label{tab:bedridden_boys}
+\end{table}
+
+
+\begin{problem}[The Ibuprofen Problem]
+Ibuprofen, an analgesic pain reliever, is ingested into the gastrointestinal tract by
+swallowing a pill of the substance or drinking a solution.  The drug then moves to the
+plasma or serum where it travels to sites to do its work of pain relief.  {\bf Create a
+    mathematical model for the concentration of the Ibuprofen (in $\mu$g/ml) in the plasma
+as a function of time.} The data set in Table \ref{tab:ibuprofen_data} gives one patient's Ibuprofen concentration over time
+with a 400 mg initial dose.
+
+What makes this situation interesting:
+\begin{itemize}
+    \item The Ibuprofen doesn't actually move directly into the plasma.
+    \item The units of the dose are milligrams (typically, 400mg) but the units of the
+        concentration are micro grams per milliliter.
+    \item The volume of the gastrointestinal tract and the plasma are different.
+    \item Every person's body will metabolize Ibuprofen at different rates.
+    \item As the effects of the drug wear off the patient usually takes more Ibuprofen.
+    \item \ldots and many others \ldots
+\end{itemize}
+Your Tasks:
+\begin{itemize}
+    \item[(a)]create, solve, and analyze a simple model (with as many assumptions as
+        necessary),
+    \item[(b)] refine your model to either reduce the number of assumptions or to increase the
+        complexity (and hence make the model more realistic), and
+    \item[(c)] refine the model a second time to create an even more realistic model.
+\end{itemize}
+At each step your group must do a thorough analysis of the mathematical model.  This
+includes a sensitivity analysis for any model parameters. The modeling process will
+require your group to research the real problem to determine the assumptions and any
+necessary terminology. Be sure to properly cite any sources used and to check the
+reliability of those sources.
+\end{problem}
+
+
+\begin{table}[ht!]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+Time (hours)  &  Ibuprofen Concentration in Plasma (micro grams / ml) \\ \hline \hline
+0  & 0 \\\hline
+0.0833 &  12.5 \\\hline
+0.167  & 26.5 \\\hline
+0.25  & 33 \\\hline
+0.33 &  37.4 \\\hline
+0.5 &  36.2 \\\hline
+1  & 33.2 \\\hline
+1.5 &  30.2 \\\hline
+2  & 23.9 \\\hline
+3  & 16.3 \\\hline
+4  & 11.7 \\\hline
+6  & 5.82 \\\hline
+8  & 3.09 \\\hline
+    \end{tabular}
+    \caption{Ibuprofen Data}
+    \label{tab:ibuprofen_data}
+\end{table}
