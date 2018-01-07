@@ -67,8 +67,8 @@ Instead, you should try two methods:
     Excel to fit a line to each of these plots.  
     Use your results from Excel to fill in the following blanks.
     \begin{flalign*}
-        \text{Birth Model: } \quad \frac{\Delta P}{\Delta t} &= \underline{\hspace{2in}} \\
-        \text{Birth \& Death Model: } \quad \frac{\Delta P}{\Delta t} &= \underline{\hspace{2in}} \\
+        \text{Death Model: } \quad \frac{\Delta P}{\Delta t} &= \underline{\hspace{2in}} \\
+        \text{Death \& Immigration Model: } \quad \frac{\Delta P}{\Delta t} &= \underline{\hspace{2in}} \\
         \text{Birth, Death, \& Immigration Model: } \quad \frac{\Delta P}{\Delta t} &= \underline{\hspace{2in}}
     \end{flalign*}
     \begin{enumerate}
@@ -77,7 +77,7 @@ Instead, you should try two methods:
     \end{enumerate}
 \end{problem}
 
-In the birth model you should have found a model similar to 
+In the {\it Birth} model you should have found a model similar to 
 \[ \frac{\Delta P}{\Delta t} = -0.5 P, \]
 but notice that in our exploration of the problem with the M\&M's we were taking $\Delta
 t$ to be 1.  Hence we can rewrite our model more simply as
@@ -89,17 +89,18 @@ population at time $t=n+1$.  With this new notation the model becomes
 and this is known as a {\bf difference equation} since the left-hand side of the equation
 gives the difference between two time steps.  
 \begin{problem}
-    Write a difference equation model for the Birth \& Death model and for the Birth,
-    Death, \& Immigration model.
+    Write a difference equation model for the {\it Death \& Immigration} model and for the
+    {\it Birth,
+    Death, \& Immigration model}.
     \begin{flalign*}
-        \text{Birth Model: } \quad P_{n+1} - P_n &= -0.5 P_n \\
-        \text{Birth \& Death Model: } \quad P_{n+1} - P_n &= \underline{\hspace{2in}} \\
+        \text{Death Model: } \quad P_{n+1} - P_n &= -0.5 P_n \\
+        \text{Death \& Immigration Model: } \quad P_{n+1} - P_n &= \underline{\hspace{2in}} \\
         \text{Birth, Death, \& Immigration Model: } \quad P_{n+1} - P_n &= \underline{\hspace{2in}}
     \end{flalign*}
 \end{problem}
 
 In a difference equation model it is often convenient to solve for $P_{n+1}$ and rewrite
-as $P_{n+1} = P_n - 0.5 P_n$ (in the birth model).  This clearly simplifies to $P_{n+1} =
+as $P_{n+1} = P_n - 0.5 P_n$ (in the death model).  This clearly simplifies to $P_{n+1} =
 0.5 P_n$, and furthermore this allows for an easy implementation into a spreadsheet
 program.
 \begin{problem}\label{prob:bdi_difference_Excel}
@@ -117,38 +118,38 @@ Let's return to the models in Problem \ref{prob:bdi_models} and now consider tha
 really shouldn't be taken in discrete steps.  Instead, time really happens on a continuous
 scale and, as such, taking $\Delta t =1$ doesn't really make sense.  If we take $\Delta t
 \to 0$ the average rate of change $\Delta P / \Delta t$ becomes the derivative
-$\frac{dP}{dt}$.  For example, in the birth model $\frac{\Delta P}{\Delta t} = -0.5 P$
+$\frac{dP}{dt}$.  For example, in the {\it Birth} model $\frac{\Delta P}{\Delta t} = -0.5 P$
 becomes $\frac{dP}{dt} = -0.5P$ as $\Delta t \to 0$. This new model is called a {\bf
 differential equation}.  
 \begin{problem}\label{prob:bdi_differential_eqns}
-    Write a differential equation modeling the Birth \& Death and the Birth, Death, \&
-    Immigration scenarios.
+Write a differential equation modeling the {\it Death \& Immigration} and the {\it Birth, Death, \&
+Immigration} scenarios.
     \begin{flalign*}
-        \text{Birth Model: } \quad \frac{d P}{d t} &= -0.5 P \\
-        \text{Birth \& Death Model: } \quad \frac{dP}{d t} &= \underline{\hspace{2in}} \\
+        \text{Death Model: } \quad \frac{d P}{d t} &= -0.5 P \\
+        \text{Death \& Immigration Model: } \quad \frac{dP}{d t} &= \underline{\hspace{2in}} \\
         \text{Birth, Death, \& Immigration Model: } \quad \frac{d P}{d t} &= \underline{\hspace{2in}}
     \end{flalign*}
 \end{problem}
-The differential equation models are most likely more realistic if we thinking of the M\&M
+The differential equation models are most likely more realistic if we are thinking of the M\&M
 exploration as modeling population.  Populations just simply don't change all at once;
 they change continuously in time.  
 
-For the birth model
+For the {\it Death} model
 \[ \frac{dP}{dt} = -0.5P \]
 we can still use Excel to create a visual model of the solution to the differential
 equation.  Recall that 
 \[ \frac{dP}{dt} \approx \frac{\Delta P}{\Delta t} \]
 and if we take $\Delta t$ to be {\it really small} then the approximation isn't {\it too
 bad.}  Hence, the differential equation $\frac{dP}{dt} = -0.5 P$ can be approximated by
-\[ \frac{\Delta P}{\Delta t} \approx -0.5 P, \]
+\[ \frac{\Delta P}{\Delta t} \approx -0.5 P \quad \text{for $\Delta t$ small}, \]
 and using the notation of difference equations we can rewrite as
 \[ \frac{P_{n+1} - P_n}{\Delta t} \approx -0.5 P_n. \]
 Now if we solve for $P_{n+1}$ we can get an equation that can be implemented in a
 spreadsheet program:
-\[ P_{n+1} \approx P_n - 0.5 \Delta t P_n. \]
+\[ P_{n+1} \approx P_n - \Delta t \left( 0.5 P_n \right). \]
 
 \begin{problem}
-    Use a spreadsheet program to get a graphical approximation to the Birth model
+    Use a spreadsheet program to get a graphical approximation to the {\it Death} model
     \[ \frac{dP}{dt} = -0.5P. \]
     Compare your results to the data and to the solution to the difference equation that
     you built in Problem \ref{prob:bdi_difference_Excel}.
@@ -156,7 +157,7 @@ spreadsheet program:
 
 \begin{problem}
     Now use a spreadsheet program to build approximations to the differential equations
-    for the Birth \& Death and Birth, Death, \& Immigration models that you built in
+    for the {\it Death \& Immigration} and {\it Birth, Death, \& Immigration} models that you built in
     Problem \ref{prob:bdi_differential_eqns}.  Compare your graphical solutions to the
     graphical solutions of the discrete time models and to the data.
 \end{problem}
@@ -680,12 +681,12 @@ and $p=\$200$ and different values of $r$}
 \begin{problem}
     For each of the two previous problems make a plot with ``change'' on the vertical axis
     and ``amount'' on the horizontal axis.  Each of these should be a linear function just
-    like what we saw in the birth, death, and immigration models.  What is the meaning of
+    like what we saw in the {\it Birth, Death, and Immigration} models.  What is the meaning of
     the ``$x$ intercept'' on each of these plots?
 \end{problem}
 
 \begin{problem}
-    return to the birth, death and immigration models.  You already made a plot with
+    Return to the {\it Birth, Death and Immigration} models.  You already made a plot with
     ``change'' on the vertical axis and ``population'' on the horizontal axis.  Find the
     point where the linear functions intersect the horizontal axis and interpret these
     points in the context of the problem.
@@ -796,13 +797,13 @@ $\frac{dy}{dt}=-\frac{1}{2}(y-4)$}
 
 \begin{problem}
     Find and classify the equilibrium point for the difference equations modeling the
-    three birth, death, and immigration problems.
+    three {\it Birth, Death, and Immigration} problems.
 \end{problem}
 
 \newpage
 \section{Euler's Method: Numerical Solutions for Differential Equations}
 One of the fastest ways to get an approximate solution to a difference or a differential
-equation is to use technology.  You have already used technology such as MX Excel to build
+equation is to use technology.  You have already used technology such as MS Excel to build
 numerical solutions to difference equations, but what about differential equations?  Let's
 look at the two in parallel.  Consider the difference and differential equations
 \begin{flalign}
@@ -1052,31 +1053,32 @@ behavior of the system and the solution techniques.
 \begin{definition}[Nonlinear Difference and Differential Equations]
     A difference or differential equation is called {\it non linear} if it is not linear.
 \end{definition}
-\begin{problem}
-    Classify each equation as either a difference or differential equation.  Then classify
-    it as either linear or nonlinear
-    \begin{flalign}
-        a_{n+1} - a_n &= 3a_n + n^2 \label{eqn:9.5.ex1a} \\
-        P_{n+1} - P_n &= 5P_n \label{eqn:9.5.ex1b} \\
-        P'(t) &= 5 P(t) \\
-        b'(t) &= (b(t))^2 + 1 \\
-        b_{n+1} - b_n &= (b_n)^2 + 1  \label{eqn:9.5.ex1c} \\
-        a_{n+2} &= a_na_{n+1} \label{eqn:9.5.ex1d} \\
-        f'(t) &= \frac{2}{f(t)}+t \label{eqn:9.5.ex1e} \\
-        a_{n+2} &= a_{n+1} + 3a_n \label{eqn:9.5.ex1f}  \\
-        y'(t) &=  3y(t) + t^2 \label{eqn:9.5.ex1aa} 
-    \end{flalign}
-%     \begin{itemize}
-%         \item Difference equation \eqref{eqn:9.5.ex1a} is linear. 
-%         \item Differential equation \eqref{eqn:9.5.ex1aa} is linear. 
-%         \item Difference equation \eqref{eqn:9.5.ex1b} is linear
-%         \item Difference equation \eqref{eqn:9.5.ex1c} is nonlinear
-%         \item Difference equation \eqref{eqn:9.5.ex1d} is nonlinear
-%         \item Difference equation \eqref{eqn:9.5.ex1e} is nonlinear
-%         \item Difference equation \eqref{eqn:9.5.ex1f} is linear
-%     \end{itemize}
-\end{problem}
+% \begin{problem}
+%     Classify each equation as either a difference or differential equation.  Then classify
+%     it as either linear or nonlinear
+%     \begin{flalign}
+%         a_{n+1} - a_n &= 3a_n + n^2 \label{eqn:9.5.ex1a} \\
+%         P_{n+1} - P_n &= 5P_n \label{eqn:9.5.ex1b} \\
+%         P'(t) &= 5 P(t) \\
+%         b'(t) &= (b(t))^2 + 1 \\
+%         b_{n+1} - b_n &= (b_n)^2 + 1  \label{eqn:9.5.ex1c} \\
+%         a_{n+2} &= a_na_{n+1} \label{eqn:9.5.ex1d} \\
+%         f'(t) &= \frac{2}{f(t)}+t \label{eqn:9.5.ex1e} \\
+%         a_{n+2} &= a_{n+1} + 3a_n \label{eqn:9.5.ex1f}  \\
+%         y'(t) &=  3y(t) + t^2 \label{eqn:9.5.ex1aa} 
+%     \end{flalign}
+% %     \begin{itemize}
+% %         \item Difference equation \eqref{eqn:9.5.ex1a} is linear. 
+% %         \item Differential equation \eqref{eqn:9.5.ex1aa} is linear. 
+% %         \item Difference equation \eqref{eqn:9.5.ex1b} is linear
+% %         \item Difference equation \eqref{eqn:9.5.ex1c} is nonlinear
+% %         \item Difference equation \eqref{eqn:9.5.ex1d} is nonlinear
+% %         \item Difference equation \eqref{eqn:9.5.ex1e} is nonlinear
+% %         \item Difference equation \eqref{eqn:9.5.ex1f} is linear
+% %     \end{itemize}
+% \end{problem}
 % 
+
 \begin{definition}[Homogeneous Difference and Differential Equations]
     A difference or differential equation is called {\bf homogeneous} if the only terms that appear
     in the relationship are ones which involve the output variable (e.g. $a_n$ or
@@ -1086,6 +1088,41 @@ behavior of the system and the solution techniques.
 \begin{definition}[Nonhomogeneous Equations]
     A difference or differential equation is called {\bf nonhomogeneous} if it is not homogeneous.
 \end{definition}
+
+\begin{example}
+    Classify each of the following first order models.
+    \begin{flalign}
+        \frac{dy}{dt} &= y^2 \label{eqn:class1} \\
+        b_{n+1} - b_n &= b_n^2 \label{eqn:class2} \\
+        x_{n+1} - x_n &= 0.5 x_n + \sin(n) \label{eqn:class3} \\
+        \frac{dx}{dt} &= x \sin(t) \label{eqn:class4} 
+    \end{flalign}
+    {\bf Solution:} \\
+    \begin{itemize}
+        \item Equation \eqref{eqn:class1} is a first order nonlinear homogeneous
+            differential equation.  It is first order because it only contains first
+            derivatives.  It is nonlinear because of the square on the $y$ on the
+            right-hand side.  It is homogeneous because there is nothing else being added
+            to the $y$ term on the right-hand side.
+        \item Equation \eqref{eqn:class2} is a first order nonlinear homogeneous
+            difference equation.  It is first order because it only contains a difference
+            between $b_{n+1}$ and $b_n$.  It is nonlinear because of the square on the
+            $b_n$ on the
+            right-hand side.  It is homogeneous because there is nothing else being added
+            to the $b_n$ term on the right-hand side.
+        \item Equation \eqref{eqn:class3} is a first order linear non-homogeneous
+            difference equation.  It is first order because it only contains a difference
+            between $x_{n+1}$ and $x_n$.  It is linear because the only thing happening to
+            the $x_n$ on the right-hand side is multiplication by a scalar.  It is
+            non-homogeneous since there is a $\sin(n)$ term added to the right-hand side.
+        \item Equation \eqref{eqn:class4} is a first order linear homogeneous
+            (non-autonomous) differential equation.  This equation is linear because it
+            only contains the first derivative.  It is linear since no non-linear
+            functions act on the $x$ on the right-hand side.  This equation is called
+            ``non-autonomous'' since there is a ``$t$'' on the right-hand side -- that is,
+            the rate depends not only on $x$ but also on $t$.  
+    \end{itemize}
+\end{example}
 
 \begin{problem}
     Classify the following using the words 
