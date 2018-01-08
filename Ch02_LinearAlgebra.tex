@@ -130,7 +130,7 @@ inside a system of equations just waiting to be exploited.
 The second fundamental problem of linear algebra is to decompose a complicated system of
 equations to a collection of elements that are easily visualized.  This is known as the
 eigenvector-eigenvalue problem.  In the following activity we will set up a problem that,
-without the tools of linear algebra, are very difficult to answer.  We will return to this
+without the tools of linear algebra, is very difficult to answer.  We will return to this
 example in future sections.
 
 % \input{activities/10.1.Act2}
@@ -185,7 +185,7 @@ Research on study time vs. exam scores yields the following data points
 \end{center}
 
 \ba
-    \item We would like to find an linear equation of the form $y=ax + b$ where $x$ is the
+    \item We would like to find a linear equation of the form $y=ax + b$ where $x$ is the
         time spent studying and $y$ is the exam score.  Write 6 equations where the two
         unknowns are the parameters $a$ and $b$.
     \item Organize your 6 equations into a matrix equation.  The solution to this matrix
@@ -231,7 +231,7 @@ operations as well as some of the foundational definitions for linear algebra.
             say that $A$ has {\bf size} (or dimensions) $m \times n$.
         \item[Equality:] Two matrices are {\bf equal} if their corresponding entries are
             equal. Matrices can only be equal if the sizes are equal.
-        \item[Addition and Subtraction:] Matrix {\bf addition and subtraction} and done by
+        \item[Addition and Subtraction:] Matrix {\bf addition and subtraction} are done by
             regular addition and subtraction on the corresponding entries.  Matrix
             addition and subtraction can only be performed on matrices of the same size.
         \item[Scalar Multiplication:] If $A$ is a matrix then $cA$ is a {\bf scalar
@@ -591,7 +591,7 @@ $x_1$, $x_2$, and $x_3$.
 \newpage\section{Systems of Linear Equations} \label{S:10.3.Systems}
 
 In this section we further explore the notion of solving a linear system of equations. To
-begin out study consider the following Preview Activity.
+begin our study consider the following Preview Activity.
 
 % \input{previews/10.3.PA1}
 \begin{problem}
@@ -1344,7 +1344,8 @@ useful in their own right, we will not take the time here to expand upon their p
         \item If one row of $A$ is multiplied by $k$ to product matrix $B$ then $\det(B) =
             k \det(A)$.
         \item The absolute value of the determinant of a matrix $A$ is the volume of the parallelepiped
-            formed by the column vectors of $A$.
+            formed by the column vectors of $A$. (In 2D this means that the determinant is
+            the area of the associated parallelogram.)
     \end{enumerate}
 \end{thm}
 
@@ -1563,7 +1564,7 @@ x = A\b
         \item If you traveled ``forward'' on the magic carpet for one hour it wold move along a
             diagonal path that would result in a displacement of 1 mile East and 2 miles
             North of the starting location.  Mathematically, the magic carpet's motion is
-            restricted to the vector $\bv_1 = \begin{pmatrix} 1\\2\end{pmatrix}$
+            restricted to the vector $\bv_2 = \begin{pmatrix} 1\\2\end{pmatrix}$
     \end{itemize}
     Your Uncle Euler suggests that your first adventure should be to go visit the wise
     man, Old Man Gauss.  Uncle Euler tells you that Old Man Gauss lives in a cabin that is
@@ -1889,7 +1890,7 @@ Indeed,
 \begin{flalign*}
     &c_1 \bpm 1\\2\epm + c_2 \bpm-1\\1\epm = \bpm x\\y\epm \\
     &\implies \bpm 1 & -1 \\ 2 & 1 \epm \bpm c_1 \\ c_2 \epm = \bpm x \\ y \epm \\
-    &\implies \left( \begin{array}{cc|c} 1 & -1 & 0 \\ 2 & 1 & 0 \end{array} \right) \to
+    &\implies \left( \begin{array}{cc|c} 1 & -1 & x \\ 2 & 1 & y \end{array} \right) \to
     \cdots \to \left( \begin{array}{cc|c} 1 & 0 & \frac{x+y}{3} \\ 0 & 1 &
         \frac{-2x+y}{3} \end{array} \right) \\
     &\implies c_1 = \frac{x+y}{3} \quad \text{and} \quad c_2 = \frac{-2x+y}{3}.
@@ -1937,7 +1938,7 @@ so they cannot possible span all of $\mathbb{R}^2$.
     basis for $H$.
 \item The columns of an invertible $n \times n$ matrix form a basis for $\mathbb{R}^n$.
 \item A basis is a spanning set that is as large as possible.
-\item Any linearly independent set is a space $V$ is a basis for $V$.
+\item Any linearly independent set in a space $V$ is a basis for $V$.
 \item If a finite set $S$ of nonzero vectors spans a space $V$, then some subset of $S$ is
     a basis for $V$.
 \item A basis is a linearly independent set that is as large as possible.
@@ -2044,8 +2045,8 @@ simplified model to predict production.
             from agriculture, and 0.30 units from other services.
     \end{itemize}
 
-    Suppose that the demand is 50 units for manufacturing, 30 units for agriculture, and
-    20 units for services.
+    Suppose that the external demand is 50 units for manufacturing, 30 units for
+    agriculture, and 20 units for services.
     \ba
         \item If the production is 
             \[ \bx = \bpm 140 \\ 20 \\ 50 \epm \]

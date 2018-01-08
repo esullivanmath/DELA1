@@ -105,7 +105,7 @@ as $P_{n+1} = P_n - 0.5 P_n$ (in the death model).  This clearly simplifies to $
 program.
 \begin{problem}\label{prob:bdi_difference_Excel}
     Using a spreadsheet program like Excel, implement the difference equation models to
-    built a table and graph that predicts the population at any discrete time.  
+    build a table and graph that predicts the population at any discrete time.  
 \end{problem}
 
 \begin{problem}
@@ -367,7 +367,8 @@ but now assume that the payments are fixed at $\$200$ and we don't know the rate
 \ref{fig:9.3.ex1r} shows several numerical solutions to the discrete dynamical system at various rates.
 
 Again, there aren't any real surprises here; as the rate goes down the time to pay off the
-loan goes down.  In order to fully explore the parameter space of a DDS it is easy to
+loan goes down.  In order to fully explore the parameter space of a discrete dynamical
+system (i.e. difference plus initial conditions)  it is easy to
 implement the model in Excel and to use absolute cell references for the parameters.  
 \end{example}
 \begin{figure}[ht!]
@@ -889,7 +890,7 @@ instead, for taking $\Delta t$ to be small (0.1 or 0.01 or smaller).
     we approximate the derivative with 
     \[ \frac{dy}{dt} \approx \frac{y_{n+1} - y_n}{\Delta t} \]
     and use the difference equation
-    \[ y_{n+1} = y_n + \Delta t f(t_n,y_n  \]
+    \[ y_{n+1} = y_n + \Delta t f(t_n,y_n)  \]
     to build an approximate solution.  
 \end{definition}
 Remember that the only reasonable choice for
@@ -1133,7 +1134,7 @@ behavior of the system and the solution techniques.
     \end{itemize}
     If an equation is nonhomogeneous then give the type of function for the
     nonhomogeneity.  For example, the equation $a_{n+1} - a_n = 0.5 a_n + 10$ is a linear
-    nonhomogenous difference equation with a constant nonhomogeneity.
+    nonhomogeneous difference equation with a constant nonhomogeneity.
     \begin{flalign}
         a_{n+1} - a_n &= 3a_n + n^2 \\
         P_{n+1} - P_n &= 5P_n \\
@@ -1182,8 +1183,8 @@ difference equation.
 
 Your work in the previous problem has just provided sufficient evidence to believe following theorem. 
 \begin{thm}\label{thm:9.6.linearhom}
-    If $a_{n+1} - a_n = ra_n$ with initial condition $a_0$ then the analytic solution to the DDS
-    is
+    If $a_{n+1} - a_n = ra_n$ with initial condition $a_0$ then the analytic solution to
+    the discrete dynamical system is
 \begin{flalign}
     a_k = \underline{\hspace{0.4in}} \cdot a_0.
     \label{eqn:9.6.lienarhom_soln}
@@ -1259,7 +1260,8 @@ of which one to use in which instances.
         \item[(b)] Allow me to abuse some notation: \\
             If you multiply both sides by $dt$ and divide both sides by $y$ we end up with
             \[ \frac{dy}{y} = dt. \]
-            Integrate both sides and solve for $y$.
+            Integrate both sides and solve for $y$. Don't forget the arbitrary constants
+            resulting from indefinite integrals.
         \item[(c)] Compare your answers to parts (b) and (c).
     \end{enumerate}
 \end{problem}
@@ -1344,7 +1346,7 @@ here \ldots can you find it.}
     \begin{enumerate}
         \item $A' = -kt$
         \item $A' = -kA$
-        \item $A' = -kA(1-A/N)$
+        \item $A' = -kA\left( 1-\frac{A}{A_{max}} \right)$
         \item $A' = -kAt$
     \end{enumerate}
 \end{problem}
@@ -1714,7 +1716,7 @@ get the idea of how to use undetermined coefficients.
         \item The non-homogeneity is constant so we guess that the particular solution
             will be constant: $a_{part} = C_1$.
         \item The analytic solution takes the form $a_n = C_0 \cdot 2^n + C_1$.  
-        \item Putting the initial condition into the analytic solution gives $5= C_1 +
+        \item Putting the initial condition into the analytic solution gives $5= C_0 +
             C_1$.
         \item Putting the particular solution into the original difference equation gives
             $C_1 - C_1 = C_1 - 1$ which implies that $C_1 = 1$.  Together with the
@@ -1743,7 +1745,7 @@ get the idea of how to use undetermined coefficients.
         \item The full general solution is
             \[ y(t) = C_0 e^{2t} + C_1 t + C_2. \]
         \item Putting the initial condition into the analytic solution gives 
-            \[ 5 = C_0 + 0 C_1 + C_2. \]
+            \[ 3 = C_0 + C_1 \cdot 0 + C_2. \]
         \item Putting the particular solution into the differential equation gives
             \[ C_1 = 2(C_1t + C_2) + 7t. \]
             We can rewrite this as 
@@ -1752,10 +1754,10 @@ get the idea of how to use undetermined coefficients.
             \[ 0 = 2C_1 + 7 \]
             and 
             \[ C_1 = 2C_2. \]
-            From this we see that $C_1 = 7/2$ and $C_2 = 7/4.$  Furthermore, we can use
-            the result from the previous step to get $C_0 = 5 - C_2 = 5 - 7/4 = 13/4.$
+            From this we see that $C_1 = -7/2$ and $C_2 = -7/4.$  Furthermore, we can use
+            the result from the previous step to get $C_0 = 3 - C_2 = 3 + 7/4 = 19/4.$
         \item The solution is
-            \[ y(t) = \frac{13}{4} e^{2t} + \frac{7}{2} t + \frac{7}{4}. \]
+            \[ y(t) = \frac{19}{4} e^{2t} - \frac{7}{2} t - \frac{7}{4}. \]
     \end{enumerate}
 \end{example}
 
@@ -1827,15 +1829,16 @@ get the idea of how to use undetermined coefficients.
     drag so 
     \[ m a = F_{gravity} + F_{drag}. \]
     The force due to gravity is $F_{gravity} = mg$ and the force due to drag is
-    propotional to the square of the velocity: $F_{drag} = k v^2$.  Also note that
+    proportional to the square of the velocity: $F_{drag} = k v^2$.  Also note that
     acceleration is the derivative of velocity.  Therefore the differential equation
     modeling this scenario is
     \[ m v' = mg - kv^2 \]
-    which can be rearraged to 
+    which can be rearranged to 
     \[ v' = g - \frac{k}{m} v^2. \]
     The data given in the table below give the distance (in feet) measured from the drop
     point as a function of time (in seconds).  Use the data and the differential equation
-    to find the ratio of the drag coefficient to the mass, $k/m$. Then use the
+    to find the ratio of the drag coefficient to the mass, $k/m$ (this is best done with
+    technology). Then use the
     differential equation and your value of $k/m$ to determine the terminal velocity of
     the whiffle ball. \\
     Note that 1 meter $\approx 3.28 feet$.
@@ -1902,7 +1905,7 @@ get the idea of how to use undetermined coefficients.
     \begin{itemize}
         \item write a first order nonhomogeneous linear differential equation, 
         \item find the general solution to the differential equation, 
-        \item use the given information to find all of the all of the constants and
+        \item use the given information to find all of the constants and
             parameters,
         \item Identify any equilibrium solutions and determine whether they're stable or
             unstable,
