@@ -25,7 +25,7 @@
 \contentsline {subsection}{\numberline {2.12.3}Balancing Chemical Equations}{69}{subsection.2.12.3}
 \contentsline {chapter}{\numberline {3}First Order Models}{71}{chapter.3}
 \contentsline {section}{\numberline {3.1}Birth, Death, and Immigration Exploration}{71}{section.3.1}
-\contentsline {section}{\numberline {3.2}Models for Birth, Death, and Immigration}{73}{section.3.2}
+\contentsline {section}{\numberline {3.2}Models for Death, Birth, and Immigration}{73}{section.3.2}
 \contentsline {section}{\numberline {3.3}Difference Equations and Differential Equations}{76}{section.3.3}
 \contentsline {section}{\numberline {3.4}Stability and Equilibria}{82}{section.3.4}
 \contentsline {section}{\numberline {3.5}Euler's Method: Numerical Solutions for Differential Equations}{84}{section.3.5}
