@@ -659,7 +659,7 @@ and $p=\$200$ and different values of $r$}
 
 
 
-\newpage\section{Stability and Equilibria}
+\newpage\section{Stability, Equilibria, Phase Plots, and Slope Fields}
 \begin{problem}
     Consider the differential equation 
     \[ \frac{dA}{dt} = -0.5A + 0.1. \]
@@ -736,10 +736,48 @@ and $p=\$200$ and different values of $r$}
         \draw (4,0) node[anchor=south]{eq. pt.};
     \end{tikzpicture}
 \end{center}
-\caption{A plot of $\frac{dy}{dt}$ vs $y$ (top) and a phase line diagram (bottom) for
-$\frac{dy}{dt}=-\frac{1}{2}(y-4)$}
+\caption{A plot of $\frac{dy}{dt}$ vs $y$ (top) and a phase line diagram (bottom) for the
+differential equation $\frac{dy}{dt}=-\frac{1}{2}(y-4)$}
 \label{fig:7.2.phase}
 \end{figure}
+
+In Figure \ref{fig:7.2.phase} we see two graphical tools that allow us to determine
+equilibrium points and their stability.  The top plot in Figure \ref{fig:7.2.phase} is
+called a {\bf phase plot} and the bottom plot is called a {\bf phase line}.  In both plots
+we can see that $y=4$ is a stable equilibrium.  What this plot doesn't show is what the
+{\it solution} to the differential equation actually {\it looks like}.  We only get a
+qualitative sense of how the solution behaves from the phase plot and phase line.
+
+Another tool that we have for creating qualitative solutions for differential equations is
+the {\bf slope field}.  For every point in the $y-t$ plane we can determine the slope of
+the solution to the differential equation by simply putting the $t$ and $y$ into the
+right-hand side of the differential equation.  At the point we can then draw a small line
+segment with that slope.  If we repeat this process on the differential equation
+$\frac{dy}{dt} = -\frac{1}{2} (y-4)$ we get the image in Figure \ref{fig:slope_field_1}.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.7\columnwidth]{images/SlopeField_1}
+    \caption{A slope field for the differential equation $\frac{dy}{dt} =
+    -\frac{1}{2}(y-4)$. }
+    \label{fig:slope_field_1}
+\end{figure}
+
+\begin{problem}
+    In Figure \ref{fig:slope_field_1} you see a slope field for the differential equation
+    $\frac{dy}{dt} = -\frac{1}{2} (y-4)$.  
+    \begin{enumerate}
+        \item[(a)] If you pick an initial condition and draw a
+            curve that is tangent to the slope field lines as you draw, then you will end up with
+            a rough sketch of a solution to the differential equation.  Draw solutions curves for
+            this differential equation using $y(0) = 0, 1, 2, 3, 3.5, 4, 4.5, 5,$ and $6$. 
+        \item[(b)] Based on the slope field in Figure \ref{fig:slope_field_1}, your solution plots
+            from part (a), and the phase plots in Figure \ref{fig:7.2.phase}, why are we
+            classifying the equilibrium at $y=4$ as ``stable''?
+    \end{enumerate}
+%     Note: It would help to have a printout or a projection of the plot in Figure
+%     \ref{fig:slope_field_1} so you can draw directly on it.
+\end{problem}
 
 \begin{example}
     Consider the differential equation $\frac{dy}{dt} = \frac{1}{2}(y-4)$.  If we set the
@@ -748,7 +786,9 @@ $\frac{dy}{dt}=-\frac{1}{2}(y-4)$}
     The equilibrium is at $y=4$.  Furthermore, if we have a $y$ value a bit less than 4 we
     see that $dy/dt$ is negative so $y$ will be going down.  Also, if we have a $y$ value
     that is a bit more than 4 then $dy/dt$ is positive so $y$ will be going up (see
-    Figure \ref{fig:7.3.phase}).  We call this type of equilibrium point {\bf unstable}.
+    Figure \ref{fig:7.3.phase}).  We call this type of equilibrium point {\bf unstable}. A
+    slope field for this differential equation can be seen in Figure
+    \ref{fig:slope_field_2}.
 \end{example}
 
 \begin{figure}[ht!]
@@ -784,6 +824,34 @@ $\frac{dy}{dt}=-\frac{1}{2}(y-4)$}
 \label{fig:7.3.phase}
 \end{figure}
 
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.7\columnwidth]{images/SlopeField_2}
+    \caption{A slope field for the differential equation $\frac{dy}{dt} =
+    \frac{1}{2}(y-4)$. Several solution curves are shown with different initial conditions. }
+    \label{fig:slope_field_2}
+\end{figure}
+
+
+\begin{problem}
+    We have introduced three big ideas in the past couple of pages.  Let's synthesize some
+    of our thinking.  Don't be afraid to look back to the previous examples for
+    inspiration.
+    \begin{enumerate}
+        \item[(a)] To find the equilibrium for a difference or a differential equation,
+            set the {\it change} to \underline{\hspace{1in}}.  Explain your answer.
+        \item[(b)] When you make a graph of $dy/dt$ vs $y$ (called a phase plot), the
+            equilibrium (or equilibria) of the differential equation can be found where
+            the curve \underline{\hspace{2in}}. Explain your answer.
+        \item[(c)] On a phase line plot you can determine the direction of the arrows by
+            looking at the \underline{\hspace{1in}} of the derivative at that value of
+            $y$.  Explain your answer.
+        \item[(d)] To get the arrows on a slope field, pick a point in the $y-t$ plane and
+            \underline{\hspace{2in}}.  
+        \item[(e)] To get a solution curve on a slope field, pick an initial condition and
+            \underline{\hspace{2in}}.  
+    \end{enumerate}
+\end{problem}
 
 \begin{problem}
     Find and classify the equilibrium points for each of the following difference or
@@ -798,8 +866,184 @@ $\frac{dy}{dt}=-\frac{1}{2}(y-4)$}
 
 \begin{problem}
     Find and classify the equilibrium point for the difference equations modeling the
-    three {\it Birth, Death, and Immigration} problems.
+    three {\it Birth, Death, and Immigration} problems.  Use all of the tools introduced
+    in this section.
 \end{problem}
+
+
+\begin{problem}\label{prob:Slope_Fields_Matching}
+    In Figure \ref{fig:Slope_Fields_Matching} you will find four slope fields.  Match the
+    differential equations below to the slope fields.  Be able to defend your answers.  Once you have matched
+    the equations to the slope fields, draw a phase plot and a phase line for each of the
+    differential equations.  Finally, classify all of the equilibrium points as stable or
+    unstable.
+    \begin{flalign*}
+        \text{Differential Equation A: } \quad \frac{dy}{dt} &= y(2-y) \\
+        \text{Differential Equation B: } \quad \frac{dy}{dt} &= (y-2) \\
+        \text{Differential Equation C: } \quad \frac{dy}{dt} &= (2-y) \\
+        \text{Differential Equation D: } \quad  \frac{dy}{dt} &= y(2-y)(1-y)
+    \end{flalign*}
+\end{problem}
+
+\begin{figure}[ht!]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=0.95\columnwidth]{images/SlopeField_3}
+        \caption{Figure \#1}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=0.95\columnwidth]{images/SlopeField_6}
+        \caption{Figure \#2}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=0.95\columnwidth]{images/SlopeField_4}
+        \caption{Figure \#3}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=0.95\columnwidth]{images/SlopeField_5}
+        \caption{Figure \#4}
+    \end{subfigure}
+    \caption{Slope fields for Problem \ref{prob:Slope_Fields_Matching}.}
+    \label{fig:Slope_Fields_Matching}
+\end{figure}
+
+\newpage
+
+\begin{problem}
+    What differential equation is associated with the following phase plot? Find the
+    equilibrium point and determine its stability.
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[axis lines=center, xmin=-0.6, xmax=6, ymin=-2.5, ymax=2.5, xlabel={$y$},
+                ylabel={$\frac{dy}{dt}$}, domain=-0.6:6, grid]
+                \addplot[blue, very thick, smooth] {0.25*(x-2)};
+%                 \draw[fill=red] (axis cs:4,0) circle(0.1cm);
+%                 \draw (axis cs:5,1) node{$\frac{dy}{dt}>0$};
+%                 \draw (axis cs:2,-1.5) node{$\frac{dy}{dt}<0$};
+%                 \draw[thick, red, ->] (axis cs:2,1)
+%                 node[anchor=south]{$\frac{dy}{dt}=0$} -- (axis cs:3.9,0.1);
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+\end{problem}
+
+
+
+
+\begin{technique}[Phase Line Analysis]
+    It is often very helpful to draw a {\it phase diagram} (sometimes called a phase line)
+    to analyze the equilibrium points of a differential equation.  There are
+    four possible cases shown graphically in Figure \ref{fig:phaseline}.  In each of the
+    following fill in with the word(s) ``stable'', ``unstable'', ``semi-stable approaching
+    from below'', or ``semi-stable approaching from above''.
+    \begin{itemize}
+        \item In Case \#1 there is a/an \underline{\hspace{1.5in}} equilibrium at $y=2$.
+        \item In Case \#2 there is a/an \underline{\hspace{1.5in}} equilibrium at $y=2$.
+        \item In Case \#3 there is a/an \underline{\hspace{1.5in}} equilibrium at $y=2$.
+        \item In Case \#4 there is a/an \underline{\hspace{1.5in}} equilibrium at $y=2$.
+    \end{itemize}
+\end{technique}
+\solution{
+    \begin{itemize}
+        \item Case \#1: unstable
+        \item Case \#2: semi-stable approaching from below
+        \item Case \#3: stable 
+        \item Case \#2: semi-stable approaching from above
+    \end{itemize}
+}
+
+\begin{figure}[h]
+    \begin{center}
+        \begin{tikzpicture}[scale=0.8]
+            \begin{axis}[axis lines=center, grid, domain=0:5, xlabel={$y$},
+                    ylabel={$dy/dt$}, title={Case \#1}, xmin=0, xmax=5, ymin=-2, ymax=2]
+                    \addplot[blue, domain=1.2:3.2, very thick, smooth] {-0.5*(x-2)*(x-5)};
+            \end{axis}
+        \end{tikzpicture}
+        \begin{tikzpicture}[scale=0.8]
+            \begin{axis}[axis lines=center, grid, domain=0:5, xlabel={$y$},
+                    ylabel={$dy/dt$}, title={Case \#2}, xmin=0, xmax=5, ymin=-2, ymax=2]
+                    \addplot[blue, domain=1.2:3.2, very thick, smooth] {-0.2*(x-2)^2*(x-5)};
+            \end{axis}
+        \end{tikzpicture}
+        \begin{tikzpicture}[scale=0.8]
+            \begin{axis}[axis lines=center, grid, domain=0:5, xlabel={$y$},
+                    ylabel={$dy/dt$}, title={Case \#3}, xmin=0, xmax=5, ymin=-2, ymax=2]
+                    \addplot[blue, domain=1.2:3.2, very thick, smooth] {0.5*(x-2)*(x-5)};
+            \end{axis}
+        \end{tikzpicture}
+        \begin{tikzpicture}[scale=0.8]
+            \begin{axis}[axis lines=center, grid, domain=0:5, xlabel={$y$},
+                    ylabel={$dy/dt$}, title={Case \#4}, xmin=0, xmax=5, ymin=-2, ymax=2]
+                    \addplot[blue, domain=1.2:3.2, very thick, smooth] {0.2*(x-2)^2*(x-5)};
+            \end{axis}
+        \end{tikzpicture}
+    \end{center}
+    \caption{Four cases for phase line analysis. In each plot we see a small portion of
+        the $\frac{dy}{dt}$ vs $y$ plot for an autonomous first order differential
+        equation: $\frac{dy}{dt} = f(y)$.}
+    \label{fig:phaseline}
+\end{figure}
+
+\newpage
+
+
+\begin{problem}
+    For each of the phase plots in Figure \ref{fig:phase2} sketch a plot on the  $y$ vs
+    $t$ plane of the solutions
+    to the underlying differential equation with several initial conditions.  At every grid point of the right-hand plots
+    draw a small line segment with the slope of the approximate slope of the solution at
+    that point.  In the end this will result in the slope field with several solution
+    curves..  A few helpful markers are given to
+    you in the first plot.
+\end{problem}
+
+\begin{figure}[h]
+    \begin{center}
+        \begin{tikzpicture}[scale=0.9]
+            \begin{axis}[axis lines=center, xlabel={$y$}, ylabel={$dy/dt$}, grid, xmin=-1,
+                xmax=5, ymin=-2, ymax=2, title={Phase Plot a}]
+                \addplot[smooth, very thick, blue, domain=-1:5] {0.5*x*(x-1)^2*(x-3)};
+            \end{axis}
+        \end{tikzpicture}
+        \begin{tikzpicture}[scale=0.9]
+            \begin{axis}[axis lines=center, xlabel={$t$}, ylabel={$y$}, grid, xmin=0,
+                xmax=10, ymin=-1, ymax=5, title={Solution Plot \& Slope Field}, ytick={1,2,3,4},
+            xtick={1,2,3,4,5,6,7,8,9,10}]
+                \addplot[dashed, domain=0:10] {0*x+0};
+                \addplot[dashed, domain=0:10] {0*x+1};
+                \addplot[dashed, domain=0:10] {0*x+3};
+            \end{axis}
+        \end{tikzpicture}
+        \begin{tikzpicture}[scale=0.9]
+            \begin{axis}[axis lines=center, xlabel={$y$}, ylabel={$dy/dt$}, grid, xmin=-1,
+                xmax=5, ymin=-2, ymax=2, title={Phase Plot b}]
+                \addplot[smooth, very thick, blue, domain=-1:5] {-0.3*(x-0.25)*(x-1)*(x-4)};
+            \end{axis}
+        \end{tikzpicture}
+        \begin{tikzpicture}[scale=0.9]
+            \begin{axis}[axis lines=center, xlabel={$t$}, ylabel={$y$}, grid, xmin=0,
+                xmax=10, ymin=-1, ymax=5, title={Solution Plot \& Slope Field}, ytick={1,2,3,4},
+            xtick={1,2,3,4,5,6,7,8,9,10}]
+                \addplot[smooth, domain=0:10] {0*x+0};
+            \end{axis}
+        \end{tikzpicture}
+    \end{center}
+    \caption{Phase plots and solution plots.  On the left are the phase plots and on the
+    right are coordinate axes to sketch the solution plots.}
+    \label{fig:phase2}
+\end{figure}
+
+
+\begin{problem}
+    Use what you learned in the previous problems to find and classify the equilibria for the
+    first order non-linear autonomous differential equation
+    \[ y'(t) = (y-1)(y-2)(y-3)^2. \]
+\end{problem}
+\solution{
+1 is stable, 2 is unstable and 3 is semi-stable
+}
+
 
 \newpage
 \section{Euler's Method: Numerical Solutions for Differential Equations}

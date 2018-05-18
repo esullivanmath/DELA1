@@ -27,47 +27,47 @@
 \contentsline {section}{\numberline {3.1}Birth, Death, and Immigration Exploration}{71}{section.3.1}
 \contentsline {section}{\numberline {3.2}Models for Death, Birth, and Immigration}{73}{section.3.2}
 \contentsline {section}{\numberline {3.3}Difference Equations and Differential Equations}{76}{section.3.3}
-\contentsline {section}{\numberline {3.4}Stability and Equilibria}{82}{section.3.4}
-\contentsline {section}{\numberline {3.5}Euler's Method: Numerical Solutions for Differential Equations}{84}{section.3.5}
-\contentsline {section}{\numberline {3.6}Classifying Difference and Differential Equations}{89}{section.3.6}
-\contentsline {section}{\numberline {3.7}Technique: Solving $1^{st}$ Order Linear Homogeneous Equations}{91}{section.3.7}
-\contentsline {section}{\numberline {3.8}Technique: Solving $1^{st}$ Order Linear Nonhomogeneous Equations}{93}{section.3.8}
-\contentsline {subsection}{\numberline {3.8.1}Solution Technique: Separation of Variables}{93}{subsection.3.8.1}
-\contentsline {subsection}{\numberline {3.8.2}Solution Technique: Undetermined Coefficients}{98}{subsection.3.8.2}
-\contentsline {section}{\numberline {3.9}Modeling Explorations with Difference and Differential Equations}{105}{section.3.9}
-\contentsline {chapter}{\numberline {4}Second Order Models}{116}{chapter.4}
-\contentsline {section}{\numberline {4.1}Modeling Oscillations}{116}{section.4.1}
-\contentsline {section}{\numberline {4.2}Homogeneous Linear $2^{nd}$ Order Differential Equations}{119}{section.4.2}
-\contentsline {section}{\numberline {4.3}Forced Oscillations}{126}{section.4.3}
-\contentsline {section}{\numberline {4.4}Energy in Mass Spring Systems -- A Lab Exploration}{128}{section.4.4}
-\contentsline {section}{\numberline {4.5}Modeling Explorations with $2^{nd}$ Order Differential Equations}{132}{section.4.5}
-\contentsline {chapter}{\numberline {5}Systems of Difference and Differential Equations}{136}{chapter.5}
-\contentsline {section}{\numberline {5.1}Spread of Disease}{136}{section.5.1}
-\contentsline {section}{\numberline {5.2}Spreading a Juicy Rumor}{138}{section.5.2}
-\contentsline {section}{\numberline {5.3}The H1N1 Virus}{141}{section.5.3}
-\contentsline {section}{\numberline {5.4}Writing Systems of Difference Equations}{142}{section.5.4}
-\contentsline {section}{\numberline {5.5}Linear Systems}{147}{section.5.5}
-\contentsline {section}{\numberline {5.6}The Eigenvalue / Eigenvector Problem}{149}{section.5.6}
-\contentsline {subsection}{\numberline {5.6.1}Geometry of Eigenvectors and Eigenvalues}{150}{subsection.5.6.1}
-\contentsline {subsection}{\numberline {5.6.2}The Eigenvalue Eigenvector Problem}{153}{subsection.5.6.2}
-\contentsline {subsection}{\numberline {5.6.3}Technology for the Eigenvalue Eigenvector Problem}{158}{subsection.5.6.3}
-\contentsline {section}{\numberline {5.7}Markov Chains}{160}{section.5.7}
-\contentsline {section}{\numberline {5.8}Analysis of Linear Systems}{165}{section.5.8}
-\contentsline {subsection}{\numberline {5.8.1}Homogeneous Systems of Linear Difference Equations}{165}{subsection.5.8.1}
-\contentsline {subsection}{\numberline {5.8.2}Analysis of Equilibrium Behavior}{167}{subsection.5.8.2}
-\contentsline {subsection}{\numberline {5.8.3}Non Homogeneous Systems of Linear Difference Equations}{169}{subsection.5.8.3}
-\contentsline {section}{\numberline {5.9}Modeling Explorations with Systems}{172}{section.5.9}
-\contentsline {chapter}{\numberline {6}Infinite Series}{177}{chapter.6}
-\contentsline {section}{\numberline {6.1}Sections from Active Calculus}{177}{section.6.1}
-\contentsline {chapter}{Appendices}{178}{section*.44}
-\contentsline {chapter}{\numberline {A}MATLAB Basics}{179}{Appendix.a.A}
-\contentsline {section}{\numberline {A.1}Vectors and Matrices}{179}{section.a.A.1}
-\contentsline {section}{\numberline {A.2}Looping}{181}{section.a.A.2}
-\contentsline {subsection}{\numberline {A.2.1}For Loops}{181}{subsection.a.A.2.1}
-\contentsline {subsection}{\numberline {A.2.2}The While Loop}{182}{subsection.a.A.2.2}
-\contentsline {section}{\numberline {A.3}Conditional Statements}{183}{section.a.A.3}
-\contentsline {subsection}{\numberline {A.3.1}If Statements}{183}{subsection.a.A.3.1}
-\contentsline {subsection}{\numberline {A.3.2}Case-Switch Statements}{184}{subsection.a.A.3.2}
-\contentsline {section}{\numberline {A.4}Functions}{184}{section.a.A.4}
-\contentsline {section}{\numberline {A.5}Plotting}{185}{section.a.A.5}
-\contentsline {section}{\numberline {A.6}Animations}{186}{section.a.A.6}
+\contentsline {section}{\numberline {3.4}Stability, Equilibria, Phase Plots, and Slope Fields}{82}{section.3.4}
+\contentsline {section}{\numberline {3.5}Euler's Method: Numerical Solutions for Differential Equations}{90}{section.3.5}
+\contentsline {section}{\numberline {3.6}Classifying Difference and Differential Equations}{95}{section.3.6}
+\contentsline {section}{\numberline {3.7}Technique: Solving $1^{st}$ Order Linear Homogeneous Equations}{97}{section.3.7}
+\contentsline {section}{\numberline {3.8}Technique: Solving $1^{st}$ Order Linear Nonhomogeneous Equations}{99}{section.3.8}
+\contentsline {subsection}{\numberline {3.8.1}Solution Technique: Separation of Variables}{99}{subsection.3.8.1}
+\contentsline {subsection}{\numberline {3.8.2}Solution Technique: Undetermined Coefficients}{104}{subsection.3.8.2}
+\contentsline {section}{\numberline {3.9}Modeling Explorations with Difference and Differential Equations}{111}{section.3.9}
+\contentsline {chapter}{\numberline {4}Second Order Models}{122}{chapter.4}
+\contentsline {section}{\numberline {4.1}Modeling Oscillations}{122}{section.4.1}
+\contentsline {section}{\numberline {4.2}Homogeneous Linear $2^{nd}$ Order Differential Equations}{125}{section.4.2}
+\contentsline {section}{\numberline {4.3}Forced Oscillations}{132}{section.4.3}
+\contentsline {section}{\numberline {4.4}Energy in Mass Spring Systems -- A Lab Exploration}{134}{section.4.4}
+\contentsline {section}{\numberline {4.5}Modeling Explorations with $2^{nd}$ Order Differential Equations}{138}{section.4.5}
+\contentsline {chapter}{\numberline {5}Systems of Difference and Differential Equations}{142}{chapter.5}
+\contentsline {section}{\numberline {5.1}Spread of Disease}{142}{section.5.1}
+\contentsline {section}{\numberline {5.2}Spreading a Juicy Rumor}{144}{section.5.2}
+\contentsline {section}{\numberline {5.3}The H1N1 Virus}{147}{section.5.3}
+\contentsline {section}{\numberline {5.4}Writing Systems of Difference Equations}{148}{section.5.4}
+\contentsline {section}{\numberline {5.5}Linear Systems}{153}{section.5.5}
+\contentsline {section}{\numberline {5.6}The Eigenvalue / Eigenvector Problem}{155}{section.5.6}
+\contentsline {subsection}{\numberline {5.6.1}Geometry of Eigenvectors and Eigenvalues}{156}{subsection.5.6.1}
+\contentsline {subsection}{\numberline {5.6.2}The Eigenvalue Eigenvector Problem}{159}{subsection.5.6.2}
+\contentsline {subsection}{\numberline {5.6.3}Technology for the Eigenvalue Eigenvector Problem}{164}{subsection.5.6.3}
+\contentsline {section}{\numberline {5.7}Markov Chains}{166}{section.5.7}
+\contentsline {section}{\numberline {5.8}Analysis of Linear Systems}{171}{section.5.8}
+\contentsline {subsection}{\numberline {5.8.1}Homogeneous Systems of Linear Difference Equations}{171}{subsection.5.8.1}
+\contentsline {subsection}{\numberline {5.8.2}Analysis of Equilibrium Behavior}{173}{subsection.5.8.2}
+\contentsline {subsection}{\numberline {5.8.3}Non Homogeneous Systems of Linear Difference Equations}{175}{subsection.5.8.3}
+\contentsline {section}{\numberline {5.9}Modeling Explorations with Systems}{178}{section.5.9}
+\contentsline {chapter}{\numberline {6}Infinite Series}{183}{chapter.6}
+\contentsline {section}{\numberline {6.1}Sections from Active Calculus}{183}{section.6.1}
+\contentsline {chapter}{Appendices}{184}{section*.49}
+\contentsline {chapter}{\numberline {A}MATLAB Basics}{185}{Appendix.a.A}
+\contentsline {section}{\numberline {A.1}Vectors and Matrices}{185}{section.a.A.1}
+\contentsline {section}{\numberline {A.2}Looping}{187}{section.a.A.2}
+\contentsline {subsection}{\numberline {A.2.1}For Loops}{187}{subsection.a.A.2.1}
+\contentsline {subsection}{\numberline {A.2.2}The While Loop}{188}{subsection.a.A.2.2}
+\contentsline {section}{\numberline {A.3}Conditional Statements}{189}{section.a.A.3}
+\contentsline {subsection}{\numberline {A.3.1}If Statements}{189}{subsection.a.A.3.1}
+\contentsline {subsection}{\numberline {A.3.2}Case-Switch Statements}{190}{subsection.a.A.3.2}
+\contentsline {section}{\numberline {A.4}Functions}{190}{section.a.A.4}
+\contentsline {section}{\numberline {A.5}Plotting}{191}{section.a.A.5}
+\contentsline {section}{\numberline {A.6}Animations}{192}{section.a.A.6}
