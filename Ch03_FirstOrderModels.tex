@@ -77,7 +77,7 @@ Instead, you should try two methods:
     \end{enumerate}
 \end{problem}
 
-In the {\it Birth} model you should have found a model similar to 
+In the {\it Death} model you should have found a model similar to 
 \[ \frac{\Delta P}{\Delta t} = -0.5 P, \]
 but notice that in our exploration of the problem with the M\&M's we were taking $\Delta
 t$ to be 1.  Hence we can rewrite our model more simply as
@@ -2060,6 +2060,191 @@ get the idea of how to use undetermined coefficients.
             \[ \frac{3}{10} e^{t/3} - \frac{3}{10} \cos(t) + \frac{9}{10} \sin(t). \]
     \end{enumerate}
 \end{example}
+
+
+\newpage
+\section{Sensitivity Analysis}
+In real mathematical problems there is rarely just one answer.  The data that you have
+might have been collected with some uncertainty, some of the parameters might be changing
+with time, or you might have simply had to guess about some aspect of the model.  In
+essence, all models are wrong.
+
+Don't fret!  Not all hope is lost.  In this section we discuss a mathematical tool called {\bf
+sensitivity analysis} where we confront some of our uncertainties and give quantifiable
+ways to discuss them.
+
+\begin{problem}
+    Recall that the M\&M death and immigration model resulted in the differential equation 
+    \[ \frac{dP}{dt} = -0.5 P + 5. \]
+    What if we didn't really know the value of the death rate?  That is, what if the death
+    rate were just {\it somewhere close to } 0.5, but perhaps not exactly 0.5?  
+    \begin{enumerate}
+        \item[(a)] Let's be a bit more mathematical about this and just lead the death
+            rate be denoted as $r$.  Hence, the death and immigration model is 
+            \[ \frac{dP}{dt} = -rP + 5. \]
+            Find the equilibrium value for this differential equation.  Your answer will
+            have an $r$ in it.
+        \item[(b)] Make a plot where the equilibrium value is on the vertical axis and $r$
+            is on the horizontal axis.  Use values of $r$ between 0 and 1.
+        \item[(c)] Use your plot from part (b) to answer the following questions.  In
+            each, choose either ``large'' or ``small'' and be able to defend your answer
+            based on your plot.  Hint: think about slope.
+            \begin{enumerate}
+                \item[(i)] If $r \approx 0.1$ then a small change in the value of $r$
+                    results in a relatively (large/small) change in the equilibrium.
+                \item[(ii)] If $r \approx 0.5$ then a small change in the value of $r$
+                    results in a relatively (large/small) change in the equilibrium.
+                \item[(iii)] If $r \approx 0.9$ then a small change in the value of $r$
+                    results in a relatively (large/small) change in the equilibrium.
+            \end{enumerate}
+    \end{enumerate}
+\end{problem}
+
+If a small change in a parameter leads to a large change in some outcome (like the value
+of the equilibrium), then we would say that the outcome is {\it sensitive} to changes in
+the parameter.  If, on the other hand, small changes in a parameter lead to small changes
+in the outcome then we would say that the outcome is {\it not sensitive} to changes in the
+parameter.  In this case you should have found that the equilibrium in the death and
+immigration model is somewhat sensitive to changes in the death rate when the death rate
+is close to 0.  On the other hand, you should have found that the equilibrium in the death
+and immigration model is not very sensitive to changes in the death rate when the death
+rate is close to 1.
+
+There is one inherent trouble with the words ``large'' and ``small'' in the previous
+paragraph and the previous problem.  These words are relative to the situation.  To fix
+this, let's instead think about relative percent change instead of absolute change.
+
+\begin{problem}\label{prob:sens1}
+    In the death and immigration problem we have a model of 
+    \[ \frac{dP}{dt} = -0.5 P + 5, \]
+    but we have some uncertainty about the death rate $r = 0.5$.  
+    \begin{enumerate}
+        \item[(a)] If the death rate were to increase by 10\% then what is the percent
+            change in the equilibrium?  
+        \item[(b)] Calculate the ratio
+            \[ \frac{\text{Percent Change in Equlibrium Value}}{\text{Percent Change in
+            Death Rate } } \]
+            based on your answer from part (a).  
+        \item[(c)] If the death rate were to decrease by 10\% then what is the percent
+            change in the equilibrium?
+        \item[(d)] Calculate the ratio
+            \[ \frac{\text{Percent Change in Equlibrium Value}}{\text{Percent Change in
+            Death Rate } } \]
+            based on your answer from part (c).  
+    \end{enumerate}
+\end{problem}
+
+In Problem \ref{prob:sens1} you calculated the ratio
+\[ S = \frac{\text{Percent Change in Output}}{\text{Percent Change in
+Parameter } }. \]
+This ratio tells you quite a lot about how sensitive your output is to changes in your
+parameter.  
+\begin{itemize}
+    \item Is $|S| < 1$ then the percent change in the output is less than the percent change
+        in the parameter.  This means that the output {\it is not sensitive} to changes in
+        the parameter.
+    \item Is $|S| > 1$ then the percent change in the output is greater than the percent change
+        in the parameter.  This means that the output {\it is sensitive} to changes in
+        the parameter.
+    \item If $|S|= 1$ then the percent change in the output is the same as the percent
+        change in the parameter.  In this case we would probably say that the output is
+        not sensitive to changes in the parameter.  
+\end{itemize}
+
+\begin{problem}
+    \begin{enumerate}
+        \item[(a)] Is the equilibrium in the death and immigration model sensitive to
+            increases in the death rate? 
+        \item[(b)] Is the equilibrium in the death and immigration model sensitive to
+            decreases in the death rate? 
+    \end{enumerate}
+\end{problem}
+
+
+
+\begin{problem}
+    Recall Torricelli's law from Problem \ref{prob:Torricelli}.  The model 
+    \[ \frac{dh}{dt} = k \sqrt{h} \]
+    gave the height of a column of water in a cylindrical tank as it was being drained
+    from a hole near the bottom of the tank.  Refresh your memory by re-watching the
+    video:\\
+    \href{https://www.youtube.com/watch?v=gsNdsuQ1ZCo&app=desktop}{https://www.youtube.com/watch?v=gsNdsuQ1ZCo\&app=desktop}.
+    \\
+    The parameter $k$ contains information about the density of the liquid, the diameter
+    of the cylinder, and the diameter of the drain hole.  It is entirely plausible that
+    when setting up this experiment we could mis-measure one or more of these things.
+    Hence, $k$ is subject to some uncertainty.  We also know that the tank will eventually
+    drain to zero height.  In this problem we will determine the sensitivity of the
+    draining time to the parameter $k$.
+
+    \begin{enumerate}
+        \item[(a)] Torricelli's law is an example of a separable differential equation.
+            Finish the steps below to find the analytic solution to Torricelli's law.
+            \[  \frac{dh}{dt} = k \sqrt{h} \quad \implies \quad \frac{dh}{\sqrt{h}} = k
+                dt \quad \implies \quad \int \frac{dh}{\sqrt{h}} = \int k dt \quad
+            \implies \quad \cdots \]
+        \item[(b)] Use the initial height of $h(0) = 20cm$ to find the value of the
+            integration constant $C$.  Notice that $C$ does not depend on $k$, so changes
+            in $k$ will not yield any changes in $C$.
+        \item[(c)] Find the time that it takes for the tank to drain.  Your answer will
+            have the constant $k$ in it.
+        \item[(d)] In the Experiment \#1 from part (c) of Problem \ref{prob:Torricelli} you likely
+            found that $k \approx -0.13$.  Determine the sensitivity of the draining time
+            to the value of $k$.  Assume that our mis-measurements could lead to a
+            variation in about 10\% in the value of $k$.
+        \item[(e)] In the Experiment \#2 from part (c) of Problem \ref{prob:Torricelli} you likely
+            found that $k \approx -0.5$.  Determine the sensitivity of the draining time
+            to the value of $k$.  Assume that our mis-measurements could lead to a
+            variation in about 10\% in the value of $k$.
+    \end{enumerate}
+\end{problem}
+
+
+
+\begin{example}
+    When a pine cone falls from a tree there are two forces acting upon it: gravity and
+    drag.  From Newton's second law ($F = ma$) we can therefore write a mathematical model
+    for the downward velocity of the falling pine cone as
+    \[ mv' = \text{(force due to gravity)} - \text{(force due to drag)}. \]
+    If the drag force is proportional to the square of the velocity then the mathematical model is
+    \[ mv' = mg - kv^2 \]
+    where $k$ is some parameter describing the aerodynamics of the pine cone.  Dividing
+    through by the mass we get
+    \[ v' = g - \frac{k}{m} v^2. \]
+    {\bf Question:} How sensitive is the terminal velocity of the pine cone to the
+    aerodynamic parameter $k$?  Assume that $m = 50$grams$ = 0.05$kg and that some field
+    measurements gives $k \approx 2$ kg/m.  \\
+    {\bf Solution:} \\
+    To find the equilibrium we set $v' = 0$ and solve for $v$ to get
+    \[ 0 = g - \frac{k}{m} v_{terminal}^2 \quad \implies \quad v_{terminal} =
+    \sqrt{\frac{mg}{k} }. \]
+    In the case where $m = 0.05$ and $k=2$ we have 
+    \[ v_{terminal} = \sqrt{\frac{(0.05)(9.8)}{2} } \approx 0.49497 \text{m/s}. \]
+    If we were to increase $k$ by 10\% then the new $k$ becomes $k_{new} = 2.2$ and the
+    new terminal velocity becomes 
+    \[ v_{terminal,new} = \sqrt{\frac{(0.05)(9.8)}{2.2} } \approx 0.47194 \text{m/s}. \]
+    This is a relative change of 
+    \[ \text{Rel. Change in Terminal Velocity} = \frac{v_{terminal} -
+    v_{terminal,new}}{v_{terminal}} \approx \frac{0.49497 - 0.47194}{0.49497} \approx
+0.0465. \]
+    That is, a 10\% increase in the parameter $k$ yields a 4.65\% decrease in the terminal
+    velocity.  Hence we have 
+    \[ S = \frac{ \text{percent change in output} }{ \text{percent change in parameter} }
+    = \frac{4.65}{10} = 0.465\]
+    which is certainly less than $1$, so we say that the terminal velocity is not very
+    sensitive to increases in the aerodynamics parameter.
+
+    If we were to decrease $k$ by 10\% then $k_{new} = 1.8$ and $v_{terminal,new} =
+    0.52175$.  This is a percent change of $-5.4\%$ and hence $S = -0.54$ and we see that
+    decreases in the aerodynamic parameter $k$ cause a larger change in the terminal
+    velocity as compared to increases in $k$, but in neither case is the terminal velocity
+    sensitive to changes in $k$.
+
+    \vspace{0.1in}\noindent {\bf Conclusion:} Even if we make a small mistake in the field measurements we can
+    still have pretty good confidence that our predicted pine cone terminal velocity will
+    not be effected by our mis-measurements.
+\end{example}
+
 
 
 

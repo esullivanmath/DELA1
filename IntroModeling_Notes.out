@@ -34,40 +34,41 @@
 \BOOKMARK [1][-]{section.3.8}{Technique: Solving 1st Order Linear Nonhomogeneous Equations}{chapter.3}% 34
 \BOOKMARK [2][-]{subsection.3.8.1}{Solution Technique: Separation of Variables}{section.3.8}% 35
 \BOOKMARK [2][-]{subsection.3.8.2}{Solution Technique: Undetermined Coefficients}{section.3.8}% 36
-\BOOKMARK [1][-]{section.3.9}{Modeling Explorations with Difference and Differential Equations}{chapter.3}% 37
-\BOOKMARK [0][-]{chapter.4}{Second Order Models}{}% 38
-\BOOKMARK [1][-]{section.4.1}{Modeling Oscillations}{chapter.4}% 39
-\BOOKMARK [1][-]{section.4.2}{Homogeneous Linear 2nd Order Differential Equations}{chapter.4}% 40
-\BOOKMARK [1][-]{section.4.3}{Forced Oscillations}{chapter.4}% 41
-\BOOKMARK [1][-]{section.4.4}{Energy in Mass Spring Systems \205 A Lab Exploration}{chapter.4}% 42
-\BOOKMARK [1][-]{section.4.5}{Modeling Explorations with 2nd Order Differential Equations}{chapter.4}% 43
-\BOOKMARK [0][-]{chapter.5}{Systems of Difference and Differential Equations}{}% 44
-\BOOKMARK [1][-]{section.5.1}{Spread of Disease}{chapter.5}% 45
-\BOOKMARK [1][-]{section.5.2}{Spreading a Juicy Rumor}{chapter.5}% 46
-\BOOKMARK [1][-]{section.5.3}{The H1N1 Virus}{chapter.5}% 47
-\BOOKMARK [1][-]{section.5.4}{Writing Systems of Difference Equations}{chapter.5}% 48
-\BOOKMARK [1][-]{section.5.5}{Linear Systems}{chapter.5}% 49
-\BOOKMARK [1][-]{section.5.6}{The Eigenvalue / Eigenvector Problem}{chapter.5}% 50
-\BOOKMARK [2][-]{subsection.5.6.1}{Geometry of Eigenvectors and Eigenvalues}{section.5.6}% 51
-\BOOKMARK [2][-]{subsection.5.6.2}{The Eigenvalue Eigenvector Problem}{section.5.6}% 52
-\BOOKMARK [2][-]{subsection.5.6.3}{Technology for the Eigenvalue Eigenvector Problem}{section.5.6}% 53
-\BOOKMARK [1][-]{section.5.7}{Markov Chains}{chapter.5}% 54
-\BOOKMARK [1][-]{section.5.8}{Analysis of Linear Systems}{chapter.5}% 55
-\BOOKMARK [2][-]{subsection.5.8.1}{Homogeneous Systems of Linear Difference Equations}{section.5.8}% 56
-\BOOKMARK [2][-]{subsection.5.8.2}{Analysis of Equilibrium Behavior}{section.5.8}% 57
-\BOOKMARK [2][-]{subsection.5.8.3}{Non Homogeneous Systems of Linear Difference Equations}{section.5.8}% 58
-\BOOKMARK [1][-]{section.5.9}{Modeling Explorations with Systems}{chapter.5}% 59
-\BOOKMARK [0][-]{chapter.6}{Infinite Series}{}% 60
-\BOOKMARK [1][-]{section.6.1}{Sections from Active Calculus}{chapter.6}% 61
-\BOOKMARK [0][-]{section*.49}{Appendices}{}% 62
-\BOOKMARK [0][-]{Appendix.a.A}{MATLAB Basics}{}% 63
-\BOOKMARK [1][-]{section.a.A.1}{Vectors and Matrices}{Appendix.a.A}% 64
-\BOOKMARK [1][-]{section.a.A.2}{Looping}{Appendix.a.A}% 65
-\BOOKMARK [2][-]{subsection.a.A.2.1}{For Loops}{section.a.A.2}% 66
-\BOOKMARK [2][-]{subsection.a.A.2.2}{The While Loop}{section.a.A.2}% 67
-\BOOKMARK [1][-]{section.a.A.3}{Conditional Statements}{Appendix.a.A}% 68
-\BOOKMARK [2][-]{subsection.a.A.3.1}{If Statements}{section.a.A.3}% 69
-\BOOKMARK [2][-]{subsection.a.A.3.2}{Case-Switch Statements}{section.a.A.3}% 70
-\BOOKMARK [1][-]{section.a.A.4}{Functions}{Appendix.a.A}% 71
-\BOOKMARK [1][-]{section.a.A.5}{Plotting}{Appendix.a.A}% 72
-\BOOKMARK [1][-]{section.a.A.6}{Animations}{Appendix.a.A}% 73
+\BOOKMARK [1][-]{section.3.9}{Sensitivity Analysis}{chapter.3}% 37
+\BOOKMARK [1][-]{section.3.10}{Modeling Explorations with Difference and Differential Equations}{chapter.3}% 38
+\BOOKMARK [0][-]{chapter.4}{Second Order Models}{}% 39
+\BOOKMARK [1][-]{section.4.1}{Modeling Oscillations}{chapter.4}% 40
+\BOOKMARK [1][-]{section.4.2}{Homogeneous Linear 2nd Order Differential Equations}{chapter.4}% 41
+\BOOKMARK [1][-]{section.4.3}{Forced Oscillations}{chapter.4}% 42
+\BOOKMARK [1][-]{section.4.4}{Energy in Mass Spring Systems \205 A Lab Exploration}{chapter.4}% 43
+\BOOKMARK [1][-]{section.4.5}{Modeling Explorations with 2nd Order Differential Equations}{chapter.4}% 44
+\BOOKMARK [0][-]{chapter.5}{Systems of Difference and Differential Equations}{}% 45
+\BOOKMARK [1][-]{section.5.1}{Spread of Disease}{chapter.5}% 46
+\BOOKMARK [1][-]{section.5.2}{Spreading a Juicy Rumor}{chapter.5}% 47
+\BOOKMARK [1][-]{section.5.3}{The H1N1 Virus}{chapter.5}% 48
+\BOOKMARK [1][-]{section.5.4}{Writing Systems of Difference Equations}{chapter.5}% 49
+\BOOKMARK [1][-]{section.5.5}{Linear Systems}{chapter.5}% 50
+\BOOKMARK [1][-]{section.5.6}{The Eigenvalue / Eigenvector Problem}{chapter.5}% 51
+\BOOKMARK [2][-]{subsection.5.6.1}{Geometry of Eigenvectors and Eigenvalues}{section.5.6}% 52
+\BOOKMARK [2][-]{subsection.5.6.2}{The Eigenvalue Eigenvector Problem}{section.5.6}% 53
+\BOOKMARK [2][-]{subsection.5.6.3}{Technology for the Eigenvalue Eigenvector Problem}{section.5.6}% 54
+\BOOKMARK [1][-]{section.5.7}{Markov Chains}{chapter.5}% 55
+\BOOKMARK [1][-]{section.5.8}{Analysis of Linear Systems}{chapter.5}% 56
+\BOOKMARK [2][-]{subsection.5.8.1}{Homogeneous Systems of Linear Difference Equations}{section.5.8}% 57
+\BOOKMARK [2][-]{subsection.5.8.2}{Analysis of Equilibrium Behavior}{section.5.8}% 58
+\BOOKMARK [2][-]{subsection.5.8.3}{Non Homogeneous Systems of Linear Difference Equations}{section.5.8}% 59
+\BOOKMARK [1][-]{section.5.9}{Modeling Explorations with Systems}{chapter.5}% 60
+\BOOKMARK [0][-]{chapter.6}{Infinite Series}{}% 61
+\BOOKMARK [1][-]{section.6.1}{Sections from Active Calculus}{chapter.6}% 62
+\BOOKMARK [0][-]{section*.49}{Appendices}{}% 63
+\BOOKMARK [0][-]{Appendix.a.A}{MATLAB Basics}{}% 64
+\BOOKMARK [1][-]{section.a.A.1}{Vectors and Matrices}{Appendix.a.A}% 65
+\BOOKMARK [1][-]{section.a.A.2}{Looping}{Appendix.a.A}% 66
+\BOOKMARK [2][-]{subsection.a.A.2.1}{For Loops}{section.a.A.2}% 67
+\BOOKMARK [2][-]{subsection.a.A.2.2}{The While Loop}{section.a.A.2}% 68
+\BOOKMARK [1][-]{section.a.A.3}{Conditional Statements}{Appendix.a.A}% 69
+\BOOKMARK [2][-]{subsection.a.A.3.1}{If Statements}{section.a.A.3}% 70
+\BOOKMARK [2][-]{subsection.a.A.3.2}{Case-Switch Statements}{section.a.A.3}% 71
+\BOOKMARK [1][-]{section.a.A.4}{Functions}{Appendix.a.A}% 72
+\BOOKMARK [1][-]{section.a.A.5}{Plotting}{Appendix.a.A}% 73
+\BOOKMARK [1][-]{section.a.A.6}{Animations}{Appendix.a.A}% 74
