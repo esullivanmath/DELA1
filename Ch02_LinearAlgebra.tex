@@ -2349,62 +2349,189 @@ Consider the collection of one-way streets in a downtown area.
             \end{tabular}
         \end{center}
 
-    \item Write the equation
+	[Do not include this table in your write-up.  Instead, see prompt (c)]
+
+    \item Find the equation
         \[ \text{total flow into the network} = \text{total flow out of the network}. \]
         This equation describes the fact that the network is not closed but the number of
         cars in the network must be conserved (just like conservation of mass or
         momentum from physics).
-    \item Use parts (a) and (b) to write a system of equations.  Solve the system to
-        determine the traffic flow at $x_1$, $x_2$, \dots, $x_5$.
-    \item {\bf Sensitivity Analysis:} There are 7 different given values in this network.
-        What is the percent change in each of the variables $x_1,\dots, x_5$ if each of
-        the given values were to increase or decrease by 10\%?  Use a table like the one
-        below to help organize the results, and use your results to write a short report
-        to the traffic division.\\ Hint: Test each value one at a time.
 
-        \begin{center}
-            \begin{tabular}{|c|c||c|c|c|c|c|}
-                \hline
-                & & \multicolumn{5}{|c|}{Percent Change} \\ \hline
-                Old Value & New Value & $x_1$ & $x_2$ & $x_3$ & $x_4$ & $x_5$ \\ \hline
-                \hline
-                100 & 110 & & & & & \\\hline
-                100 & 90 & & & & & \\\hline\hline
-                400 & 440 & & & & & \\\hline
-                400 & 360 & & & & & \\\hline\hline
-                500 & 550 & & & & & \\\hline
-                500 & 450 & & & & & \\\hline\hline
-                50 & 55 & & & & & \\\hline
-                50 & 45 & & & & & \\\hline\hline
-                500 & 550 & & & & & \\\hline
-                500 & 450 & & & & & \\\hline\hline
-                200 & 220 & & & & & \\\hline
-                200 & 180 & & & & & \\\hline\hline
-                300 & 330 & & & & & \\\hline
-                300 & 270 & & & & & \\\hline
-            \end{tabular}
-        \end{center}
+	[This equation will be included in part (c)]
+
+    \item Use parts (a) and (b) to write a system of equations.  Record your system of
+        equations in your writeup.   Use subscripts appropriately.
+
+
+
+     \item  Solve the system to determine the traffic flow at $x_1$, $x_2$, \dots, $x_5$.
+
+
+     Did you find more than one potential solution?  Awesome!  Let's investigate this further.   Let $x_5$ be your free variable $t$, for traffic.  i.e. Set $x_5=t$.   Write solutions for $x_1, x_2, x_3, x_4, x_5$ in terms of $t$.    Describe the range of values that $t$ can take on and why the context limits $t$ to this range.
+
+    \item  Changing the value for $t$ will affect some of the other variables.   Complete the following table and then describe how traffic values for $x_1, x_2, x_3, x_4, x_5$ each depend of $t$.  Your explanation should relate to the context of traffic, not just algebraic equations.  ex)  Why does increasing traffic on street $x_5$ cause street $x_1$ to decrease?
+
+\begin{center}
+	\begin{tabular}{|c||c|c|c|c|c|}
+		\hline
+		$t$ & $x_1$ & $x_2$ & $x_3$ & $x_4$ & $x_5$ \\  \hline
+		0  & & & & & 0 \\ \hline
+		100 & & & & & 100 \\ \hline
+		200 & & & & & 200 \\ \hline
+		300 & & & & & 300 \\ \hline
+		400 & & & & & 400 \\ \hline
+		500 & & & & & 500 \\ \hline
+	\end{tabular}
+\end{center}
+
+%Want to alter this to focus on finding multiple solutions via this system of equations.
+%
+%    \item {\bf Sensitivity Analysis:} There are 7 different given values in this network.
+%        What is the percent change in each of the variables $x_1,\dots, x_5$ if each of
+%        the given values were to increase or decrease by 10\%?  Use a table like the one
+%        below to help organize the results, and use your results to write a short report
+%        to the traffic division.\\ Hint: Test each value one at a time.
+%
+%        \begin{center}
+%            \begin{tabular}{|c|c||c|c|c|c|c|}
+%                \hline
+%                & & \multicolumn{5}{|c|}{Percent Change} \\ \hline
+%                Old Value & New Value & $x_1$ & $x_2$ & $x_3$ & $x_4$ & $x_5$ \\ \hline
+%                \hline
+%                100 & 110 & & & & & \\\hline
+%                100 & 90 & & & & & \\\hline\hline
+%                400 & 440 & & & & & \\\hline
+%                400 & 360 & & & & & \\\hline\hline
+%                500 & 550 & & & & & \\\hline
+%                500 & 450 & & & & & \\\hline\hline
+%                50 & 55 & & & & & \\\hline
+%                50 & 45 & & & & & \\\hline\hline
+%                500 & 550 & & & & & \\\hline
+%                500 & 450 & & & & & \\\hline\hline
+%                200 & 220 & & & & & \\\hline
+%                200 & 180 & & & & & \\\hline\hline
+%                300 & 330 & & & & & \\\hline
+%                300 & 270 & & & & & \\\hline
+%            \end{tabular}
+%        \end{center}
 \ea
-
+% A traffic network can be viewed as a collection of lines (streets) and intersections.
+% When modeling a large street network, the influx from certain suburbs and other cities is
+% generally well known.  To estimate the number of cars on given streets, traffic engineers
+% often put counters at the intersections.  This allow them to calculate flow given that
+% \[ \text{flow into an intersection} = \text{flow out of an intersection}. \]
+% This simple {\it conservation law} creates a system of equations for all of the streets
+% that can be solved to find the flow on each individual street.
+% 
+% % \input{activities/10.5.Act2}
+% \begin{lab}
+% Consider the collection of one-way streets in a downtown area.
+% 
+% \begin{center}
+%     \begin{tikzpicture}
+%         \draw[thick,->] node[anchor=east]{$200$} (0,0) -- (2,0);
+%         \draw[thick,->] (2,0) -- (5,0);
+%         \draw[thick,->] (5,0) -- (7,0);
+%         \draw[thick,->] (7,0) -- (9,0) node[anchor=west]{$500$};
+%         \draw[fill=black] (3,0) circle(0.07cm) node[anchor=north west]{$A$};
+%         \draw[fill=black] (6,0) circle(0.07cm) node[anchor=north west]{$B$};
+%         %
+%         \draw (0,3) node[anchor=east]{$300$}; 
+%         \draw[thick,<-] (0,3) -- (2,3);
+%         \draw[thick,<-] (2,3) -- (5,3);
+%         \draw[thick,<-] (5,3) -- (7,3);
+%         \draw[thick,<-] (7,3) -- (9,3) node[anchor=west]{$400$};
+%         \draw[fill=black] (3,3) circle(0.07cm) node[anchor=north west]{$C$};
+%         \draw[fill=black] (6,3) circle(0.07cm) node[anchor=north west]{$D$};
+%         %
+%         \draw (3,-2) node[anchor=north]{$500$};
+%         \draw[thick,->] (3,-2) -- (3,-1);
+%         \draw[thick,->] (3,-1) -- (3,2);
+%         \draw[thick,->] (3,2) -- (3,5);
+%         \draw (3,5) node[anchor=south]{$x_3$};
+%         %
+%         \draw (6,-2) node[anchor=north]{$50$};
+%         \draw[thick,<-] (6,-2) -- (6,-1);
+%         \draw[thick,<-] (6,-1) -- (6,2);
+%         \draw[thick,<-] (6,2) -- (6,5);
+%         \draw[thick,<-] (6,4) -- (6,5);
+%         \draw (6,5) node[anchor=south]{$100$};
+%         %
+%         \draw (4.5,0) node[anchor=north]{$x_1$};
+%         \draw (4.5,3) node[anchor=north]{$x_4$};
+%         \draw (3,1.5) node[anchor=west]{$x_2$};
+%         \draw (6,1.5) node[anchor=east]{$x_5$};
+%     \end{tikzpicture}
+% \end{center}
+% 
+% \ba
+%     \item Fill in the table for each intersection.  The first line has been done to get
+%         you started.
+%         \begin{center}
+%             \begin{tabular}{ccc}
+%                 Intersection & Flow In & Flow Out \\ \hline \hline
+%                 $A$ & $200 + 500$ & $x_1 + x_2$ \\
+%                 $B$ & & \\
+%                 $C$ & & \\
+%                 $D$ & & \\ \hline
+%             \end{tabular}
+%         \end{center}
+% 
+%     \item Write the equation
+%         \[ \text{total flow into the network} = \text{total flow out of the network}. \]
+%         This equation describes the fact that the network is not closed but the number of
+%         cars in the network must be conserved (just like conservation of mass or
+%         momentum from physics).
+%     \item Use parts (a) and (b) to write a system of equations.  Solve the system to
+%         determine the traffic flow at $x_1$, $x_2$, \dots, $x_5$.
+%     \item {\bf Sensitivity Analysis:} There are 7 different given values in this network.
+%         What is the percent change in each of the variables $x_1,\dots, x_5$ if each of
+%         the given values were to increase or decrease by 10\%?  Use a table like the one
+%         below to help organize the results, and use your results to write a short report
+%         to the traffic division.\\ Hint: Test each value one at a time.
+% 
+%         \begin{center}
+%             \begin{tabular}{|c|c||c|c|c|c|c|}
+%                 \hline
+%                 & & \multicolumn{5}{|c|}{Percent Change} \\ \hline
+%                 Old Value & New Value & $x_1$ & $x_2$ & $x_3$ & $x_4$ & $x_5$ \\ \hline
+%                 \hline
+%                 100 & 110 & & & & & \\\hline
+%                 100 & 90 & & & & & \\\hline\hline
+%                 400 & 440 & & & & & \\\hline
+%                 400 & 360 & & & & & \\\hline\hline
+%                 500 & 550 & & & & & \\\hline
+%                 500 & 450 & & & & & \\\hline\hline
+%                 50 & 55 & & & & & \\\hline
+%                 50 & 45 & & & & & \\\hline\hline
+%                 500 & 550 & & & & & \\\hline
+%                 500 & 450 & & & & & \\\hline\hline
+%                 200 & 220 & & & & & \\\hline
+%                 200 & 180 & & & & & \\\hline\hline
+%                 300 & 330 & & & & & \\\hline
+%                 300 & 270 & & & & & \\\hline
+%             \end{tabular}
+%         \end{center}
+% \ea
+% 
 \end{lab}
 
-
-% \input{activities/10.5.Act3}
 \begin{lab}
 Your boss at the trucking company wants you to solve the following traffic flow problem.
 In this problem, the lettered nodes are distribution centers for your trucking company and
 the numbers and variables along the arcs are the truck flows in a given year.  Remember
-that for each distribution center
+that for each distribution center:
 \[ \text{yearly flow into the distribution center} = \text{yearly flow out of the
 distribution center}. \]
-For example, at node $H$ we must have $x_{FH} = x_{HS}+x_{HM}+600$. \\Hint: write an
-equation for each node and then rearragne into an augmented system of equations.
+For example, at node $H$ we must have $x_{FH} = x_{HS}+x_{HM}+600$. 
 
-Your goal is to find the roads with the maximum truck volume and to perform a sensitivity
-analysis on the known information in the problem (i.e. if each known value were to change
-by as much as 10\%, how much would the maximum road volume change).  Give advice to your
-boss based on your analysis keeping in mind that the highway department would ultimately
-like to minimize the maximum truck volume on the roads.
+
+
+%Your goal is to find the roads with the maximum truck volume and to perform a sensitivity
+%analysis on the known information in the problem (i.e. if each known value were to change
+%by as much as 10\%, how much would the maximum road volume change).  Give advice to your
+%boss based on your analysis keeping in mind that the highway department would ultimately
+%like to minimize the maximum truck volume on the roads.
 % If the flow prescribed is impossible be sure to state why. If there is more than one
 % unique solution then give advice to your boss about how to choose an appropriate solution
 % so that no center accumulates more trucks than they send.
@@ -2438,6 +2565,25 @@ like to minimize the maximum truck volume on the roads.
         \Edge[label=$x_{HS}$](H)(S)
     \end{tikzpicture}
 \end{center}
+%\end{lab}
+
+\begin{itemize}
+\item Write an equation for each node and then rearrange into an augmented system of equations.  Record the equations in your lab write-up and use subscripts appropriately.
+
+\item  Solve the system to determine the traffic flow levels for each of the labeled roads.   For this problem, you may need more than one free variable.   Clearly identify and label the free variables you choose to use.  Describe what values those free variables can take on and what would happen in the traffic context if you went beyond the acceptable range of values.  Write your solution to the system of equations in terms of these free variables.
+
+\item  Let's explore more.  Changing the values of your free variables will affect some of the other values.  Create a table that demonstrates possible traffic levels for a variety of reasonable values for your free variables (including road closures).   Hint:  If there are $n$ variables in your equations, your table should have $n$ columns for the potential values of those variables.
+
+\item  Your boss would like some ideas about the following "what if" scenarios, so she can plan for next year's shipping.
+
+	\begin{enumerate}
+		\item  If road $x_{NB}$ were closed down, would that cause any issues?
+		\item  Are there other roads we can get away with closing down?  Why or why not?
+		\item  Which roads have the highest potential volume of trucks?   Is there any way to adjust the free variables to mitigate that?
+		\item  Pick one more "what if" scenario to impress your boss with your knowledge of traffic networks.
+	\end{enumerate}
+
+\end{itemize}
 \end{lab}
 
 
